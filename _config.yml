@@ -21,8 +21,8 @@
 title: zemiak.dev
 email: noreply@zemiak.dev
 description: >- # this means to ignore newlines until "baseurl:"
-  Not decided yet what to do with this space.
-  Let us see.
+  Empty.
+  For now.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://zemiak.dev" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: zemiak
