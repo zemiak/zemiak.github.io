@@ -33,16 +33,8 @@ theme: minima
 plugins:
   - jekyll-feed
 
-include:
-  - 9227ffc6-a85b-497b-9c93-889e02a5f351
-
-keep_files:
-  - *.jpg
-  - *.png
-  - *.html
-  - *.css
-  - *.js
-  - *.svg
+include: ["geostats/9227ffc6-a85b-497b-9c93-889e02a5f351"]
+keep_files: ["*.jpg", "*.png", "*.html", "*.css", "*.js", "*.svg"]
 
 # Exclude from processing.
 # The following items will not be processed, by default.
