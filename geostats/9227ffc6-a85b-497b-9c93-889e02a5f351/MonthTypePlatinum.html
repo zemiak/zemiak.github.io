@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Month / Type Platinum</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="index.js"></script>
+
+    <style>
+        .styled-table,
+        .matrix,
+        .variables_table {
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .styled-table thead tr,
+        .matrix thead tr,
+        .variables_table thead tr {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 5px 15px;
+        }
+
+        .matrix th,
+        .matrix td,
+        .variables_table td {
+            padding: 5px 3px;
+            text-align: center;
+        }
+
+        .variables_table th {
+            padding: 5px;
+            text-align: center;
+        }
+
+        .variables_table tbody>tr>:nth-child(even) {
+            background-color: lightgray;
+        }
+
+        .styled-table tr.traditional,
+        .traditional tr {
+            background-color: #00e600;
+        }
+
+        .styled-table tr.wherigo,
+        .wherigo tr {
+            background-color: #66ffff;
+        }
+
+        .styled-table tr.mystery,
+        .mystery tr,
+        .mystery td a {
+            background-color: #0099ff;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.earth,
+        .earth tr,
+        .earth td a {
+            background-color: #8B4513;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.events,
+        .events tr,
+        .events td a {
+            background-color: #8B4513;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.letterbox,
+        .letterbox tr,
+        .letterbox td a {
+            background-color: #008080;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.any,
+        .any tr,
+        .any td a {
+            background-color: #008080;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.multi,
+        .multi tr {
+            background-color: #ffad33;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .styled-table tbody tr:last-of-type,
+        .matrix th {
+            border-bottom: 2px solid #000000;
+        }
+
+        .matrix td.first,
+        .matrix th.rightborder {
+            border-right: 2px solid #000000;
+        }
+
+        .matrix td.violation {
+            background-color: red;
+            color: yellow;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar has-shadow">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="./index.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Geocaching.svg">
+        </a>
+        <a class="navbar-item" href="./index.html">
+            Today
+        </a>
+        <a class="navbar-item" href="./not-passing.html">
+            Not Passing
+        </a>
+        <a class="navbar-item" href="./passing.html">
+            Passing
+        </a>
+      </div>
+    </nav>
+
+    <center>
+        <table class="matrix">
+            <tr>
+                <th class="rightborder"><sub>M</sub>\<sup>T</sup></th>
+                    <th><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></th>
+                    <th><abbr title="Unknown Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-8"/></svg></abbr></th>
+                    <th><abbr title="Wherigo Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-1858"/></svg></abbr></th>
+                    <th><abbr title="Letterbox Hybrid"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-5"/></svg></abbr></th>
+                    <th><abbr title="Multi-cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-3"/></svg></abbr></th>
+                    <th><abbr title="Virtual Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-4"/></svg></abbr></th>
+                    <th><abbr title="Webcam Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-11"/></svg></abbr></th>
+                    <th><abbr title="Earthcache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-137"/></svg></abbr></th>
+                    <th><abbr title="Event Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-6"/></svg></abbr></th>
+                    <th><abbr title="Mega-Event Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-453"/></svg></abbr></th>
+                    <th><abbr title="Giga-Event Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-7005"/></svg></abbr></th>
+                    <th><abbr title="LAB Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-adventure-lab"/></svg></abbr></th>
+                    <th><abbr title="Locationless (Reverse) Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-12"/></svg></abbr></th>
+                    <th><abbr title="Community Celebration Event"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-3653"/></svg></abbr></th>
+                    <th><abbr title="Groundspeak Block Party"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-4738"/></svg></abbr></th>
+                    <th><abbr title="Gecaching Headquarters"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-3773"/></svg></abbr></th>
+                    <th><abbr title="Groundspeak Lost and Found Celebration"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-3774"/></svg></abbr></th>
+                    <th><abbr title="Cache In Trash Out Event"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-13"/></svg></abbr></th>
+                    <th><abbr title="Project APE Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-9"/></svg></abbr></th>
+                    <th><abbr title="GPS Adventures Exhibit"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-1304"/></svg></abbr></th>
+            </tr>
+            <tr>
+                    <td class="first"><b>1</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/1-TRADITIONAL.html">
+                        <abbr title="127">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/1-UNKNOWN.html">
+                        <abbr title="104">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/1-WHEREIGO.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/1-LETTERBOX.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/1-MULTI.html">
+                        <abbr title="33">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/1-VIRTUAL.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/1-WEBCAM.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/1-EARTH.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/1-EVENT.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/1-CITO.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">10</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>2</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-TRADITIONAL.html">
+                        <abbr title="279">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-UNKNOWN.html">
+                        <abbr title="108">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-WHEREIGO.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-LETTERBOX.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-MULTI.html">
+                        <abbr title="35">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-VIRTUAL.html">
+                        <abbr title="10">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-WEBCAM.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-EARTH.html">
+                        <abbr title="5">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-EVENT.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-MEGAEVENT.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-LOCATIONLESS.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/2-CITO.html">
+                        <abbr title="3">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">12</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>3</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/3-TRADITIONAL.html">
+                        <abbr title="200">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/3-UNKNOWN.html">
+                        <abbr title="120">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/3-WHEREIGO.html">
+                        <abbr title="3">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/3-LETTERBOX.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/3-MULTI.html">
+                        <abbr title="36">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/3-VIRTUAL.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/3-WEBCAM.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/3-EARTH.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/3-EVENT.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/3-CITO.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">10</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>4</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/4-TRADITIONAL.html">
+                        <abbr title="292">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/4-UNKNOWN.html">
+                        <abbr title="84">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/4-WHEREIGO.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/4-LETTERBOX.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/4-MULTI.html">
+                        <abbr title="38">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/4-VIRTUAL.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/4-WEBCAM.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/4-EARTH.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/4-EVENT.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/4-CITO.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">10</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>5</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-TRADITIONAL.html">
+                        <abbr title="420">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-UNKNOWN.html">
+                        <abbr title="163">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-WHEREIGO.html">
+                        <abbr title="7">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-LETTERBOX.html">
+                        <abbr title="8">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-MULTI.html">
+                        <abbr title="34">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-VIRTUAL.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-EARTH.html">
+                        <abbr title="6">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-EVENT.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-MEGAEVENT.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-CCE.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/5-CITO.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">11</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>6</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/6-TRADITIONAL.html">
+                        <abbr title="175">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/6-UNKNOWN.html">
+                        <abbr title="87">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/6-WHEREIGO.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/6-LETTERBOX.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/6-MULTI.html">
+                        <abbr title="33">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/6-VIRTUAL.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/6-EARTH.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/6-EVENT.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/6-MEGAEVENT.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/6-CITO.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">10</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>7</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-TRADITIONAL.html">
+                        <abbr title="331">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-UNKNOWN.html">
+                        <abbr title="82">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-WHEREIGO.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-LETTERBOX.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-MULTI.html">
+                        <abbr title="33">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-VIRTUAL.html">
+                        <abbr title="6">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-EARTH.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-EVENT.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-MEGAEVENT.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-CCE.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/7-CITO.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">11</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>8</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/8-TRADITIONAL.html">
+                        <abbr title="211">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/8-UNKNOWN.html">
+                        <abbr title="117">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/8-WHEREIGO.html">
+                        <abbr title="3">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/8-LETTERBOX.html">
+                        <abbr title="3">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/8-MULTI.html">
+                        <abbr title="41">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/8-VIRTUAL.html">
+                        <abbr title="3">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/8-WEBCAM.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/8-EARTH.html">
+                        <abbr title="3">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/8-EVENT.html">
+                        <abbr title="3">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/8-CITO.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">10</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>9</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-TRADITIONAL.html">
+                        <abbr title="166">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-UNKNOWN.html">
+                        <abbr title="90">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-WHEREIGO.html">
+                        <abbr title="8">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-LETTERBOX.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-MULTI.html">
+                        <abbr title="42">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-VIRTUAL.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-EARTH.html">
+                        <abbr title="6">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-EVENT.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-MEGAEVENT.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-GIGAEVENT.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-CCE.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-CITO.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/9-MAZE_EXHIBIT.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+
+                <td class="last">13</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>10</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/10-TRADITIONAL.html">
+                        <abbr title="201">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/10-UNKNOWN.html">
+                        <abbr title="92">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/10-WHEREIGO.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/10-LETTERBOX.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/10-MULTI.html">
+                        <abbr title="44">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/10-VIRTUAL.html">
+                        <abbr title="3">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/10-EARTH.html">
+                        <abbr title="8">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/10-EVENT.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/10-CCE.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/10-CITO.html">
+                        <abbr title="3">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">10</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>11</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-TRADITIONAL.html">
+                        <abbr title="117">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-UNKNOWN.html">
+                        <abbr title="71">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-WHEREIGO.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-LETTERBOX.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-MULTI.html">
+                        <abbr title="34">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-VIRTUAL.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-EARTH.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-EVENT.html">
+                        <abbr title="8">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-LOCATIONLESS.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-CCE.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/11-CITO.html">
+                        <abbr title="2">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">11</td>
+            </tr>
+            <tr>
+                    <td class="first"><b>12</b></td>
+
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-TRADITIONAL.html">
+                        <abbr title="164">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-UNKNOWN.html">
+                        <abbr title="103">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-WHEREIGO.html">
+                        <abbr title="3">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-LETTERBOX.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-MULTI.html">
+                        <abbr title="40">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-VIRTUAL.html">
+                        <abbr title="11">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-EARTH.html">
+                        <abbr title="4">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-EVENT.html">
+                        <abbr title="6">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=adventure-lab" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-LOCATIONLESS.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-CCE.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypePlatinum/12-CITO.html">
+                        <abbr title="1">
+                            <i class="fa fa-check"></i>
+                        </abbr>
+                    </a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td>
+                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                <td class="last">11</td>
+            </tr>
+        </table>
+    </center>
+
+    <div class="modal" id="cache-list">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <div class="content" id="cache-list-modal-box-content">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+</body>
+
+</html>

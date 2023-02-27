@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Events</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="index.js"></script>
+
+    <style>
+        .styled-table,
+        .matrix,
+        .variables_table {
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .styled-table thead tr,
+        .matrix thead tr,
+        .variables_table thead tr {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 5px 15px;
+        }
+
+        .matrix th,
+        .matrix td,
+        .variables_table td {
+            padding: 5px 3px;
+            text-align: center;
+        }
+
+        .variables_table th {
+            padding: 5px;
+            text-align: center;
+        }
+
+        .variables_table tbody>tr>:nth-child(even) {
+            background-color: lightgray;
+        }
+
+        .styled-table tr.traditional,
+        .traditional tr {
+            background-color: #00e600;
+        }
+
+        .styled-table tr.wherigo,
+        .wherigo tr {
+            background-color: #66ffff;
+        }
+
+        .styled-table tr.mystery,
+        .mystery tr,
+        .mystery td a {
+            background-color: #0099ff;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.earth,
+        .earth tr,
+        .earth td a {
+            background-color: #8B4513;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.events,
+        .events tr,
+        .events td a {
+            background-color: #8B4513;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.letterbox,
+        .letterbox tr,
+        .letterbox td a {
+            background-color: #008080;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.any,
+        .any tr,
+        .any td a {
+            background-color: #008080;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.multi,
+        .multi tr {
+            background-color: #ffad33;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .styled-table tbody tr:last-of-type,
+        .matrix th {
+            border-bottom: 2px solid #000000;
+        }
+
+        .matrix td.first,
+        .matrix th.rightborder {
+            border-right: 2px solid #000000;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar has-shadow">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="./index.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Geocaching.svg">
+        </a>
+        <a class="navbar-item" href="./index.html">
+            Today
+        </a>
+        <a class="navbar-item" href="./not-passing.html">
+            Not Passing
+        </a>
+        <a class="navbar-item" href="./passing.html">
+            Passing
+        </a>
+      </div>
+    </nav>
+
+    <center>
+        <table class="matrix events">
+            <tr>
+                <th class="rightborder"><sub>D</sub>\<sup>T</sup></th>
+                <th>1.0</th>
+                <th>1.5</th>
+                <th>2.0</th>
+                <th>2.5</th>
+                <th>3.0</th>
+                <th>3.5</th>
+                <th>4.0</th>
+                <th>4.5</th>
+                <th>5.0</th>
+            </tr>
+            <tr>
+                <td class="first"><b>1.0</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.0-d1.0.html" href="#">14</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.5-d1.0.html" href="#">19</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.0-d1.0.html" href="#">9</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.5-d1.0.html" href="#">17</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.0-d1.0.html" href="#">12</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.5-d1.0.html" href="#">2</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.0-d1.0.html" href="#">5</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.5-d1.0.html" href="#">2</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t5.0-d1.0.html" href="#">1</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first"><b>1.5</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.0-d1.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.5-d1.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.0-d1.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.5-d1.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.0-d1.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.5-d1.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.0-d1.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.5-d1.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t5.0-d1.5.html" href="#">0</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first"><b>2.0</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.0-d2.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.5-d2.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.0-d2.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.5-d2.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.0-d2.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.5-d2.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.0-d2.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.5-d2.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t5.0-d2.0.html" href="#">0</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first"><b>2.5</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.0-d2.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.5-d2.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.0-d2.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.5-d2.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.0-d2.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.5-d2.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.0-d2.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.5-d2.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t5.0-d2.5.html" href="#">0</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first"><b>3.0</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.0-d3.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.5-d3.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.0-d3.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.5-d3.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.0-d3.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.5-d3.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.0-d3.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.5-d3.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t5.0-d3.0.html" href="#">0</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first"><b>3.5</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.0-d3.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.5-d3.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.0-d3.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.5-d3.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.0-d3.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.5-d3.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.0-d3.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.5-d3.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t5.0-d3.5.html" href="#">0</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first"><b>4.0</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.0-d4.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.5-d4.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.0-d4.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.5-d4.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.0-d4.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.5-d4.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.0-d4.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.5-d4.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t5.0-d4.0.html" href="#">0</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first"><b>4.5</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.0-d4.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.5-d4.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.0-d4.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.5-d4.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.0-d4.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.5-d4.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.0-d4.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.5-d4.5.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t5.0-d4.5.html" href="#">0</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="first"><b>5.0</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.0-d5.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t1.5-d5.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.0-d5.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t2.5-d5.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.0-d5.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t3.5-d5.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.0-d5.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t4.5-d5.0.html" href="#">0</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="AllEventTable/t5.0-d5.0.html" href="#">0</a>
+
+                </td>
+            </tr>
+        </table>
+    </center>
+
+    <div class="modal" id="cache-list">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <div class="content" id="cache-list-modal-box-content">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+</body>
+
+</html>
