@@ -6,10 +6,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Jasmer</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
     <script src="index.js"></script>
 
     <style>
@@ -128,21 +127,24 @@
 </head>
 
 <body>
-    <nav class="navbar has-shadow">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="./index.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Geocaching.svg">
-        </a>
-        <a class="navbar-item" href="./index.html">
-            Today
-        </a>
-        <a class="navbar-item" href="./not-passing.html">
-            Not Passing
-        </a>
-        <a class="navbar-item" href="./passing.html">
-            Passing
-        </a>
-      </div>
+    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <i class="fa fa-globe fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" href="./not-passing.html">
+            <i class="fa fa-times fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" href="./passing.html">
+            <i class="fa fa-check fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" href="./info.html">
+            <i class="fa fa-info fa-xl"></i>
+          </a>
+        </div>
     </nav>
 
     <center>
@@ -218,7 +220,7 @@
                 </tr>
                 <tr>
                     <td>2004</td>
-                            <td><a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;psd=2004-01-01&amp;ped=2004-01-31" target="_blank"><i class="fa fa-search"></i></a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2004-1.html">1</a></td>
                             <td><a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;psd=2004-02-01&amp;ped=2004-02-29" target="_blank"><i class="fa fa-search"></i></a></td>
                             <td><a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;psd=2004-03-01&amp;ped=2004-03-31" target="_blank"><i class="fa fa-search"></i></a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2004-4.html">1</a></td>
@@ -344,7 +346,7 @@
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2012-4.html">20</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2012-5.html">29</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2012-6.html">24</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2012-7.html">13</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2012-7.html">14</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2012-8.html">57</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2012-9.html">11</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2012-10.html">16</a></td>
@@ -360,7 +362,7 @@
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2013-5.html">21</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2013-6.html">34</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2013-7.html">8</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2013-8.html">20</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2013-8.html">21</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2013-9.html">17</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2013-10.html">6</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2013-11.html">11</a></td>
@@ -416,10 +418,10 @@
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-1.html">27</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-2.html">46</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-3.html">43</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-4.html">81</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-4.html">82</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-5.html">27</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-6.html">31</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-7.html">39</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-7.html">40</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-8.html">53</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-9.html">24</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2017-10.html">63</a></td>
@@ -482,21 +484,21 @@
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2021-7.html">10</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2021-8.html">7</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2021-9.html">6</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2021-10.html">10</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2021-10.html">11</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2021-11.html">16</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2021-12.html">12</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2021-12.html">13</a></td>
                 </tr>
                 <tr>
                     <td>2022</td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-1.html">41</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-2.html">39</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-2.html">40</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-3.html">31</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-4.html">29</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-4.html">30</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-5.html">27</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-6.html">27</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-7.html">22</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-8.html">24</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-9.html">20</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-7.html">24</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-8.html">26</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-9.html">21</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-10.html">17</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-11.html">14</a></td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2022-12.html">22</a></td>
@@ -504,7 +506,7 @@
                 <tr>
                     <td>2023</td>
                             <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2023-1.html">5</a></td>
-                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2023-2.html">2</a></td>
+                            <td><a class="js-modal-trigger" data-target="cache-list" data-site="Jasmer/2023-2.html">3</a></td>
                             <td><a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;psd=2023-03-01&amp;ped=2023-03-31" target="_blank"><i class="fa fa-search"></i></a></td>
                             <td>-</td>
                             <td>-</td>

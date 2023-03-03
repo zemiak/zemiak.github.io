@@ -5,29 +5,32 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Paleo</title>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
     <script src="index.js"></script>
 </head>
 
 <body>
-    <nav class="navbar has-shadow">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="./index.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Geocaching.svg">
-        </a>
-        <a class="navbar-item" href="./index.html">
-            Today
-        </a>
-        <a class="navbar-item" href="./not-passing.html">
-            Not Passing
-        </a>
-        <a class="navbar-item" href="./passing.html">
-            Passing
-        </a>
-      </div>
+    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <i class="fa fa-globe fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" href="./not-passing.html">
+            <i class="fa fa-times fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" href="./passing.html">
+            <i class="fa fa-check fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" href="./info.html">
+            <i class="fa fa-info fa-xl"></i>
+          </a>
+        </div>
     </nav>
 
     <div class="columns is-centered">
@@ -44,8 +47,8 @@
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <a href="#" class="card-footer-item">Now: 257</a>
-                    <a href="#" class="card-footer-item">Next in: 102</a>
+                    <a href="#" class="card-footer-item">Now: 258</a>
+                    <a href="#" class="card-footer-item">Next in: 101</a>
                 </footer>
             </div>
         </div>
@@ -78,6 +81,15 @@
                 </tr>
             </tfoot>
             <tbody>
+                <tr>
+                    <td><a href="https://coord.info/GCRDV5" target="_blank">GCRDV5</a></td>
+                    <td>Donovaly (GCDono)</td>
+                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
+                    <td>1.0</td>
+                    <td>1.5</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCRDV5#tabs-2" title="Po cceste naspat sme sa skratka **museli** zastavit aj tu. Rodina sa uz necuduje. Vdaka za krabicku, potesila :-)" target="_blank">230225</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCRDV5#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
                 <tr>
                     <td><a href="https://coord.info/GCGCN9" target="_blank">GCGCN9</a></td>
                     <td>Niva</td>
@@ -127,15 +139,6 @@ Na mieste bolo hneď jasné kde je keška, pichľavé kríky trochu potrápili a
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYN9Z#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCPDFW" target="_blank">GCPDFW</a></td>
-                    <td>Husak/ Husovice hill</td>
-                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>3.0</td>
-                    <td>2.0</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCPDFW#tabs-2" title="Ani som nemyslel, ze sa tato keska podari systemom drive-in, ale mal som stastie. Na mieste paradny vyhlad, skoda ze momentalne na stavenisko. Umiestnenie fakt pobavilo, chvilu som sa tam motal a potom aj buchal do hlavy, ze aky som slepy. Dakujem :-)" target="_blank">221026</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCPDFW#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
                     <td><a href="https://coord.info/GCZ1T5" target="_blank">GCZ1T5</a></td>
                     <td>Záruba (ze série Kurimské vrcholky)</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
@@ -143,6 +146,15 @@ Na mieste bolo hneď jasné kde je keška, pichľavé kríky trochu potrápili a
                     <td>2.0</td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZ1T5#tabs-2" title="Do Kurimi som isiel cielene za starymi keskami. Najdena v pohode, dakujem :-)" target="_blank">221026</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZ1T5#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://coord.info/GCPDFW" target="_blank">GCPDFW</a></td>
+                    <td>Husak/ Husovice hill</td>
+                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
+                    <td>3.0</td>
+                    <td>2.0</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCPDFW#tabs-2" title="Ani som nemyslel, ze sa tato keska podari systemom drive-in, ale mal som stastie. Na mieste paradny vyhlad, skoda ze momentalne na stavenisko. Umiestnenie fakt pobavilo, chvilu som sa tam motal a potom aj buchal do hlavy, ze aky som slepy. Dakujem :-)" target="_blank">221026</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCPDFW#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCZ4F1" target="_blank">GCZ4F1</a></td>
@@ -190,15 +202,6 @@ Na mieste bolo hneď jasné kde je keška, pichľavé kríky trochu potrápili a
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCPYQQ#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCX21R" target="_blank">GCX21R</a></td>
-                    <td>Hradisko u Zelene Hory</td>
-                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>1.5</td>
-                    <td>2.0</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCX21R#tabs-2" title="Zastal som kusok od kesky, rychlo prebehol po ceste k chodnicku a potom to uz bola pohoda. Celkom pekne miesto, aj zapisat sa este celkom dalo. Dakujem za kesku :-)" target="_blank">221025</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCX21R#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
                     <td><a href="https://coord.info/GCYE0J" target="_blank">GCYE0J</a></td>
                     <td>Ohrozimska Horka</td>
                     <td><abbr title="Multi-cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-3"/></svg></abbr></td>
@@ -210,6 +213,15 @@ Az za dalsich 15 minut som kesku nasiel. Veru dobre je schovana. Dakujem, lom sa
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYE0J#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
+                    <td><a href="https://coord.info/GCX21R" target="_blank">GCX21R</a></td>
+                    <td>Hradisko u Zelene Hory</td>
+                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
+                    <td>1.5</td>
+                    <td>2.0</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCX21R#tabs-2" title="Zastal som kusok od kesky, rychlo prebehol po ceste k chodnicku a potom to uz bola pohoda. Celkom pekne miesto, aj zapisat sa este celkom dalo. Dakujem za kesku :-)" target="_blank">221025</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCX21R#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
                     <td><a href="https://coord.info/GCX21X" target="_blank">GCX21X</a></td>
                     <td>Podivice - nedivit se</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
@@ -219,15 +231,6 @@ Az za dalsich 15 minut som kesku nasiel. Veru dobre je schovana. Dakujem, lom sa
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCX21X#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCZB4G" target="_blank">GCZB4G</a></td>
-                    <td>Olomouc - Hamrys</td>
-                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>2.0</td>
-                    <td>2.0</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZB4G#tabs-2" title="Sem som sa este pred eventom zaviezol, mal som trochu casu. Keska najdena hned, dakujem :-)" target="_blank">221025</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZB4G#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
                     <td><a href="https://coord.info/GCWXV5" target="_blank">GCWXV5</a></td>
                     <td>PIT STOP Buchlovské kopce</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
@@ -235,6 +238,15 @@ Az za dalsich 15 minut som kesku nasiel. Veru dobre je schovana. Dakujem, lom sa
                     <td>1.5</td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCWXV5#tabs-2" title="Pri prijazde na PIT stop som trosku zazmatkoval a musel sa vracat. Potom to uz bolo s trochou drzosti bez problemov a na mieste ma cakala keska vo vybornom stave. Vdaka za dovod k zastavke a za kesku :-)" target="_blank">221025</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCWXV5#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://coord.info/GCZB4G" target="_blank">GCZB4G</a></td>
+                    <td>Olomouc - Hamrys</td>
+                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
+                    <td>2.0</td>
+                    <td>2.0</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZB4G#tabs-2" title="Sem som sa este pred eventom zaviezol, mal som trochu casu. Keska najdena hned, dakujem :-)" target="_blank">221025</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZB4G#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCVZW6" target="_blank">GCVZW6</a></td>
@@ -299,17 +311,6 @@ Ufff. Dalsia, co som pripravoval doma, a bolo to teda o hubu. Keby som nekontakt
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCKP2H#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCZCJM" target="_blank">GCZCJM</a></td>
-                    <td>GPS cache</td>
-                    <td><abbr title="Unknown Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-8"/></svg></abbr></td>
-                    <td>2.0</td>
-                    <td>2.0</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZCJM#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek hlavne v okoli Brna. Vyrazili sme o tretej rano z Bratislavy a zacali od severu. Skore za dva dni 35 paleo kesiek, 0 DNF :)
-
-Vylustena v pohode, len ked sme prisli na miesto, a zastavili sa pri objekte, stale sme mali na gepese 30 metrov vzdialenost. Chvilku sme zmatene hladali, volali kolegom, ktori nam potvrdili, ze suradnice mame OK. Tak sme si vzdychli a predrali sa mokrymi krikmi k tomu pravemu objektu. Tam to uz bola bleskovka, dakujeme :-)" target="_blank">220925</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZCJM#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
                     <td><a href="https://coord.info/GCW6MC" target="_blank">GCW6MC</a></td>
                     <td>Sumbera</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
@@ -319,6 +320,17 @@ Vylustena v pohode, len ked sme prisli na miesto, a zastavili sa pri objekte, st
 
 Toto bol teda posledny okruh mokrym lesom, na konci sme to uz davali so zatatymi zubami (hlavne ja). Kesku sme bez problemov nasli, dakujeme :-) Na mieste bola aj ina schranka s putovnymi koralkami :)" target="_blank">220925</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCW6MC#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://coord.info/GCZCJM" target="_blank">GCZCJM</a></td>
+                    <td>GPS cache</td>
+                    <td><abbr title="Unknown Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-8"/></svg></abbr></td>
+                    <td>2.0</td>
+                    <td>2.0</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZCJM#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek hlavne v okoli Brna. Vyrazili sme o tretej rano z Bratislavy a zacali od severu. Skore za dva dni 35 paleo kesiek, 0 DNF :)
+
+Vylustena v pohode, len ked sme prisli na miesto, a zastavili sa pri objekte, stale sme mali na gepese 30 metrov vzdialenost. Chvilku sme zmatene hladali, volali kolegom, ktori nam potvrdili, ze suradnice mame OK. Tak sme si vzdychli a predrali sa mokrymi krikmi k tomu pravemu objektu. Tam to uz bola bleskovka, dakujeme :-)" target="_blank">220925</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZCJM#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCYWN9" target="_blank">GCYWN9</a></td>
@@ -391,17 +403,6 @@ Lustili sme roky dozadu, zjavne sa to podarilo ;)" target="_blank">220925</a></t
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCY9NW#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCX41J" target="_blank">GCX41J</a></td>
-                    <td>Astrocache II - Mesic</td>
-                    <td><abbr title="Unknown Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-8"/></svg></abbr></td>
-                    <td>2.0</td>
-                    <td>2.5</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCX41J#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek hlavne v okoli Brna. Vyrazili sme o tretej rano z Bratislavy a zacali od severu. Skore za dva dni 35 paleo kesiek, 0 DNF :)
-
-Toto bolo velmi pekne lustenie, a keska bola aj na velmi peknom mieste. Hladanie krabice dalo trosku zabrat, objekt uz nie je taky vertikalny ako kedysi, tak sme sa nechali zlakat aj tymi okolitymi. Dakujem za zabavu aj za krabicku :-)" target="_blank">220925</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCX41J#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
                     <td><a href="https://coord.info/GCN898" target="_blank">GCN898</a></td>
                     <td>Stranska skala 2 - Stranska rock  2</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
@@ -413,6 +414,17 @@ Edit: pisem pisem a aj sa seknem. Pardon, pomylil som sa. Takze takto:
 
 Na tuto vyhliadku sme s malou dusickou isli autom, kedze sme uz mali chodenia dost. Zaparkovali sme trochu nizsie pod orechami, kde nam jeden stryc nielen dovolil zostat, ale aj porozpraval o vyhliadke, o Zetorke, o jazere pod kopcom a vselico ine. Potesilo nas to, a vyhliadka bola tiez super. pobehali sme ju skoro celu, aj ku keske sme sa dostali. Dakujeme :-)" target="_blank">220925</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCN898#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://coord.info/GCX41J" target="_blank">GCX41J</a></td>
+                    <td>Astrocache II - Mesic</td>
+                    <td><abbr title="Unknown Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-8"/></svg></abbr></td>
+                    <td>2.0</td>
+                    <td>2.5</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCX41J#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek hlavne v okoli Brna. Vyrazili sme o tretej rano z Bratislavy a zacali od severu. Skore za dva dni 35 paleo kesiek, 0 DNF :)
+
+Toto bolo velmi pekne lustenie, a keska bola aj na velmi peknom mieste. Hladanie krabice dalo trosku zabrat, objekt uz nie je taky vertikalny ako kedysi, tak sme sa nechali zlakat aj tymi okolitymi. Dakujem za zabavu aj za krabicku :-)" target="_blank">220925</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCX41J#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCV982" target="_blank">GCV982</a></td>
@@ -450,15 +462,15 @@ Lustili sme davnejsie, tu to dalo teda zabrat." target="_blank">220925</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYP20#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCWE9V" target="_blank">GCWE9V</a></td>
-                    <td>BALCARKA / BALCARKA CAVE</td>
+                    <td><a href="https://coord.info/GCQCWR" target="_blank">GCQCWR</a></td>
+                    <td>Hut Klamovka / Smelter Klamovka</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>2.5</td>
+                    <td>4.0</td>
                     <td>1.5</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCWE9V#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek hlavne v okoli Brna. Vyrazili sme o tretej rano z Bratislavy a zacali od severu.
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCQCWR#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek hlavne v okoli Brna. Vyrazili sme o tretej rano z Bratislavy a zacali od severu.
 
-Samozrejme sme isli zo zlej strany. Kesku sme nasli bez problemov a krasnym chodnickom sa dostali k parkingu. Dakujeme :-)" target="_blank">220924</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCWE9V#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+Tak tu sme boli na drzovku na drive-in, ved sa podari alebo nie. Podarilo sa, nasli sme aj &quot;kesku&quot;. Aj zapisat sa podarilo. Dakujeme :-)" target="_blank">220924</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCQCWR#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCXFK7" target="_blank">GCXFK7</a></td>
@@ -472,6 +484,17 @@ Tato pamatnikova miniseria sa nam pacila. Pamatnik bol pekny, krabicka najdena r
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCXFK7#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
+                    <td><a href="https://coord.info/GCWE9V" target="_blank">GCWE9V</a></td>
+                    <td>BALCARKA / BALCARKA CAVE</td>
+                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
+                    <td>2.5</td>
+                    <td>1.5</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCWE9V#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek hlavne v okoli Brna. Vyrazili sme o tretej rano z Bratislavy a zacali od severu.
+
+Samozrejme sme isli zo zlej strany. Kesku sme nasli bez problemov a krasnym chodnickom sa dostali k parkingu. Dakujeme :-)" target="_blank">220924</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCWE9V#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
                     <td><a href="https://coord.info/GCY1MQ" target="_blank">GCY1MQ</a></td>
                     <td>Lichtenstejnsky pamatnik</td>
                     <td><abbr title="Multi-cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-3"/></svg></abbr></td>
@@ -481,17 +504,6 @@ Tato pamatnikova miniseria sa nam pacila. Pamatnik bol pekny, krabicka najdena r
 
 Aj tu sme vdaka domacej priprave nemuseli ratat na mieste, z toho mam vzdy bobky. Dakujeme za kesku :-)" target="_blank">220924</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCY1MQ#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://coord.info/GCQCWR" target="_blank">GCQCWR</a></td>
-                    <td>Hut Klamovka / Smelter Klamovka</td>
-                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>4.0</td>
-                    <td>1.5</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCQCWR#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek hlavne v okoli Brna. Vyrazili sme o tretej rano z Bratislavy a zacali od severu.
-
-Tak tu sme boli na drzovku na drive-in, ved sa podari alebo nie. Podarilo sa, nasli sme aj &quot;kesku&quot;. Aj zapisat sa podarilo. Dakujeme :-)" target="_blank">220924</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCQCWR#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCW2J2" target="_blank">GCW2J2</a></td>
@@ -516,16 +528,6 @@ Vdaka domacej priprave sme vedeli, co nas caka, ale aj tak sme si najprv pozreli
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCWEDH#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCE50" target="_blank">GCE50</a></td>
-                    <td>Tex-Czech</td>
-                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>3.0</td>
-                    <td>3.5</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCE50#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek na Morave (a Sliezsku). Vyrazili sme o tretej rano z Bratislavy a cestovali najprv sem, na najstarsiu kesku v CS. Bol to k nej kratky, zato slusny stupacik. Keska sa tesi vybornemu zdraviu a velmi pekne za nu dakujem :-)
-" target="_blank">220924</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCE50#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
                     <td><a href="https://coord.info/GCW97D" target="_blank">GCW97D</a></td>
                     <td>Kojal</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
@@ -537,15 +539,14 @@ Poobdivovali sme vysielac a s radostou sa zapisali do logbooku. Dakujeme za krab
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCW97D#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCYGX1" target="_blank">GCYGX1</a></td>
-                    <td>Pomnik R.Hasi</td>
+                    <td><a href="https://coord.info/GCE50" target="_blank">GCE50</a></td>
+                    <td>Tex-Czech</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>1.5</td>
-                    <td>1.5</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYGX1#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek hlavne v okoli Brna. Vyrazili sme o tretej rano z Bratislavy a zacali od severu. Skore za dva dni 35 paleo kesiek, 0 DNF :)
-
-Nasli sme aj tuto, ved bola po ceste. Dakujeme :-)" target="_blank">220924</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYGX1#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                    <td>3.0</td>
+                    <td>3.5</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCE50#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek na Morave (a Sliezsku). Vyrazili sme o tretej rano z Bratislavy a cestovali najprv sem, na najstarsiu kesku v CS. Bol to k nej kratky, zato slusny stupacik. Keska sa tesi vybornemu zdraviu a velmi pekne za nu dakujem :-)
+" target="_blank">220924</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCE50#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCX79E" target="_blank">GCX79E</a></td>
@@ -557,6 +558,17 @@ Nasli sme aj tuto, ved bola po ceste. Dakujeme :-)" target="_blank">220924</a></
 
 Tento pamatnik bol pekne na kopecku, a teda sa nam pacil asi najviac . Krabicka dala zabrat trosku viac, ale nasli sme. Vdaka za krabicku." target="_blank">220924</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCX79E#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://coord.info/GCYGX1" target="_blank">GCYGX1</a></td>
+                    <td>Pomnik R.Hasi</td>
+                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
+                    <td>1.5</td>
+                    <td>1.5</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYGX1#tabs-2" title="Paleo Tour jesen 2022 s Kumahelionom. Po dlhom planovani nastal ocakavany vikend, ktory  sme venovali odlovu starych kesiek hlavne v okoli Brna. Vyrazili sme o tretej rano z Bratislavy a zacali od severu. Skore za dva dni 35 paleo kesiek, 0 DNF :)
+
+Nasli sme aj tuto, ved bola po ceste. Dakujeme :-)" target="_blank">220924</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYGX1#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCY5G1" target="_blank">GCY5G1</a></td>
@@ -853,17 +865,6 @@ Tu to bolo lahke, a pacilo sa mi aj miesto. Dakujem :-)" target="_blank">220809<
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCPC76#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCXZ6F" target="_blank">GCXZ6F</a></td>
-                    <td>Rozhledna Zabori</td>
-                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>1.0</td>
-                    <td>2.0</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCXZ6F#tabs-2" title="Najdena v ramci PTP - Paleo Tour Pilsen. Dnesny den som si dal za ciel najst co najviac starych kesiek v okoli Plzne. Podarilo sa mi najst vsetko, co som chcel, s vynimkou jednej brectanovky v meste.
-
-Dnesna posledna keska, uz skoro potme, ale najdena bez problemov. Dakujem za peknu krabicu :-)" target="_blank">220809</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCXZ6F#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
                     <td><a href="https://coord.info/GCYGXC" target="_blank">GCYGXC</a></td>
                     <td>Forest Kyjov chapelle</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
@@ -873,6 +874,17 @@ Dnesna posledna keska, uz skoro potme, ale najdena bez problemov. Dakujem za pek
 
 Lahky nalez na peknom mieste, dakujem :-)" target="_blank">220809</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYGXC#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://coord.info/GCXZ6F" target="_blank">GCXZ6F</a></td>
+                    <td>Rozhledna Zabori</td>
+                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
+                    <td>1.0</td>
+                    <td>2.0</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCXZ6F#tabs-2" title="Najdena v ramci PTP - Paleo Tour Pilsen. Dnesny den som si dal za ciel najst co najviac starych kesiek v okoli Plzne. Podarilo sa mi najst vsetko, co som chcel, s vynimkou jednej brectanovky v meste.
+
+Dnesna posledna keska, uz skoro potme, ale najdena bez problemov. Dakujem za peknu krabicu :-)" target="_blank">220809</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCXZ6F#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCZ55B" target="_blank">GCZ55B</a></td>
@@ -986,18 +998,6 @@ Tu to bolo na mieste jasne, musel som len pockat, kym sa uvolni okolie. Dakujem 
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZ5J3#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCW21Q" target="_blank">GCW21Q</a></td>
-                    <td>Plzen, St. Bartholomeus Cathedral letterbox</td>
-                    <td><abbr title="Letterbox Hybrid"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-5"/></svg></abbr></td>
-                    <td>1.0</td>
-                    <td>2.0</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCW21Q#tabs-2" title="Najdena v ramci PTP - Paleo Tour Pilsen. Dnesny den som si dal za ciel najst co najviac starych kesiek v okoli Plzne. Podarilo sa mi najst vsetko, co som chcel, s vynimkou jednej brectanovky v meste.
-
-Tabulku som nasiel a spocital suradnice, pocet schodov aj heslo. Vyslapal som si az hore, popozeral vyhlad a po ceste dole pouzil hint. Dostal som paradnu krabicu a nechal v nej okrem podpisu aj dve SWG. Dakujem za peknu kesku :-)
-" target="_blank">220809</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCW21Q#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
                     <td><a href="https://coord.info/GCWQFH" target="_blank">GCWQFH</a></td>
                     <td>Porta v Plzni</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
@@ -1007,6 +1007,17 @@ Tabulku som nasiel a spocital suradnice, pocet schodov aj heslo. Vyslapal som si
 
 Pekny park, aj miesto. Na mieste odlovene na prvy hmat, vdaka :-)" target="_blank">220809</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCWQFH#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://coord.info/GCZ8ZA" target="_blank">GCZ8ZA</a></td>
+                    <td>Most Milenia / Millenium Bridge</td>
+                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
+                    <td>2.5</td>
+                    <td>1.0</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZ8ZA#tabs-2" title="Najdena v ramci PTP - Paleo Tour Pilsen. Dnesny den som si dal za ciel najst co najviac starych kesiek v okoli Plzne. Podarilo sa mi najst vsetko, co som chcel, s vynimkou jednej brectanovky v meste.
+
+Chvilu to teda trvalo, kym som krabicku nasiel, ale nakoniec bola na logickom mieste, len moj telefon ma vodil za nos. Vdaka :-)" target="_blank">220809</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZ8ZA#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCR6R3" target="_blank">GCR6R3</a></td>
@@ -1020,15 +1031,16 @@ Vyratane polahky, aj s autom som sa dostal na male parkovisko blizko kesky. Na m
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCR6R3#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCZ8ZA" target="_blank">GCZ8ZA</a></td>
-                    <td>Most Milenia / Millenium Bridge</td>
-                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>2.5</td>
+                    <td><a href="https://coord.info/GCW21Q" target="_blank">GCW21Q</a></td>
+                    <td>Plzen, St. Bartholomeus Cathedral letterbox</td>
+                    <td><abbr title="Letterbox Hybrid"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-5"/></svg></abbr></td>
                     <td>1.0</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZ8ZA#tabs-2" title="Najdena v ramci PTP - Paleo Tour Pilsen. Dnesny den som si dal za ciel najst co najviac starych kesiek v okoli Plzne. Podarilo sa mi najst vsetko, co som chcel, s vynimkou jednej brectanovky v meste.
+                    <td>2.0</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCW21Q#tabs-2" title="Najdena v ramci PTP - Paleo Tour Pilsen. Dnesny den som si dal za ciel najst co najviac starych kesiek v okoli Plzne. Podarilo sa mi najst vsetko, co som chcel, s vynimkou jednej brectanovky v meste.
 
-Chvilu to teda trvalo, kym som krabicku nasiel, ale nakoniec bola na logickom mieste, len moj telefon ma vodil za nos. Vdaka :-)" target="_blank">220809</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCZ8ZA#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+Tabulku som nasiel a spocital suradnice, pocet schodov aj heslo. Vyslapal som si az hore, popozeral vyhlad a po ceste dole pouzil hint. Dostal som paradnu krabicu a nechal v nej okrem podpisu aj dve SWG. Dakujem za peknu kesku :-)
+" target="_blank">220809</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCW21Q#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCQBT0" target="_blank">GCQBT0</a></td>
@@ -1157,6 +1169,15 @@ Dakujem za krabicku :-)" target="_blank">220724</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYD68#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
+                    <td><a href="https://coord.info/GCYT8M" target="_blank">GCYT8M</a></td>
+                    <td>Sv. Anton</td>
+                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
+                    <td>1.5</td>
+                    <td>1.5</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYT8M#tabs-2" title="Dcera bola v Trnavej Hore v tabore. Prisiel som si pre nu hned rano a vydali sme sa &quot;trosku&quot; oklukou po starych keskach domov. Kusok od predchadzajucej kesky sme sa zastavili aj tu. Malej sa velmi pacil park, mne zasa kastiel. Taketo miesta ja mozem, necham si tu bodik. Vdaka za peknu kesku :-)" target="_blank">220717</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYT8M#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
                     <td><a href="https://coord.info/GCY9Q7" target="_blank">GCY9Q7</a></td>
                     <td>Levický hrad</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
@@ -1165,15 +1186,6 @@ Dakujem za krabicku :-)" target="_blank">220724</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCY9Q7#tabs-2" title="Dcera bola v Trnavej Hore v tabore. Prisiel som si pre nu hned rano a vydali sme sa &quot;trosku&quot; oklukou po starych keskach domov. Mesto nas prekvapilo tym, ze v centre prakticky nikoho nebolo. Pacilo sa nam, je tu velmi pekne. Dakujeme :-)
 " target="_blank">220717</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCY9Q7#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://coord.info/GCYT8M" target="_blank">GCYT8M</a></td>
-                    <td>Sv. Anton</td>
-                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>1.5</td>
-                    <td>1.5</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYT8M#tabs-2" title="Dcera bola v Trnavej Hore v tabore. Prisiel som si pre nu hned rano a vydali sme sa &quot;trosku&quot; oklukou po starych keskach domov. Kusok od predchadzajucej kesky sme sa zastavili aj tu. Malej sa velmi pacil park, mne zasa kastiel. Taketo miesta ja mozem, necham si tu bodik. Vdaka za peknu kesku :-)" target="_blank">220717</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCYT8M#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCYT9J" target="_blank">GCYT9J</a></td>
@@ -1376,15 +1388,6 @@ Thanks for keeping this old cache!" target="_blank">220616</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCRBE8#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://coord.info/GCPVPB" target="_blank">GCPVPB</a></td>
-                    <td>Ostry kamen</td>
-                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
-                    <td>1.5</td>
-                    <td>3.0</td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCPVPB#tabs-2" title="Ako inak, pristupovu cestu som sice zvoli dlhsiu ale za to strmsiu. Na mieste to bol lahky nalez a navrat od kesky omnoho prijemnejsi ako moj pristup k nej :) Vdaka za starinku, potesila." target="_blank">220605</a></td>
-                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCPVPB#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
-                </tr>
-                <tr>
                     <td><a href="https://coord.info/GCKZYW" target="_blank">GCKZYW</a></td>
                     <td>Mordor</td>
                     <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
@@ -1392,6 +1395,15 @@ Thanks for keeping this old cache!" target="_blank">220616</a></td>
                     <td>3.0</td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCKZYW#tabs-2" title="To teda bol mordor. Dost zufalo som prehladaval vsetko naokolo, vegetacia statocne prekazala, ale ked som sa dostal pod ten spravny kamen, bolo jasne, ze som tu spravne. Napriek tomu to este chvilu trvalo, ale podarilo sa. Najdene so synatorom, dakujeme :-)" target="_blank">220605</a></td>
                     <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCKZYW#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://coord.info/GCPVPB" target="_blank">GCPVPB</a></td>
+                    <td>Ostry kamen</td>
+                    <td><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="../types/cache-types.svg#icon-2"/></svg></abbr></td>
+                    <td>1.5</td>
+                    <td>3.0</td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCPVPB#tabs-2" title="Ako inak, pristupovu cestu som sice zvoli dlhsiu ale za to strmsiu. Na mieste to bol lahky nalez a navrat od kesky omnoho prijemnejsi ako moj pristup k nej :) Vdaka za starinku, potesila." target="_blank">220605</a></td>
+                    <td><a href="https://www.geocaching.com/seek/geocache_logs.aspx?code=GCPVPB#tabs-3" title="Friends' Logs" target="_blank">🙂</a></td>
                 </tr>
                 <tr>
                     <td><a href="https://coord.info/GCKPXJ" target="_blank">GCKPXJ</a></td>

@@ -6,10 +6,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Blue</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
     <script src="index.js"></script>
 
     <style>
@@ -18,9 +17,9 @@
         .variables_table {
             border-collapse: collapse;
             margin-top: 10px;
-            font-size: 0.9em;
+            font-size: 0.8em;
             font-family: sans-serif;
-            min-width: 400px;
+            min-width: 300px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         }
 
@@ -40,12 +39,12 @@
         .matrix th,
         .matrix td,
         .variables_table td {
-            padding: 5px 3px;
+            padding: 3px 2px;
             text-align: center;
         }
 
         .variables_table th {
-            padding: 5px;
+            padding: 3px;
             text-align: center;
         }
 
@@ -121,21 +120,24 @@
 </head>
 
 <body>
-    <nav class="navbar has-shadow">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="./index.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Geocaching.svg">
-        </a>
-        <a class="navbar-item" href="./index.html">
-            Today
-        </a>
-        <a class="navbar-item" href="./not-passing.html">
-            Not Passing
-        </a>
-        <a class="navbar-item" href="./passing.html">
-            Passing
-        </a>
-      </div>
+    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <i class="fa fa-globe fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" href="./not-passing.html">
+            <i class="fa fa-times fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" href="./passing.html">
+            <i class="fa fa-check fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" href="./info.html">
+            <i class="fa fa-info fa-xl"></i>
+          </a>
+        </div>
     </nav>
 
     <center>
@@ -237,7 +239,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d2.0.html" href="#">83</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d2.0.html" href="#">84</a>
 
                 </td>
                 <td>
@@ -245,7 +247,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d2.0.html" href="#">58</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d2.0.html" href="#">57</a>
 
                 </td>
                 <td>
@@ -284,7 +286,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d2.5.html" href="#">39</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d2.5.html" href="#">40</a>
 
                 </td>
                 <td>
@@ -362,7 +364,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d3.5.html" href="#">22</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d3.5.html" href="#">23</a>
 
                 </td>
                 <td>
@@ -397,7 +399,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d4.0.html" href="#">26</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d4.0.html" href="#">27</a>
 
                 </td>
                 <td>
@@ -467,7 +469,7 @@
             <tr>
                 <td class="first"><b>5.0</b></td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d5.0.html" href="#">6</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d5.0.html" href="#">7</a>
 
                 </td>
                 <td>
@@ -479,7 +481,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d5.0.html" href="#">5</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d5.0.html" href="#">6</a>
 
                 </td>
                 <td>
