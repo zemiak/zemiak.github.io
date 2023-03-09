@@ -4,10 +4,31 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Not Passing - GeoStats</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="icons/globe-1920.png">
+    <link rel="icon" href="icons/globe-120.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+    <script src="index.js"></script>
+
+    <!-- no head -->
 </head>
 
 <body>
@@ -31,13 +52,14 @@
         </div>
     </nav>
 
+    
     <section class="section">
       <div class="columns">
         <div class="column">
           <div class="columns is-multiline">
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+            <div class="column is-3">
               <div class="notification is-danger has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
@@ -64,7 +86,7 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+            <div class="column is-3">
               <div class="notification is-warning has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
@@ -91,7 +113,7 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+            <div class="column is-3">
               <div class="notification is-warning has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
@@ -118,8 +140,8 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-              <div class="notification is-danger has-text">
+            <div class="column is-3">
+              <div class="notification is-warning has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
                         <i class="fa fa-calendar-days"></i>
@@ -135,7 +157,7 @@
                           <i class="fa fa-xmark"></i>
                       </span>
                       &nbsp;
-                      44 missing
+                      43 missing
                       </a>
                   </p>
 
@@ -145,8 +167,8 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-              <div class="notification is-danger has-text">
+            <div class="column is-3">
+              <div class="notification  has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
                         <i class="fa fa-calendar-days"></i>
@@ -162,7 +184,7 @@
                           <i class="fa fa-xmark"></i>
                       </span>
                       &nbsp;
-                      106 missing
+                      102 missing
                       </a>
                   </p>
 
@@ -172,7 +194,7 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+            <div class="column is-3">
               <div class="notification is-warning has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
@@ -189,7 +211,7 @@
                           <i class="fa fa-xmark"></i>
                       </span>
                       &nbsp;
-                      29 missing
+                      27 missing
                       </a>
                   </p>
 
@@ -199,7 +221,7 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+            <div class="column is-3">
               <div class="notification is-warning has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
@@ -226,7 +248,7 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+            <div class="column is-3">
               <div class="notification  has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
@@ -253,7 +275,7 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+            <div class="column is-3">
               <div class="notification is-warning has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
@@ -265,11 +287,13 @@
 
 
                   <p class="subtitle is-5">
+                      <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&amp;psd=2023-03-09&amp;ped=2024-03-09">
                       <span class="icon is-small is-left">
                           <i class="fa fa-xmark"></i>
                       </span>
                       &nbsp;
                       195pt missing
+                      </a>
                   </p>
 
 
@@ -278,8 +302,8 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-              <div class="notification is-warning has-text">
+            <div class="column is-3">
+              <div class="notification  has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
                         <i class="fa fa-person"></i>
@@ -290,11 +314,13 @@
 
 
                   <p class="subtitle is-5">
+                      <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&amp;psd=2023-03-09&amp;ped=2024-03-09">
                       <span class="icon is-small is-left">
                           <i class="fa fa-xmark"></i>
                       </span>
                       &nbsp;
                       1195pt missing
+                      </a>
                   </p>
 
 
@@ -303,8 +329,8 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-              <div class="notification is-warning has-text">
+            <div class="column is-3">
+              <div class="notification  has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
                         <i class="fa fa-calendar-days"></i>
@@ -320,7 +346,7 @@
                           <i class="fa fa-xmark"></i>
                       </span>
                       &nbsp;
-                      115 missing
+                      113 missing
                       </a>
                   </p>
 
@@ -330,8 +356,8 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-              <div class="notification is-danger has-text">
+            <div class="column is-3">
+              <div class="notification  has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
                         <i class="fa fa-calendar-days"></i>
@@ -357,8 +383,8 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-              <div class="notification is-danger has-text">
+            <div class="column is-3">
+              <div class="notification is-warning has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
                         <i class="fa fa-calendar-days"></i>
@@ -384,8 +410,8 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-              <div class="notification is-danger has-text">
+            <div class="column is-3">
+              <div class="notification is-warning has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
                         <i class="fa fa-calendar-days"></i>
@@ -411,8 +437,8 @@
             </div>
 
 
-            <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-              <div class="notification is-danger has-text">
+            <div class="column is-3">
+              <div class="notification is-warning has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
                         <i class="fa fa-calendar-days"></i>
@@ -442,5 +468,6 @@
         </div>
       </div>
     </section>
+
   </body>
 </html>

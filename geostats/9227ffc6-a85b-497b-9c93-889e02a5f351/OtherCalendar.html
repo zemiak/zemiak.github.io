@@ -1,155 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Other</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="icons/globe-1920.png">
+    <link rel="icon" href="icons/globe-120.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
     <script src="index.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css" />
+    <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
 
-    <style>
-        body {
-            justify-content: center;
-            align-items: center;
-        }
-
-        .calendar {
-            background: #fad390;
-            display: flex;
-
-            display: inline-grid;
-            justify-content: center;
-            align-items: center;
-            background: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            box-shadow: 0px 40px 30px -20px rgba(0, 0, 0, 0.3);
-        }
-
-        .calendar .month {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 16px;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .calendar .month .year {
-            font-weight: 600;
-            margin-left: 10px;
-        }
-
-        .calendar .month .nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            color: #0a3d62;
-            width: 40px;
-            height: 40px;
-            border-radius: 40px;
-            transition-duration: 0.2s;
-            position: relative;
-        }
-
-        .calendar .month .nav:hover {
-            background: #eee;
-        }
-
-        .calendar .days {
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            grid-template-columns: repeat(7, 1fr);
-            color: #999;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .calendar .days span {
-            width: 35px;
-            justify-self: center;
-            align-self: center;
-            text-align: center;
-        }
-
-        .calendar .dates {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-        }
-
-        .calendar .dates button {
-            cursor: pointer;
-            outline: 0;
-            border: 0;
-            background: transparent;
-            font-family: "Montserrat", sans-serif;
-            font-size: 12px;
-            justify-self: center;
-            align-self: center;
-            width: 33px;
-            height: 33px;
-            border-radius: 33px;
-            margin: 2px;
-            transition-duration: 0.2s;
-        }
-
-        .calendar .dates button.today {
-            box-shadow: inset 0px 0px 0px 2px #0a3d62;
-        }
-
-        .calendar .dates.one button:first-child {
-            grid-column: 1;
-        }
-
-        .calendar .dates.two button:first-child {
-            grid-column: 2;
-        }
-
-        .calendar .dates.three button:first-child {
-            grid-column: 3;
-        }
-
-        .calendar .dates.four button:first-child {
-            grid-column: 4;
-        }
-
-        .calendar .dates.five button:first-child {
-            grid-column: 5;
-        }
-
-        .calendar .dates.six button:first-child {
-            grid-column: 6;
-        }
-
-        .calendar .dates.seven button:first-child {
-            grid-column: 7;
-        }
-
-        .calendar .dates button:hover {
-            background: #eee;
-        }
-
-        .calendar .dates button:focus {
-            background: #0a3d62;
-            color: #fff;
-            font-weight: 600;
-        }
-
-        .calendar .dates button.attention {
-            background: lightsalmon;
-        }
-
-        .calendar .dates button.allok {
-            background: lightseagreen;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -173,1615 +54,10 @@
         </div>
     </nav>
 
-    <center>
-        <h1>Other</h1>
-        <div class="calendar">
-            <div id="month01" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>January </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates seven">
+        <center><h1>Other</h1></center>
 
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-1.html">
-                    <time>1<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-3.html">
-                    <time>3<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-4.html">
-                    <time>4<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-5.html">
-                    <time>5<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-6.html">
-                    <time>6<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-7.html">
-                    <time>7<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-8.html">
-                    <time>8<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-9.html">
-                    <time>9<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-11.html">
-                    <time>11<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">12</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">14</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">15</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">16</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-18.html">
-                    <time>18<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">19</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-20.html">
-                    <time>20<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">21</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-22.html">
-                    <time>22<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-23.html">
-                    <time>23<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-24.html">
-                    <time>24<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-25.html">
-                    <time>25<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-26.html">
-                    <time>26<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-27.html">
-                    <time>27<sup>4</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-28.html">
-                    <time>28<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">29</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-30.html">
-                    <time>30<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/1-31.html">
-                    <time>31<sup>4</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month02" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>February </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates three">
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">1</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">2</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-3.html">
-                    <time>3<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">4</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-5.html">
-                    <time>5<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-6.html">
-                    <time>6<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-7.html">
-                    <time>7<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">8</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-9.html">
-                    <time>9<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-10.html">
-                    <time>10<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-11.html">
-                    <time>11<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-12.html">
-                    <time>12<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-14.html">
-                    <time>14<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-15.html">
-                    <time>15<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">16</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-19.html">
-                    <time>19<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-20.html">
-                    <time>20<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-21.html">
-                    <time>21<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">22</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">23</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-24.html">
-                    <time>24<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-25.html">
-                    <time>25<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-26.html">
-                    <time>26<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-27.html">
-                    <time>27<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/2-28.html">
-                    <time>28<sup>4</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month03" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>March </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates three">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-1.html">
-                    <time>1<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">2</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">3</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-4.html">
-                    <time>4<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">5</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">6</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-7.html">
-                    <time>7<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-8.html">
-                    <time>8<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-9.html">
-                    <time>9<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">10</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-11.html">
-                    <time>11<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-12.html">
-                    <time>12<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-13.html">
-                    <time>13<sup>6</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">14</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">15</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">16</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">17</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">18</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">19</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-20.html">
-                    <time>20<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-21.html">
-                    <time>21<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-23.html">
-                    <time>23<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-24.html">
-                    <time>24<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">25</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-26.html">
-                    <time>26<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">27</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-28.html">
-                    <time>28<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">29</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/3-30.html">
-                    <time>30<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">31</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month04" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>April </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates six">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-1.html">
-                    <time>1<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">3</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-4.html">
-                    <time>4<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-5.html">
-                    <time>5<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">6</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-7.html">
-                    <time>7<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-8.html">
-                    <time>8<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-9.html">
-                    <time>9<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">11</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">12</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-14.html">
-                    <time>14<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">15</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-16.html">
-                    <time>16<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-18.html">
-                    <time>18<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-19.html">
-                    <time>19<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-20.html">
-                    <time>20<sup>6</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-21.html">
-                    <time>21<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-23.html">
-                    <time>23<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-24.html">
-                    <time>24<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">25</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">26</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-27.html">
-                    <time>27<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-28.html">
-                    <time>28<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/4-29.html">
-                    <time>29<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">30</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month05" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>May </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates one">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-1.html">
-                    <time>1<sup>6</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-3.html">
-                    <time>3<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-4.html">
-                    <time>4<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-5.html">
-                    <time>5<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-6.html">
-                    <time>6<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">7</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-8.html">
-                    <time>8<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-9.html">
-                    <time>9<sup>5</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-11.html">
-                    <time>11<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-12.html">
-                    <time>12<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">14</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">15</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">16</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">19</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-20.html">
-                    <time>20<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">21</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">22</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-23.html">
-                    <time>23<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-24.html">
-                    <time>24<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">25</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">26</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">27</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-28.html">
-                    <time>28<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-29.html">
-                    <time>29<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-30.html">
-                    <time>30<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/5-31.html">
-                    <time>31<sup>1</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month06" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>June </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates four">
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">1</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-3.html">
-                    <time>3<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">4</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-5.html">
-                    <time>5<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">6</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-7.html">
-                    <time>7<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">8</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">9</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">11</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-12.html">
-                    <time>12<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-13.html">
-                    <time>13<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">14</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-15.html">
-                    <time>15<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">16</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-19.html">
-                    <time>19<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">20</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-21.html">
-                    <time>21<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-22.html">
-                    <time>22<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">23</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-24.html">
-                    <time>24<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-25.html">
-                    <time>25<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-26.html">
-                    <time>26<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-27.html">
-                    <time>27<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">28</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/6-29.html">
-                    <time>29<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">30</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month07" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>July </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates six">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-1.html">
-                    <time>1<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-2.html">
-                    <time>2<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-3.html">
-                    <time>3<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-4.html">
-                    <time>4<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-5.html">
-                    <time>5<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-6.html">
-                    <time>6<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">7</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">8</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-9.html">
-                    <time>9<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-11.html">
-                    <time>11<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">12</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-14.html">
-                    <time>14<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-15.html">
-                    <time>15<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-16.html">
-                    <time>16<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">17</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">18</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-19.html">
-                    <time>19<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">20</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-21.html">
-                    <time>21<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">23</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">24</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-25.html">
-                    <time>25<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">26</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">27</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-28.html">
-                    <time>28<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-29.html">
-                    <time>29<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-30.html">
-                    <time>30<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/7-31.html">
-                    <time>31<sup>3</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month08" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>August </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates two">
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">1</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-2.html">
-                    <time>2<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-3.html">
-                    <time>3<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">4</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">5</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-6.html">
-                    <time>6<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-7.html">
-                    <time>7<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-8.html">
-                    <time>8<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">9</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-10.html">
-                    <time>10<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-11.html">
-                    <time>11<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-12.html">
-                    <time>12<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-13.html">
-                    <time>13<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">14</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-15.html">
-                    <time>15<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-16.html">
-                    <time>16<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">18</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">19</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">20</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-21.html">
-                    <time>21<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">23</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">24</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">25</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-26.html">
-                    <time>26<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-27.html">
-                    <time>27<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-28.html">
-                    <time>28<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-29.html">
-                    <time>29<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-30.html">
-                    <time>30<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/8-31.html">
-                    <time>31<sup>1</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month09" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>September </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates five">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-1.html">
-                    <time>1<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-2.html">
-                    <time>2<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">3</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">4</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-5.html">
-                    <time>5<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-6.html">
-                    <time>6<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-7.html">
-                    <time>7<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-8.html">
-                    <time>8<sup>9</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-9.html">
-                    <time>9<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-11.html">
-                    <time>11<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-12.html">
-                    <time>12<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">14</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-15.html">
-                    <time>15<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-16.html">
-                    <time>16<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">17</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">19</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">20</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-21.html">
-                    <time>21<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-23.html">
-                    <time>23<sup>4</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">24</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">25</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-26.html">
-                    <time>26<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-27.html">
-                    <time>27<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-28.html">
-                    <time>28<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/9-29.html">
-                    <time>29<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">30</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month10" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>October </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates seven">
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">1</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">2</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-3.html">
-                    <time>3<sup>4</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">4</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-5.html">
-                    <time>5<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-6.html">
-                    <time>6<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-7.html">
-                    <time>7<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-8.html">
-                    <time>8<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-9.html">
-                    <time>9<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-11.html">
-                    <time>11<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-12.html">
-                    <time>12<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-13.html">
-                    <time>13<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-14.html">
-                    <time>14<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-15.html">
-                    <time>15<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-16.html">
-                    <time>16<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">17</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-19.html">
-                    <time>19<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">20</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">21</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">23</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-24.html">
-                    <time>24<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-25.html">
-                    <time>25<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">26</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-27.html">
-                    <time>27<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-28.html">
-                    <time>28<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/10-29.html">
-                    <time>29<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">30</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">31</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month11" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>November </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates three">
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">1</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">2</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-3.html">
-                    <time>3<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-4.html">
-                    <time>4<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-5.html">
-                    <time>5<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-6.html">
-                    <time>6<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">7</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">8</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-9.html">
-                    <time>9<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-11.html">
-                    <time>11<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-12.html">
-                    <time>12<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-14.html">
-                    <time>14<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-15.html">
-                    <time>15<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-16.html">
-                    <time>16<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">17</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">18</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">19</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-20.html">
-                    <time>20<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">21</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-22.html">
-                    <time>22<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">23</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-24.html">
-                    <time>24<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-25.html">
-                    <time>25<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-26.html">
-                    <time>26<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">27</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/11-28.html">
-                    <time>28<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">29</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">30</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month12" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>December </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates five">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-1.html">
-                    <time>1<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-3.html">
-                    <time>3<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-4.html">
-                    <time>4<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">5</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-6.html">
-                    <time>6<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-7.html">
-                    <time>7<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-8.html">
-                    <time>8<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-9.html">
-                    <time>9<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-10.html">
-                    <time>10<sup>6</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">11</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-12.html">
-                    <time>12<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-13.html">
-                    <time>13<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">14</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-15.html">
-                    <time>15<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6" target="_blank">16</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-17.html">
-                    <time>17<sup>6</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-19.html">
-                    <time>19<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-20.html">
-                    <time>20<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-21.html">
-                    <time>21<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-22.html">
-                    <time>22<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-23.html">
-                    <time>23<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-24.html">
-                    <time>24<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-25.html">
-                    <time>25<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-26.html">
-                    <time>26<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-27.html">
-                    <time>27<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-28.html">
-                    <time>28<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-29.html">
-                    <time>29<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-30.html">
-                    <time>30<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="OtherCalendar/12-31.html">
-                    <time>31<sup>3</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-        </div>
-    </center>
+    <div id="desktop-calendar">
+    </div>
 
     <div class="modal" id="cache-list">
         <div class="modal-background"></div>
@@ -1794,6 +70,744 @@
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
-</body>
 
+
+    <div id="data-slices" style="display: none;">
+        [
+                    {
+                        "startDate": "2023-01-12",
+                        "endDate": "2023-01-12",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_01_12"
+                    },
+                    {
+                        "startDate": "2023-01-14",
+                        "endDate": "2023-01-14",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_01_14"
+                    },
+                    {
+                        "startDate": "2023-01-15",
+                        "endDate": "2023-01-15",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_01_15"
+                    },
+                    {
+                        "startDate": "2023-01-16",
+                        "endDate": "2023-01-16",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_01_16"
+                    },
+                    {
+                        "startDate": "2023-01-19",
+                        "endDate": "2023-01-19",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_01_19"
+                    },
+                    {
+                        "startDate": "2023-01-21",
+                        "endDate": "2023-01-21",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_01_21"
+                    },
+                    {
+                        "startDate": "2023-01-29",
+                        "endDate": "2023-01-29",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_01_29"
+                    },
+                    {
+                        "startDate": "2023-02-01",
+                        "endDate": "2023-02-01",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_02_01"
+                    },
+                    {
+                        "startDate": "2023-02-02",
+                        "endDate": "2023-02-02",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_02_02"
+                    },
+                    {
+                        "startDate": "2023-02-04",
+                        "endDate": "2023-02-04",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_02_04"
+                    },
+                    {
+                        "startDate": "2023-02-08",
+                        "endDate": "2023-02-08",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_02_08"
+                    },
+                    {
+                        "startDate": "2023-02-16",
+                        "endDate": "2023-02-16",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_02_16"
+                    },
+                    {
+                        "startDate": "2023-02-22",
+                        "endDate": "2023-02-22",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_02_22"
+                    },
+                    {
+                        "startDate": "2023-02-23",
+                        "endDate": "2023-02-23",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_02_23"
+                    },
+                    {
+                        "startDate": "2023-03-02",
+                        "endDate": "2023-03-02",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_02"
+                    },
+                    {
+                        "startDate": "2023-03-03",
+                        "endDate": "2023-03-03",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_03"
+                    },
+                    {
+                        "startDate": "2023-03-10",
+                        "endDate": "2023-03-10",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_10"
+                    },
+                    {
+                        "startDate": "2023-03-14",
+                        "endDate": "2023-03-14",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_14"
+                    },
+                    {
+                        "startDate": "2023-03-15",
+                        "endDate": "2023-03-15",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_15"
+                    },
+                    {
+                        "startDate": "2023-03-16",
+                        "endDate": "2023-03-16",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_16"
+                    },
+                    {
+                        "startDate": "2023-03-17",
+                        "endDate": "2023-03-17",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_17"
+                    },
+                    {
+                        "startDate": "2023-03-18",
+                        "endDate": "2023-03-18",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_18"
+                    },
+                    {
+                        "startDate": "2023-03-19",
+                        "endDate": "2023-03-19",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_19"
+                    },
+                    {
+                        "startDate": "2023-03-25",
+                        "endDate": "2023-03-25",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_25"
+                    },
+                    {
+                        "startDate": "2023-03-27",
+                        "endDate": "2023-03-27",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_27"
+                    },
+                    {
+                        "startDate": "2023-03-29",
+                        "endDate": "2023-03-29",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_29"
+                    },
+                    {
+                        "startDate": "2023-03-31",
+                        "endDate": "2023-03-31",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_03_31"
+                    },
+                    {
+                        "startDate": "2023-04-03",
+                        "endDate": "2023-04-03",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_04_03"
+                    },
+                    {
+                        "startDate": "2023-04-06",
+                        "endDate": "2023-04-06",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_04_06"
+                    },
+                    {
+                        "startDate": "2023-04-11",
+                        "endDate": "2023-04-11",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_04_11"
+                    },
+                    {
+                        "startDate": "2023-04-12",
+                        "endDate": "2023-04-12",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_04_12"
+                    },
+                    {
+                        "startDate": "2023-04-15",
+                        "endDate": "2023-04-15",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_04_15"
+                    },
+                    {
+                        "startDate": "2023-04-25",
+                        "endDate": "2023-04-25",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_04_25"
+                    },
+                    {
+                        "startDate": "2023-04-26",
+                        "endDate": "2023-04-26",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_04_26"
+                    },
+                    {
+                        "startDate": "2023-04-30",
+                        "endDate": "2023-04-30",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_04_30"
+                    },
+                    {
+                        "startDate": "2023-05-07",
+                        "endDate": "2023-05-07",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_05_07"
+                    },
+                    {
+                        "startDate": "2023-05-14",
+                        "endDate": "2023-05-14",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_05_14"
+                    },
+                    {
+                        "startDate": "2023-05-15",
+                        "endDate": "2023-05-15",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_05_15"
+                    },
+                    {
+                        "startDate": "2023-05-16",
+                        "endDate": "2023-05-16",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_05_16"
+                    },
+                    {
+                        "startDate": "2023-05-19",
+                        "endDate": "2023-05-19",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_05_19"
+                    },
+                    {
+                        "startDate": "2023-05-21",
+                        "endDate": "2023-05-21",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_05_21"
+                    },
+                    {
+                        "startDate": "2023-05-22",
+                        "endDate": "2023-05-22",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_05_22"
+                    },
+                    {
+                        "startDate": "2023-05-25",
+                        "endDate": "2023-05-25",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_05_25"
+                    },
+                    {
+                        "startDate": "2023-05-26",
+                        "endDate": "2023-05-26",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_05_26"
+                    },
+                    {
+                        "startDate": "2023-05-27",
+                        "endDate": "2023-05-27",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_05_27"
+                    },
+                    {
+                        "startDate": "2023-06-01",
+                        "endDate": "2023-06-01",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_01"
+                    },
+                    {
+                        "startDate": "2023-06-04",
+                        "endDate": "2023-06-04",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_04"
+                    },
+                    {
+                        "startDate": "2023-06-06",
+                        "endDate": "2023-06-06",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_06"
+                    },
+                    {
+                        "startDate": "2023-06-08",
+                        "endDate": "2023-06-08",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_08"
+                    },
+                    {
+                        "startDate": "2023-06-09",
+                        "endDate": "2023-06-09",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_09"
+                    },
+                    {
+                        "startDate": "2023-06-11",
+                        "endDate": "2023-06-11",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_11"
+                    },
+                    {
+                        "startDate": "2023-06-14",
+                        "endDate": "2023-06-14",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_14"
+                    },
+                    {
+                        "startDate": "2023-06-16",
+                        "endDate": "2023-06-16",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_16"
+                    },
+                    {
+                        "startDate": "2023-06-20",
+                        "endDate": "2023-06-20",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_20"
+                    },
+                    {
+                        "startDate": "2023-06-23",
+                        "endDate": "2023-06-23",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_23"
+                    },
+                    {
+                        "startDate": "2023-06-28",
+                        "endDate": "2023-06-28",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_28"
+                    },
+                    {
+                        "startDate": "2023-06-30",
+                        "endDate": "2023-06-30",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_06_30"
+                    },
+                    {
+                        "startDate": "2023-07-07",
+                        "endDate": "2023-07-07",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_07_07"
+                    },
+                    {
+                        "startDate": "2023-07-08",
+                        "endDate": "2023-07-08",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_07_08"
+                    },
+                    {
+                        "startDate": "2023-07-12",
+                        "endDate": "2023-07-12",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_07_12"
+                    },
+                    {
+                        "startDate": "2023-07-17",
+                        "endDate": "2023-07-17",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_07_17"
+                    },
+                    {
+                        "startDate": "2023-07-18",
+                        "endDate": "2023-07-18",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_07_18"
+                    },
+                    {
+                        "startDate": "2023-07-20",
+                        "endDate": "2023-07-20",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_07_20"
+                    },
+                    {
+                        "startDate": "2023-07-23",
+                        "endDate": "2023-07-23",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_07_23"
+                    },
+                    {
+                        "startDate": "2023-07-24",
+                        "endDate": "2023-07-24",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_07_24"
+                    },
+                    {
+                        "startDate": "2023-07-26",
+                        "endDate": "2023-07-26",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_07_26"
+                    },
+                    {
+                        "startDate": "2023-07-27",
+                        "endDate": "2023-07-27",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_07_27"
+                    },
+                    {
+                        "startDate": "2023-08-01",
+                        "endDate": "2023-08-01",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_01"
+                    },
+                    {
+                        "startDate": "2023-08-04",
+                        "endDate": "2023-08-04",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_04"
+                    },
+                    {
+                        "startDate": "2023-08-05",
+                        "endDate": "2023-08-05",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_05"
+                    },
+                    {
+                        "startDate": "2023-08-09",
+                        "endDate": "2023-08-09",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_09"
+                    },
+                    {
+                        "startDate": "2023-08-14",
+                        "endDate": "2023-08-14",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_14"
+                    },
+                    {
+                        "startDate": "2023-08-18",
+                        "endDate": "2023-08-18",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_18"
+                    },
+                    {
+                        "startDate": "2023-08-19",
+                        "endDate": "2023-08-19",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_19"
+                    },
+                    {
+                        "startDate": "2023-08-20",
+                        "endDate": "2023-08-20",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_20"
+                    },
+                    {
+                        "startDate": "2023-08-23",
+                        "endDate": "2023-08-23",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_23"
+                    },
+                    {
+                        "startDate": "2023-08-24",
+                        "endDate": "2023-08-24",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_24"
+                    },
+                    {
+                        "startDate": "2023-08-25",
+                        "endDate": "2023-08-25",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_08_25"
+                    },
+                    {
+                        "startDate": "2023-09-03",
+                        "endDate": "2023-09-03",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_09_03"
+                    },
+                    {
+                        "startDate": "2023-09-04",
+                        "endDate": "2023-09-04",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_09_04"
+                    },
+                    {
+                        "startDate": "2023-09-14",
+                        "endDate": "2023-09-14",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_09_14"
+                    },
+                    {
+                        "startDate": "2023-09-17",
+                        "endDate": "2023-09-17",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_09_17"
+                    },
+                    {
+                        "startDate": "2023-09-19",
+                        "endDate": "2023-09-19",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_09_19"
+                    },
+                    {
+                        "startDate": "2023-09-20",
+                        "endDate": "2023-09-20",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_09_20"
+                    },
+                    {
+                        "startDate": "2023-09-24",
+                        "endDate": "2023-09-24",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_09_24"
+                    },
+                    {
+                        "startDate": "2023-09-25",
+                        "endDate": "2023-09-25",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_09_25"
+                    },
+                    {
+                        "startDate": "2023-09-30",
+                        "endDate": "2023-09-30",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_09_30"
+                    },
+                    {
+                        "startDate": "2023-10-01",
+                        "endDate": "2023-10-01",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_10_01"
+                    },
+                    {
+                        "startDate": "2023-10-02",
+                        "endDate": "2023-10-02",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_10_02"
+                    },
+                    {
+                        "startDate": "2023-10-04",
+                        "endDate": "2023-10-04",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_10_04"
+                    },
+                    {
+                        "startDate": "2023-10-17",
+                        "endDate": "2023-10-17",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_10_17"
+                    },
+                    {
+                        "startDate": "2023-10-20",
+                        "endDate": "2023-10-20",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_10_20"
+                    },
+                    {
+                        "startDate": "2023-10-21",
+                        "endDate": "2023-10-21",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_10_21"
+                    },
+                    {
+                        "startDate": "2023-10-23",
+                        "endDate": "2023-10-23",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_10_23"
+                    },
+                    {
+                        "startDate": "2023-10-26",
+                        "endDate": "2023-10-26",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_10_26"
+                    },
+                    {
+                        "startDate": "2023-10-30",
+                        "endDate": "2023-10-30",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_10_30"
+                    },
+                    {
+                        "startDate": "2023-10-31",
+                        "endDate": "2023-10-31",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_10_31"
+                    },
+                    {
+                        "startDate": "2023-11-01",
+                        "endDate": "2023-11-01",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_01"
+                    },
+                    {
+                        "startDate": "2023-11-02",
+                        "endDate": "2023-11-02",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_02"
+                    },
+                    {
+                        "startDate": "2023-11-07",
+                        "endDate": "2023-11-07",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_07"
+                    },
+                    {
+                        "startDate": "2023-11-08",
+                        "endDate": "2023-11-08",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_08"
+                    },
+                    {
+                        "startDate": "2023-11-17",
+                        "endDate": "2023-11-17",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_17"
+                    },
+                    {
+                        "startDate": "2023-11-18",
+                        "endDate": "2023-11-18",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_18"
+                    },
+                    {
+                        "startDate": "2023-11-19",
+                        "endDate": "2023-11-19",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_19"
+                    },
+                    {
+                        "startDate": "2023-11-21",
+                        "endDate": "2023-11-21",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_21"
+                    },
+                    {
+                        "startDate": "2023-11-23",
+                        "endDate": "2023-11-23",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_23"
+                    },
+                    {
+                        "startDate": "2023-11-27",
+                        "endDate": "2023-11-27",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_27"
+                    },
+                    {
+                        "startDate": "2023-11-29",
+                        "endDate": "2023-11-29",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_29"
+                    },
+                    {
+                        "startDate": "2023-11-30",
+                        "endDate": "2023-11-30",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_11_30"
+                    },
+                    {
+                        "startDate": "2023-12-05",
+                        "endDate": "2023-12-05",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_12_05"
+                    },
+                    {
+                        "startDate": "2023-12-11",
+                        "endDate": "2023-12-11",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_12_11"
+                    },
+                    {
+                        "startDate": "2023-12-14",
+                        "endDate": "2023-12-14",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_12_14"
+                    },
+                    {
+                        "startDate": "2023-12-16",
+                        "endDate": "2023-12-16",
+                        "searchUrl": "https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&cs=6",
+                        "searchKey": "search_12_16"
+                    },
+        {"startDate": "1970-01-01", "endDate": "1970-01-01", "searchUrl": "nope", "searchKey": "nope"}
+        ]
+    </div>
+
+    <script>
+        let year = 2023;
+        const jsonText = document.getElementById("data-slices").innerHTML;
+        const dataSlices = JSON.parse(jsonText);
+
+        let searchUrls = {};
+        let dataSlicesParsed = [];
+        for (let i = 0; i < dataSlices.length; i++) {
+            let dataSlice = dataSlices[i];
+            let startDate = new Date(dataSlice.startDate);
+            let endDate = new Date(dataSlice.endDate);
+            dataSlicesParsed.push({
+                startDate: startDate,
+                endDate: endDate
+            });
+
+            searchUrls[dataSlice.searchKey] = dataSlice.searchUrl.replaceAll("&amp;", "&");
+        }
+
+        let beginningOfTheYear = new Date(year, 0, 1);
+        let endOfTheYear = new Date(year, 11, 31);
+        new Calendar("#desktop-calendar", {
+            minDate: beginningOfTheYear,
+            maxDate: endOfTheYear,
+            dataSource: dataSlicesParsed,
+        });
+
+        document.querySelector('#desktop-calendar').addEventListener('clickDay', function(e) {
+            const id = e.date.getMonth() + 1 + "-" + e.date.getDate();
+            const searchId = "search_" + String(e.date.getMonth() + 1).padStart(2, "0") + "_" + String(e.date.getDate()).padStart(2, "0");
+            const site = id + ".html";
+            const url = window.location.href;
+            const index = url.lastIndexOf("/");
+            const path = url.substring(0, index);
+            const documentUrl = path + "/OtherCalendar/" + site;
+
+            const $modalTarget = document.getElementById("cache-list");
+            const $modalContentTarget = document.getElementById("cache-list-modal-box-content");
+
+            if (searchUrls.hasOwnProperty(searchId)) {
+                console.log("Opening " + searchUrls[searchId]);
+                window.open(searchUrls[searchId], "_blank");
+            } else {
+                fetch(documentUrl).then((response) => {
+                response.text().then((text) => {
+                    $modalContentTarget.innerHTML = text;
+                    $modalTarget.classList.add("is-active");
+                });
+            });
+            }
+        })
+    </script>
+
+  </body>
 </html>

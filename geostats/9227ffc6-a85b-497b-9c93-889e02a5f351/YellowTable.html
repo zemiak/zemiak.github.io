@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Yellow</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
-    <script src="index.js"></script>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="icons/globe-1920.png">
+    <link rel="icon" href="icons/globe-120.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+    <script src="index.js"></script>
+    
     <style>
         .styled-table,
         .matrix,
@@ -117,6 +134,7 @@
         }
 
     </style>
+
 </head>
 
 <body>
@@ -140,6 +158,449 @@
         </div>
     </nav>
 
+    
+    <div class="is-hidden-mobile">
+    <section class="section">
+      <div class="columns">
+        <div class="column is-4 is-offset-4">
+        <center><h1>Yellow</h1></center>
+        <table class="table multi">
+            <thead>
+                <tr>
+                    <th><abbr title="Difficulty / Terrain"><sub>D</sub>\<sup>T</sup></abbr></th>
+                    <th>1.0</th>
+                    <th>1.5</th>
+                    <th>2.0</th>
+                    <th>2.5</th>
+                    <th>3.0</th>
+                    <th>3.5</th>
+                    <th>4.0</th>
+                    <th>4.5</th>
+                    <th>5.0</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th><abbr title="Difficulty / Terrain"><sub>D</sub>\<sup>T</sup></abbr></th>
+                    <th>1.0</th>
+                    <th>1.5</th>
+                    <th>2.0</th>
+                    <th>2.5</th>
+                    <th>3.0</th>
+                    <th>3.5</th>
+                    <th>4.0</th>
+                    <th>4.5</th>
+                    <th>5.0</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                    <tr>
+                        <th>1.0</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.0-d1.0.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.5-d1.0.html" href="#">9</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.0-d1.0.html" href="#">3</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.5-d1.0.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.0-d1.0.html" href="#">3</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=3.5&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=4.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=4.5&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t5.0-d1.0.html" href="#">1</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>1.5</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.0-d1.5.html" href="#">11</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.5-d1.5.html" href="#">41</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.0-d1.5.html" href="#">27</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.5-d1.5.html" href="#">9</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.0-d1.5.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.5-d1.5.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=4.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=4.5&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=5.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>2.0</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.0-d2.0.html" href="#">12</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.5-d2.0.html" href="#">65</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.0-d2.0.html" href="#">53</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.5-d2.0.html" href="#">35</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.0-d2.0.html" href="#">13</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.5-d2.0.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t4.0-d2.0.html" href="#">3</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t4.5-d2.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t5.0-d2.0.html" href="#">1</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>2.5</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.0-d2.5.html" href="#">3</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.5-d2.5.html" href="#">21</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.0-d2.5.html" href="#">13</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.5-d2.5.html" href="#">6</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.0-d2.5.html" href="#">6</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.5-d2.5.html" href="#">8</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t4.0-d2.5.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t4.5-d2.5.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=5.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>3.0</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.0-d3.0.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.5-d3.0.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.0-d3.0.html" href="#">15</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.5-d3.0.html" href="#">11</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.0-d3.0.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.5-d3.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=4.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t4.5-d3.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=5.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>3.5</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.0-d3.5.html" href="#">3</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.5-d3.5.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.0-d3.5.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.5-d3.5.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.0-d3.5.html" href="#">3</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.5-d3.5.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=4.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t4.5-d3.5.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=5.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>4.0</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.0-d4.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.5-d4.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.0-d4.0.html" href="#">3</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.5-d4.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.0-d4.0.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=3.5&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t4.0-d4.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=4.5&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=5.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>4.5</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.0-d4.5.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t1.5-d4.5.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=2.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t2.5-d4.5.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=3.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=3.5&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=4.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=4.5&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t5.0-d4.5.html" href="#">1</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>5.0</th>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=1.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=1.5&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=2.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=2.5&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t3.0-d5.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=3.5&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=4.0&ct=3" target="_blank">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t4.5-d5.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="YellowTable/t5.0-d5.0.html" href="#">1</a>
+
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        </div></div></section>
+    </div>
+
+    <div class="is-hidden-tablet">
     <center>
         <table class="matrix multi">
             <tr>
@@ -557,6 +1018,7 @@
             </tr>
         </table>
     </center>
+    </div>
 
     <div class="modal" id="cache-list">
         <div class="modal-background"></div>
@@ -569,6 +1031,6 @@
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
-</body>
 
+  </body>
 </html>

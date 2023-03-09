@@ -1,155 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Multi (Hidden)</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="icons/globe-1920.png">
+    <link rel="icon" href="icons/globe-120.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
     <script src="index.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css" />
+    <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
 
-    <style>
-        body {
-            justify-content: center;
-            align-items: center;
-        }
-
-        .calendar {
-            background: #fad390;
-            display: flex;
-
-            display: inline-grid;
-            justify-content: center;
-            align-items: center;
-            background: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            box-shadow: 0px 40px 30px -20px rgba(0, 0, 0, 0.3);
-        }
-
-        .calendar .month {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 16px;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .calendar .month .year {
-            font-weight: 600;
-            margin-left: 10px;
-        }
-
-        .calendar .month .nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            color: #0a3d62;
-            width: 40px;
-            height: 40px;
-            border-radius: 40px;
-            transition-duration: 0.2s;
-            position: relative;
-        }
-
-        .calendar .month .nav:hover {
-            background: #eee;
-        }
-
-        .calendar .days {
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            grid-template-columns: repeat(7, 1fr);
-            color: #999;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .calendar .days span {
-            width: 35px;
-            justify-self: center;
-            align-self: center;
-            text-align: center;
-        }
-
-        .calendar .dates {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-        }
-
-        .calendar .dates button {
-            cursor: pointer;
-            outline: 0;
-            border: 0;
-            background: transparent;
-            font-family: "Montserrat", sans-serif;
-            font-size: 12px;
-            justify-self: center;
-            align-self: center;
-            width: 33px;
-            height: 33px;
-            border-radius: 33px;
-            margin: 2px;
-            transition-duration: 0.2s;
-        }
-
-        .calendar .dates button.today {
-            box-shadow: inset 0px 0px 0px 2px #0a3d62;
-        }
-
-        .calendar .dates.one button:first-child {
-            grid-column: 1;
-        }
-
-        .calendar .dates.two button:first-child {
-            grid-column: 2;
-        }
-
-        .calendar .dates.three button:first-child {
-            grid-column: 3;
-        }
-
-        .calendar .dates.four button:first-child {
-            grid-column: 4;
-        }
-
-        .calendar .dates.five button:first-child {
-            grid-column: 5;
-        }
-
-        .calendar .dates.six button:first-child {
-            grid-column: 6;
-        }
-
-        .calendar .dates.seven button:first-child {
-            grid-column: 7;
-        }
-
-        .calendar .dates button:hover {
-            background: #eee;
-        }
-
-        .calendar .dates button:focus {
-            background: #0a3d62;
-            color: #fff;
-            font-weight: 600;
-        }
-
-        .calendar .dates button.attention {
-            background: lightsalmon;
-        }
-
-        .calendar .dates button.allok {
-            background: lightseagreen;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -173,1615 +54,10 @@
         </div>
     </nav>
 
-    <center>
-        <h1>Multi (Hidden)</h1>
-        <div class="calendar">
-            <div id="month01" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>January </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates seven">
+        <center><h1>Multi (Hidden)</h1></center>
 
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-1.html">
-                    <time>1<sup>4</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-01-03&ct=3" target="_blank">3</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-4.html">
-                    <time>4<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-01-05&ct=3" target="_blank">5</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-6.html">
-                    <time>6<sup>4</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-7.html">
-                    <time>7<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-01-08&ct=3" target="_blank">8</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-9.html">
-                    <time>9<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-10.html">
-                    <time>10<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-11.html">
-                    <time>11<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-12.html">
-                    <time>12<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-14.html">
-                    <time>14<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-15.html">
-                    <time>15<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-16.html">
-                    <time>16<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-17.html">
-                    <time>17<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-01-19&ct=3" target="_blank">19</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-20.html">
-                    <time>20<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-21.html">
-                    <time>21<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-23.html">
-                    <time>23<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-24.html">
-                    <time>24<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-01-25&ct=3" target="_blank">25</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-26.html">
-                    <time>26<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-01-27&ct=3" target="_blank">27</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-01-28&ct=3" target="_blank">28</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-29.html">
-                    <time>29<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/1-30.html">
-                    <time>30<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-01-31&ct=3" target="_blank">31</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month02" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>February </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates three">
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-01&ct=3" target="_blank">1</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-03&ct=3" target="_blank">3</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-4.html">
-                    <time>4<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-05&ct=3" target="_blank">5</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-6.html">
-                    <time>6<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-7.html">
-                    <time>7<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-8.html">
-                    <time>8<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-9.html">
-                    <time>9<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-11&ct=3" target="_blank">11</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-12&ct=3" target="_blank">12</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-14&ct=3" target="_blank">14</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-15.html">
-                    <time>15<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-16.html">
-                    <time>16<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-19&ct=3" target="_blank">19</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-20.html">
-                    <time>20<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-21&ct=3" target="_blank">21</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-22&ct=3" target="_blank">22</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-23.html">
-                    <time>23<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-24&ct=3" target="_blank">24</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-25.html">
-                    <time>25<sup>5</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/2-26.html">
-                    <time>26<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-27&ct=3" target="_blank">27</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-02-28&ct=3" target="_blank">28</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month03" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>March </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates three">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-1.html">
-                    <time>1<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-3.html">
-                    <time>3<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-4.html">
-                    <time>4<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-5.html">
-                    <time>5<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-03-06&ct=3" target="_blank">6</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-7.html">
-                    <time>7<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-8.html">
-                    <time>8<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-9.html">
-                    <time>9<sup>5</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-10.html">
-                    <time>10<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-11.html">
-                    <time>11<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-03-12&ct=3" target="_blank">12</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-13.html">
-                    <time>13<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-03-14&ct=3" target="_blank">14</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-15.html">
-                    <time>15<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-03-16&ct=3" target="_blank">16</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-03-17&ct=3" target="_blank">17</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-19.html">
-                    <time>19<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-20.html">
-                    <time>20<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-03-21&ct=3" target="_blank">21</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-22.html">
-                    <time>22<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-23.html">
-                    <time>23<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-03-24&ct=3" target="_blank">24</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-25.html">
-                    <time>25<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-03-26&ct=3" target="_blank">26</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-27.html">
-                    <time>27<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-28.html">
-                    <time>28<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-29.html">
-                    <time>29<sup>5</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-30.html">
-                    <time>30<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/3-31.html">
-                    <time>31<sup>1</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month04" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>April </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates six">
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-04-01&ct=3" target="_blank">1</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-3.html">
-                    <time>3<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-4.html">
-                    <time>4<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-04-05&ct=3" target="_blank">5</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-6.html">
-                    <time>6<sup>4</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-04-07&ct=3" target="_blank">7</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-8.html">
-                    <time>8<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-9.html">
-                    <time>9<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-10.html">
-                    <time>10<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-04-11&ct=3" target="_blank">11</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-12.html">
-                    <time>12<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-13.html">
-                    <time>13<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-14.html">
-                    <time>14<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-04-15&ct=3" target="_blank">15</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-16.html">
-                    <time>16<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-18.html">
-                    <time>18<sup>4</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-04-19&ct=3" target="_blank">19</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-20.html">
-                    <time>20<sup>8</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-21.html">
-                    <time>21<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-23.html">
-                    <time>23<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-24.html">
-                    <time>24<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-25.html">
-                    <time>25<sup>5</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-26.html">
-                    <time>26<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-04-27&ct=3" target="_blank">27</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-04-28&ct=3" target="_blank">28</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-04-29&ct=3" target="_blank">29</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/4-30.html">
-                    <time>30<sup>4</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month05" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>May </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates one">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-1.html">
-                    <time>1<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-2.html">
-                    <time>2<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-3.html">
-                    <time>3<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-05-04&ct=3" target="_blank">4</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-5.html">
-                    <time>5<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-6.html">
-                    <time>6<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-7.html">
-                    <time>7<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-8.html">
-                    <time>8<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-9.html">
-                    <time>9<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-10.html">
-                    <time>10<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-11.html">
-                    <time>11<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-05-12&ct=3" target="_blank">12</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-05-14&ct=3" target="_blank">14</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-05-15&ct=3" target="_blank">15</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-16.html">
-                    <time>16<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-05-17&ct=3" target="_blank">17</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-19.html">
-                    <time>19<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-20.html">
-                    <time>20<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-05-21&ct=3" target="_blank">21</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-22.html">
-                    <time>22<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-23.html">
-                    <time>23<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-24.html">
-                    <time>24<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-05-25&ct=3" target="_blank">25</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-26.html">
-                    <time>26<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-05-27&ct=3" target="_blank">27</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-28.html">
-                    <time>28<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/5-29.html">
-                    <time>29<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-05-30&ct=3" target="_blank">30</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-05-31&ct=3" target="_blank">31</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month06" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>June </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates four">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-1.html">
-                    <time>1<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-2.html">
-                    <time>2<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-3.html">
-                    <time>3<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-4.html">
-                    <time>4<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-5.html">
-                    <time>5<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-6.html">
-                    <time>6<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-06-07&ct=3" target="_blank">7</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-8.html">
-                    <time>8<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-9.html">
-                    <time>9<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-10.html">
-                    <time>10<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-11.html">
-                    <time>11<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-12.html">
-                    <time>12<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-06-13&ct=3" target="_blank">13</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-14.html">
-                    <time>14<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-15.html">
-                    <time>15<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-16.html">
-                    <time>16<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-06-17&ct=3" target="_blank">17</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-18.html">
-                    <time>18<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-19.html">
-                    <time>19<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-06-20&ct=3" target="_blank">20</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-06-21&ct=3" target="_blank">21</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-22.html">
-                    <time>22<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-06-23&ct=3" target="_blank">23</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-24.html">
-                    <time>24<sup>5</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-25.html">
-                    <time>25<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-26.html">
-                    <time>26<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-06-27&ct=3" target="_blank">27</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-28.html">
-                    <time>28<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-29.html">
-                    <time>29<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/6-30.html">
-                    <time>30<sup>2</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month07" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>July </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates six">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-1.html">
-                    <time>1<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-2.html">
-                    <time>2<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-03&ct=3" target="_blank">3</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-4.html">
-                    <time>4<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-5.html">
-                    <time>5<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-6.html">
-                    <time>6<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-7.html">
-                    <time>7<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-08&ct=3" target="_blank">8</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-9.html">
-                    <time>9<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-10&ct=3" target="_blank">10</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-11&ct=3" target="_blank">11</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-12.html">
-                    <time>12<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-14&ct=3" target="_blank">14</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-15&ct=3" target="_blank">15</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-16.html">
-                    <time>16<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-17&ct=3" target="_blank">17</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-19&ct=3" target="_blank">19</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-20.html">
-                    <time>20<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-21.html">
-                    <time>21<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-23.html">
-                    <time>23<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-24.html">
-                    <time>24<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-25&ct=3" target="_blank">25</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-26&ct=3" target="_blank">26</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-27&ct=3" target="_blank">27</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-28.html">
-                    <time>28<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/7-29.html">
-                    <time>29<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-30&ct=3" target="_blank">30</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-07-31&ct=3" target="_blank">31</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month08" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>August </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates two">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-1.html">
-                    <time>1<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-03&ct=3" target="_blank">3</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-04&ct=3" target="_blank">4</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-5.html">
-                    <time>5<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-6.html">
-                    <time>6<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-07&ct=3" target="_blank">7</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-8.html">
-                    <time>8<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-9.html">
-                    <time>9<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-11.html">
-                    <time>11<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-12.html">
-                    <time>12<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-13.html">
-                    <time>13<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-14&ct=3" target="_blank">14</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-15.html">
-                    <time>15<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-16&ct=3" target="_blank">16</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-17&ct=3" target="_blank">17</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-18.html">
-                    <time>18<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-19&ct=3" target="_blank">19</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-20&ct=3" target="_blank">20</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-21.html">
-                    <time>21<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-23&ct=3" target="_blank">23</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-24&ct=3" target="_blank">24</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-25.html">
-                    <time>25<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-26.html">
-                    <time>26<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-27.html">
-                    <time>27<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-28.html">
-                    <time>28<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-29.html">
-                    <time>29<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-08-30&ct=3" target="_blank">30</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/8-31.html">
-                    <time>31<sup>2</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month09" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>September </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates five">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-1.html">
-                    <time>1<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-2.html">
-                    <time>2<sup>6</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-3.html">
-                    <time>3<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-04&ct=3" target="_blank">4</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-5.html">
-                    <time>5<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-06&ct=3" target="_blank">6</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-07&ct=3" target="_blank">7</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-08&ct=3" target="_blank">8</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-9.html">
-                    <time>9<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-10.html">
-                    <time>10<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-11&ct=3" target="_blank">11</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-12.html">
-                    <time>12<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-13.html">
-                    <time>13<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-14.html">
-                    <time>14<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-15.html">
-                    <time>15<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-16.html">
-                    <time>16<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-18.html">
-                    <time>18<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-19.html">
-                    <time>19<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-20.html">
-                    <time>20<sup>4</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-21&ct=3" target="_blank">21</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-22.html">
-                    <time>22<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-23&ct=3" target="_blank">23</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-24.html">
-                    <time>24<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-25&ct=3" target="_blank">25</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-26.html">
-                    <time>26<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-27&ct=3" target="_blank">27</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/9-28.html">
-                    <time>28<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-29&ct=3" target="_blank">29</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-09-30&ct=3" target="_blank">30</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month10" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>October </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates seven">
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-01&ct=3" target="_blank">1</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-2.html">
-                    <time>2<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-3.html">
-                    <time>3<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-4.html">
-                    <time>4<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-05&ct=3" target="_blank">5</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-6.html">
-                    <time>6<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-7.html">
-                    <time>7<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-8.html">
-                    <time>8<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-9.html">
-                    <time>9<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-11&ct=3" target="_blank">11</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-12.html">
-                    <time>12<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-13.html">
-                    <time>13<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-14.html">
-                    <time>14<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-15&ct=3" target="_blank">15</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-16&ct=3" target="_blank">16</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-18.html">
-                    <time>18<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-19.html">
-                    <time>19<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-20&ct=3" target="_blank">20</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-21.html">
-                    <time>21<sup>4</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-22.html">
-                    <time>22<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-23.html">
-                    <time>23<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-24&ct=3" target="_blank">24</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-25&ct=3" target="_blank">25</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-26.html">
-                    <time>26<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-27.html">
-                    <time>27<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-28&ct=3" target="_blank">28</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-29&ct=3" target="_blank">29</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-10-30&ct=3" target="_blank">30</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/10-31.html">
-                    <time>31<sup>3</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month11" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>November </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates three">
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-1.html">
-                    <time>1<sup>5</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-2.html">
-                    <time>2<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-03&ct=3" target="_blank">3</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-4.html">
-                    <time>4<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-5.html">
-                    <time>5<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-6.html">
-                    <time>6<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-07&ct=3" target="_blank">7</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-8.html">
-                    <time>8<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-09&ct=3" target="_blank">9</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-10&ct=3" target="_blank">10</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-11.html">
-                    <time>11<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-12&ct=3" target="_blank">12</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-13.html">
-                    <time>13<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-14&ct=3" target="_blank">14</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-15.html">
-                    <time>15<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-16.html">
-                    <time>16<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-17.html">
-                    <time>17<sup>3</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-18&ct=3" target="_blank">18</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-19.html">
-                    <time>19<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-20.html">
-                    <time>20<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-21.html">
-                    <time>21<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-22.html">
-                    <time>22<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-23&ct=3" target="_blank">23</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-24.html">
-                    <time>24<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-25.html">
-                    <time>25<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-26.html">
-                    <time>26<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-27&ct=3" target="_blank">27</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-28&ct=3" target="_blank">28</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/11-29.html">
-                    <time>29<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-11-30&ct=3" target="_blank">30</a></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-            <div id="month12" class="month">
-                <a href="#" class="nav"><i class="fas fa-angle-left2"></i></a>
-                <div>December </div>
-                <a href="#" class="nav"><i class="fas fa-angle-right2"></i></a>
-            </div>
-            <div class="days">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-            <div class="dates five">
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-01&ct=3" target="_blank">1</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-2.html">
-                    <time>2<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-03&ct=3" target="_blank">3</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-4.html">
-                    <time>4<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-5.html">
-                    <time>5<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-6.html">
-                    <time>6<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-07&ct=3" target="_blank">7</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-8.html">
-                    <time>8<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-09&ct=3" target="_blank">9</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-10.html">
-                    <time>10<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-11.html">
-                    <time>11<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-12&ct=3" target="_blank">12</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-13&ct=3" target="_blank">13</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-14.html">
-                    <time>14<sup>2</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-15&ct=3" target="_blank">15</a></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-16&ct=3" target="_blank">16</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-17.html">
-                    <time>17<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-18&ct=3" target="_blank">18</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-19.html">
-                    <time>19<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-20.html">
-                    <time>20<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-21&ct=3" target="_blank">21</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-22.html">
-                    <time>22<sup>2</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-23.html">
-                    <time>23<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-24.html">
-                    <time>24<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-25.html">
-                    <time>25<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-26.html">
-                    <time>26<sup>4</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-27.html">
-                    <time>27<sup>1</sup></time>
-                </button>
-
-                <button class="attention">
-                    <time><a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&pod=2023-12-28&ct=3" target="_blank">28</a></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-29.html">
-                    <time>29<sup>1</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-30.html">
-                    <time>30<sup>3</sup></time>
-                </button>
-
-                <button class="allok js-modal-trigger" data-target="cache-list" data-site="YellowCalendarHidden/12-31.html">
-                    <time>31<sup>1</sup></time>
-                </button>
-            </div>
-
-            <p>&nbsp;</p>
-        </div>
-    </center>
+    <div id="desktop-calendar">
+    </div>
 
     <div class="modal" id="cache-list">
         <div class="modal-background"></div>
@@ -1794,6 +70,798 @@
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
-</body>
 
+
+    <div id="data-slices" style="display: none;">
+        [
+                    {
+                        "startDate": "2023-01-03",
+                        "endDate": "2023-01-03",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=1&hidden_fromdd=3&hidden_tomm=1&hidden_todd=3&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_01_03"
+                    },
+                    {
+                        "startDate": "2023-01-05",
+                        "endDate": "2023-01-05",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=1&hidden_fromdd=5&hidden_tomm=1&hidden_todd=5&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_01_05"
+                    },
+                    {
+                        "startDate": "2023-01-08",
+                        "endDate": "2023-01-08",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=1&hidden_fromdd=8&hidden_tomm=1&hidden_todd=8&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_01_08"
+                    },
+                    {
+                        "startDate": "2023-01-19",
+                        "endDate": "2023-01-19",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=1&hidden_fromdd=19&hidden_tomm=1&hidden_todd=19&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_01_19"
+                    },
+                    {
+                        "startDate": "2023-01-25",
+                        "endDate": "2023-01-25",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=1&hidden_fromdd=25&hidden_tomm=1&hidden_todd=25&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_01_25"
+                    },
+                    {
+                        "startDate": "2023-01-27",
+                        "endDate": "2023-01-27",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=1&hidden_fromdd=27&hidden_tomm=1&hidden_todd=27&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_01_27"
+                    },
+                    {
+                        "startDate": "2023-01-28",
+                        "endDate": "2023-01-28",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=1&hidden_fromdd=28&hidden_tomm=1&hidden_todd=28&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_01_28"
+                    },
+                    {
+                        "startDate": "2023-01-31",
+                        "endDate": "2023-01-31",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=1&hidden_fromdd=31&hidden_tomm=1&hidden_todd=31&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_01_31"
+                    },
+                    {
+                        "startDate": "2023-02-01",
+                        "endDate": "2023-02-01",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=1&hidden_tomm=2&hidden_todd=1&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_01"
+                    },
+                    {
+                        "startDate": "2023-02-03",
+                        "endDate": "2023-02-03",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=3&hidden_tomm=2&hidden_todd=3&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_03"
+                    },
+                    {
+                        "startDate": "2023-02-05",
+                        "endDate": "2023-02-05",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=5&hidden_tomm=2&hidden_todd=5&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_05"
+                    },
+                    {
+                        "startDate": "2023-02-11",
+                        "endDate": "2023-02-11",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=11&hidden_tomm=2&hidden_todd=11&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_11"
+                    },
+                    {
+                        "startDate": "2023-02-12",
+                        "endDate": "2023-02-12",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=12&hidden_tomm=2&hidden_todd=12&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_12"
+                    },
+                    {
+                        "startDate": "2023-02-14",
+                        "endDate": "2023-02-14",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=14&hidden_tomm=2&hidden_todd=14&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_14"
+                    },
+                    {
+                        "startDate": "2023-02-19",
+                        "endDate": "2023-02-19",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=19&hidden_tomm=2&hidden_todd=19&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_19"
+                    },
+                    {
+                        "startDate": "2023-02-21",
+                        "endDate": "2023-02-21",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=21&hidden_tomm=2&hidden_todd=21&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_21"
+                    },
+                    {
+                        "startDate": "2023-02-22",
+                        "endDate": "2023-02-22",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=22&hidden_tomm=2&hidden_todd=22&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_22"
+                    },
+                    {
+                        "startDate": "2023-02-24",
+                        "endDate": "2023-02-24",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=24&hidden_tomm=2&hidden_todd=24&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_24"
+                    },
+                    {
+                        "startDate": "2023-02-27",
+                        "endDate": "2023-02-27",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=27&hidden_tomm=2&hidden_todd=27&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_27"
+                    },
+                    {
+                        "startDate": "2023-02-28",
+                        "endDate": "2023-02-28",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=2&hidden_fromdd=28&hidden_tomm=2&hidden_todd=28&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_02_28"
+                    },
+                    {
+                        "startDate": "2023-03-06",
+                        "endDate": "2023-03-06",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=3&hidden_fromdd=6&hidden_tomm=3&hidden_todd=6&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_03_06"
+                    },
+                    {
+                        "startDate": "2023-03-12",
+                        "endDate": "2023-03-12",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=3&hidden_fromdd=12&hidden_tomm=3&hidden_todd=12&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_03_12"
+                    },
+                    {
+                        "startDate": "2023-03-14",
+                        "endDate": "2023-03-14",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=3&hidden_fromdd=14&hidden_tomm=3&hidden_todd=14&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_03_14"
+                    },
+                    {
+                        "startDate": "2023-03-16",
+                        "endDate": "2023-03-16",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=3&hidden_fromdd=16&hidden_tomm=3&hidden_todd=16&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_03_16"
+                    },
+                    {
+                        "startDate": "2023-03-17",
+                        "endDate": "2023-03-17",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=3&hidden_fromdd=17&hidden_tomm=3&hidden_todd=17&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_03_17"
+                    },
+                    {
+                        "startDate": "2023-03-21",
+                        "endDate": "2023-03-21",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=3&hidden_fromdd=21&hidden_tomm=3&hidden_todd=21&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_03_21"
+                    },
+                    {
+                        "startDate": "2023-03-24",
+                        "endDate": "2023-03-24",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=3&hidden_fromdd=24&hidden_tomm=3&hidden_todd=24&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_03_24"
+                    },
+                    {
+                        "startDate": "2023-03-26",
+                        "endDate": "2023-03-26",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=3&hidden_fromdd=26&hidden_tomm=3&hidden_todd=26&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_03_26"
+                    },
+                    {
+                        "startDate": "2023-04-01",
+                        "endDate": "2023-04-01",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=4&hidden_fromdd=1&hidden_tomm=4&hidden_todd=1&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_04_01"
+                    },
+                    {
+                        "startDate": "2023-04-05",
+                        "endDate": "2023-04-05",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=4&hidden_fromdd=5&hidden_tomm=4&hidden_todd=5&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_04_05"
+                    },
+                    {
+                        "startDate": "2023-04-07",
+                        "endDate": "2023-04-07",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=4&hidden_fromdd=7&hidden_tomm=4&hidden_todd=7&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_04_07"
+                    },
+                    {
+                        "startDate": "2023-04-11",
+                        "endDate": "2023-04-11",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=4&hidden_fromdd=11&hidden_tomm=4&hidden_todd=11&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_04_11"
+                    },
+                    {
+                        "startDate": "2023-04-15",
+                        "endDate": "2023-04-15",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=4&hidden_fromdd=15&hidden_tomm=4&hidden_todd=15&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_04_15"
+                    },
+                    {
+                        "startDate": "2023-04-19",
+                        "endDate": "2023-04-19",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=4&hidden_fromdd=19&hidden_tomm=4&hidden_todd=19&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_04_19"
+                    },
+                    {
+                        "startDate": "2023-04-27",
+                        "endDate": "2023-04-27",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=4&hidden_fromdd=27&hidden_tomm=4&hidden_todd=27&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_04_27"
+                    },
+                    {
+                        "startDate": "2023-04-28",
+                        "endDate": "2023-04-28",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=4&hidden_fromdd=28&hidden_tomm=4&hidden_todd=28&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_04_28"
+                    },
+                    {
+                        "startDate": "2023-04-29",
+                        "endDate": "2023-04-29",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=4&hidden_fromdd=29&hidden_tomm=4&hidden_todd=29&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_04_29"
+                    },
+                    {
+                        "startDate": "2023-05-04",
+                        "endDate": "2023-05-04",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=5&hidden_fromdd=4&hidden_tomm=5&hidden_todd=4&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_05_04"
+                    },
+                    {
+                        "startDate": "2023-05-12",
+                        "endDate": "2023-05-12",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=5&hidden_fromdd=12&hidden_tomm=5&hidden_todd=12&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_05_12"
+                    },
+                    {
+                        "startDate": "2023-05-14",
+                        "endDate": "2023-05-14",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=5&hidden_fromdd=14&hidden_tomm=5&hidden_todd=14&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_05_14"
+                    },
+                    {
+                        "startDate": "2023-05-15",
+                        "endDate": "2023-05-15",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=5&hidden_fromdd=15&hidden_tomm=5&hidden_todd=15&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_05_15"
+                    },
+                    {
+                        "startDate": "2023-05-17",
+                        "endDate": "2023-05-17",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=5&hidden_fromdd=17&hidden_tomm=5&hidden_todd=17&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_05_17"
+                    },
+                    {
+                        "startDate": "2023-05-21",
+                        "endDate": "2023-05-21",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=5&hidden_fromdd=21&hidden_tomm=5&hidden_todd=21&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_05_21"
+                    },
+                    {
+                        "startDate": "2023-05-25",
+                        "endDate": "2023-05-25",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=5&hidden_fromdd=25&hidden_tomm=5&hidden_todd=25&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_05_25"
+                    },
+                    {
+                        "startDate": "2023-05-27",
+                        "endDate": "2023-05-27",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=5&hidden_fromdd=27&hidden_tomm=5&hidden_todd=27&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_05_27"
+                    },
+                    {
+                        "startDate": "2023-05-30",
+                        "endDate": "2023-05-30",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=5&hidden_fromdd=30&hidden_tomm=5&hidden_todd=30&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_05_30"
+                    },
+                    {
+                        "startDate": "2023-05-31",
+                        "endDate": "2023-05-31",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=5&hidden_fromdd=31&hidden_tomm=5&hidden_todd=31&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_05_31"
+                    },
+                    {
+                        "startDate": "2023-06-07",
+                        "endDate": "2023-06-07",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=6&hidden_fromdd=7&hidden_tomm=6&hidden_todd=7&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_06_07"
+                    },
+                    {
+                        "startDate": "2023-06-13",
+                        "endDate": "2023-06-13",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=6&hidden_fromdd=13&hidden_tomm=6&hidden_todd=13&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_06_13"
+                    },
+                    {
+                        "startDate": "2023-06-17",
+                        "endDate": "2023-06-17",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=6&hidden_fromdd=17&hidden_tomm=6&hidden_todd=17&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_06_17"
+                    },
+                    {
+                        "startDate": "2023-06-20",
+                        "endDate": "2023-06-20",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=6&hidden_fromdd=20&hidden_tomm=6&hidden_todd=20&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_06_20"
+                    },
+                    {
+                        "startDate": "2023-06-21",
+                        "endDate": "2023-06-21",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=6&hidden_fromdd=21&hidden_tomm=6&hidden_todd=21&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_06_21"
+                    },
+                    {
+                        "startDate": "2023-06-23",
+                        "endDate": "2023-06-23",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=6&hidden_fromdd=23&hidden_tomm=6&hidden_todd=23&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_06_23"
+                    },
+                    {
+                        "startDate": "2023-06-27",
+                        "endDate": "2023-06-27",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=6&hidden_fromdd=27&hidden_tomm=6&hidden_todd=27&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_06_27"
+                    },
+                    {
+                        "startDate": "2023-07-03",
+                        "endDate": "2023-07-03",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=3&hidden_tomm=7&hidden_todd=3&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_03"
+                    },
+                    {
+                        "startDate": "2023-07-08",
+                        "endDate": "2023-07-08",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=8&hidden_tomm=7&hidden_todd=8&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_08"
+                    },
+                    {
+                        "startDate": "2023-07-10",
+                        "endDate": "2023-07-10",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=10&hidden_tomm=7&hidden_todd=10&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_10"
+                    },
+                    {
+                        "startDate": "2023-07-11",
+                        "endDate": "2023-07-11",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=11&hidden_tomm=7&hidden_todd=11&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_11"
+                    },
+                    {
+                        "startDate": "2023-07-14",
+                        "endDate": "2023-07-14",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=14&hidden_tomm=7&hidden_todd=14&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_14"
+                    },
+                    {
+                        "startDate": "2023-07-15",
+                        "endDate": "2023-07-15",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=15&hidden_tomm=7&hidden_todd=15&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_15"
+                    },
+                    {
+                        "startDate": "2023-07-17",
+                        "endDate": "2023-07-17",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=17&hidden_tomm=7&hidden_todd=17&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_17"
+                    },
+                    {
+                        "startDate": "2023-07-19",
+                        "endDate": "2023-07-19",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=19&hidden_tomm=7&hidden_todd=19&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_19"
+                    },
+                    {
+                        "startDate": "2023-07-25",
+                        "endDate": "2023-07-25",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=25&hidden_tomm=7&hidden_todd=25&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_25"
+                    },
+                    {
+                        "startDate": "2023-07-26",
+                        "endDate": "2023-07-26",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=26&hidden_tomm=7&hidden_todd=26&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_26"
+                    },
+                    {
+                        "startDate": "2023-07-27",
+                        "endDate": "2023-07-27",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=27&hidden_tomm=7&hidden_todd=27&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_27"
+                    },
+                    {
+                        "startDate": "2023-07-30",
+                        "endDate": "2023-07-30",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=30&hidden_tomm=7&hidden_todd=30&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_30"
+                    },
+                    {
+                        "startDate": "2023-07-31",
+                        "endDate": "2023-07-31",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=7&hidden_fromdd=31&hidden_tomm=7&hidden_todd=31&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_07_31"
+                    },
+                    {
+                        "startDate": "2023-08-03",
+                        "endDate": "2023-08-03",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=3&hidden_tomm=8&hidden_todd=3&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_03"
+                    },
+                    {
+                        "startDate": "2023-08-04",
+                        "endDate": "2023-08-04",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=4&hidden_tomm=8&hidden_todd=4&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_04"
+                    },
+                    {
+                        "startDate": "2023-08-07",
+                        "endDate": "2023-08-07",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=7&hidden_tomm=8&hidden_todd=7&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_07"
+                    },
+                    {
+                        "startDate": "2023-08-14",
+                        "endDate": "2023-08-14",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=14&hidden_tomm=8&hidden_todd=14&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_14"
+                    },
+                    {
+                        "startDate": "2023-08-16",
+                        "endDate": "2023-08-16",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=16&hidden_tomm=8&hidden_todd=16&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_16"
+                    },
+                    {
+                        "startDate": "2023-08-17",
+                        "endDate": "2023-08-17",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=17&hidden_tomm=8&hidden_todd=17&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_17"
+                    },
+                    {
+                        "startDate": "2023-08-19",
+                        "endDate": "2023-08-19",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=19&hidden_tomm=8&hidden_todd=19&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_19"
+                    },
+                    {
+                        "startDate": "2023-08-20",
+                        "endDate": "2023-08-20",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=20&hidden_tomm=8&hidden_todd=20&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_20"
+                    },
+                    {
+                        "startDate": "2023-08-23",
+                        "endDate": "2023-08-23",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=23&hidden_tomm=8&hidden_todd=23&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_23"
+                    },
+                    {
+                        "startDate": "2023-08-24",
+                        "endDate": "2023-08-24",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=24&hidden_tomm=8&hidden_todd=24&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_24"
+                    },
+                    {
+                        "startDate": "2023-08-30",
+                        "endDate": "2023-08-30",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=8&hidden_fromdd=30&hidden_tomm=8&hidden_todd=30&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_08_30"
+                    },
+                    {
+                        "startDate": "2023-09-04",
+                        "endDate": "2023-09-04",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=4&hidden_tomm=9&hidden_todd=4&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_04"
+                    },
+                    {
+                        "startDate": "2023-09-06",
+                        "endDate": "2023-09-06",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=6&hidden_tomm=9&hidden_todd=6&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_06"
+                    },
+                    {
+                        "startDate": "2023-09-07",
+                        "endDate": "2023-09-07",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=7&hidden_tomm=9&hidden_todd=7&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_07"
+                    },
+                    {
+                        "startDate": "2023-09-08",
+                        "endDate": "2023-09-08",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=8&hidden_tomm=9&hidden_todd=8&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_08"
+                    },
+                    {
+                        "startDate": "2023-09-11",
+                        "endDate": "2023-09-11",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=11&hidden_tomm=9&hidden_todd=11&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_11"
+                    },
+                    {
+                        "startDate": "2023-09-21",
+                        "endDate": "2023-09-21",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=21&hidden_tomm=9&hidden_todd=21&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_21"
+                    },
+                    {
+                        "startDate": "2023-09-23",
+                        "endDate": "2023-09-23",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=23&hidden_tomm=9&hidden_todd=23&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_23"
+                    },
+                    {
+                        "startDate": "2023-09-25",
+                        "endDate": "2023-09-25",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=25&hidden_tomm=9&hidden_todd=25&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_25"
+                    },
+                    {
+                        "startDate": "2023-09-27",
+                        "endDate": "2023-09-27",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=27&hidden_tomm=9&hidden_todd=27&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_27"
+                    },
+                    {
+                        "startDate": "2023-09-29",
+                        "endDate": "2023-09-29",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=29&hidden_tomm=9&hidden_todd=29&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_29"
+                    },
+                    {
+                        "startDate": "2023-09-30",
+                        "endDate": "2023-09-30",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=9&hidden_fromdd=30&hidden_tomm=9&hidden_todd=30&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_09_30"
+                    },
+                    {
+                        "startDate": "2023-10-01",
+                        "endDate": "2023-10-01",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=1&hidden_tomm=10&hidden_todd=1&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_01"
+                    },
+                    {
+                        "startDate": "2023-10-05",
+                        "endDate": "2023-10-05",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=5&hidden_tomm=10&hidden_todd=5&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_05"
+                    },
+                    {
+                        "startDate": "2023-10-11",
+                        "endDate": "2023-10-11",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=11&hidden_tomm=10&hidden_todd=11&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_11"
+                    },
+                    {
+                        "startDate": "2023-10-15",
+                        "endDate": "2023-10-15",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=15&hidden_tomm=10&hidden_todd=15&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_15"
+                    },
+                    {
+                        "startDate": "2023-10-16",
+                        "endDate": "2023-10-16",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=16&hidden_tomm=10&hidden_todd=16&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_16"
+                    },
+                    {
+                        "startDate": "2023-10-20",
+                        "endDate": "2023-10-20",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=20&hidden_tomm=10&hidden_todd=20&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_20"
+                    },
+                    {
+                        "startDate": "2023-10-24",
+                        "endDate": "2023-10-24",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=24&hidden_tomm=10&hidden_todd=24&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_24"
+                    },
+                    {
+                        "startDate": "2023-10-25",
+                        "endDate": "2023-10-25",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=25&hidden_tomm=10&hidden_todd=25&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_25"
+                    },
+                    {
+                        "startDate": "2023-10-28",
+                        "endDate": "2023-10-28",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=28&hidden_tomm=10&hidden_todd=28&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_28"
+                    },
+                    {
+                        "startDate": "2023-10-29",
+                        "endDate": "2023-10-29",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=29&hidden_tomm=10&hidden_todd=29&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_29"
+                    },
+                    {
+                        "startDate": "2023-10-30",
+                        "endDate": "2023-10-30",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=10&hidden_fromdd=30&hidden_tomm=10&hidden_todd=30&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_10_30"
+                    },
+                    {
+                        "startDate": "2023-11-03",
+                        "endDate": "2023-11-03",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=3&hidden_tomm=11&hidden_todd=3&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_03"
+                    },
+                    {
+                        "startDate": "2023-11-07",
+                        "endDate": "2023-11-07",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=7&hidden_tomm=11&hidden_todd=7&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_07"
+                    },
+                    {
+                        "startDate": "2023-11-09",
+                        "endDate": "2023-11-09",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=9&hidden_tomm=11&hidden_todd=9&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_09"
+                    },
+                    {
+                        "startDate": "2023-11-10",
+                        "endDate": "2023-11-10",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=10&hidden_tomm=11&hidden_todd=10&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_10"
+                    },
+                    {
+                        "startDate": "2023-11-12",
+                        "endDate": "2023-11-12",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=12&hidden_tomm=11&hidden_todd=12&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_12"
+                    },
+                    {
+                        "startDate": "2023-11-14",
+                        "endDate": "2023-11-14",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=14&hidden_tomm=11&hidden_todd=14&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_14"
+                    },
+                    {
+                        "startDate": "2023-11-18",
+                        "endDate": "2023-11-18",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=18&hidden_tomm=11&hidden_todd=18&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_18"
+                    },
+                    {
+                        "startDate": "2023-11-23",
+                        "endDate": "2023-11-23",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=23&hidden_tomm=11&hidden_todd=23&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_23"
+                    },
+                    {
+                        "startDate": "2023-11-27",
+                        "endDate": "2023-11-27",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=27&hidden_tomm=11&hidden_todd=27&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_27"
+                    },
+                    {
+                        "startDate": "2023-11-28",
+                        "endDate": "2023-11-28",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=28&hidden_tomm=11&hidden_todd=28&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_28"
+                    },
+                    {
+                        "startDate": "2023-11-30",
+                        "endDate": "2023-11-30",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=11&hidden_fromdd=30&hidden_tomm=11&hidden_todd=30&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_11_30"
+                    },
+                    {
+                        "startDate": "2023-12-01",
+                        "endDate": "2023-12-01",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=1&hidden_tomm=12&hidden_todd=1&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_01"
+                    },
+                    {
+                        "startDate": "2023-12-03",
+                        "endDate": "2023-12-03",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=3&hidden_tomm=12&hidden_todd=3&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_03"
+                    },
+                    {
+                        "startDate": "2023-12-07",
+                        "endDate": "2023-12-07",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=7&hidden_tomm=12&hidden_todd=7&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_07"
+                    },
+                    {
+                        "startDate": "2023-12-09",
+                        "endDate": "2023-12-09",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=9&hidden_tomm=12&hidden_todd=9&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_09"
+                    },
+                    {
+                        "startDate": "2023-12-12",
+                        "endDate": "2023-12-12",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=12&hidden_tomm=12&hidden_todd=12&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_12"
+                    },
+                    {
+                        "startDate": "2023-12-13",
+                        "endDate": "2023-12-13",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=13&hidden_tomm=12&hidden_todd=13&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_13"
+                    },
+                    {
+                        "startDate": "2023-12-15",
+                        "endDate": "2023-12-15",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=15&hidden_tomm=12&hidden_todd=15&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_15"
+                    },
+                    {
+                        "startDate": "2023-12-16",
+                        "endDate": "2023-12-16",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=16&hidden_tomm=12&hidden_todd=16&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_16"
+                    },
+                    {
+                        "startDate": "2023-12-18",
+                        "endDate": "2023-12-18",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=18&hidden_tomm=12&hidden_todd=18&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_18"
+                    },
+                    {
+                        "startDate": "2023-12-21",
+                        "endDate": "2023-12-21",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=21&hidden_tomm=12&hidden_todd=21&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_21"
+                    },
+                    {
+                        "startDate": "2023-12-28",
+                        "endDate": "2023-12-28",
+                        "searchUrl": "https://project-gc.com/Tools/MapHiddenMonth?profile_name=zemiak&country=Slovakia&hidden_frommm=12&hidden_fromdd=28&hidden_tomm=12&hidden_todd=28&type%5B%5D=Multi-cache&submit=Filter",
+                        "searchKey": "search_12_28"
+                    },
+        {"startDate": "1970-01-01", "endDate": "1970-01-01", "searchUrl": "nope", "searchKey": "nope"}
+        ]
+    </div>
+
+    <script>
+        let year = 2023;
+        const jsonText = document.getElementById("data-slices").innerHTML;
+        const dataSlices = JSON.parse(jsonText);
+
+        let searchUrls = {};
+        let dataSlicesParsed = [];
+        for (let i = 0; i < dataSlices.length; i++) {
+            let dataSlice = dataSlices[i];
+            let startDate = new Date(dataSlice.startDate);
+            let endDate = new Date(dataSlice.endDate);
+            dataSlicesParsed.push({
+                startDate: startDate,
+                endDate: endDate
+            });
+
+            searchUrls[dataSlice.searchKey] = dataSlice.searchUrl.replaceAll("&amp;", "&");
+        }
+
+        let beginningOfTheYear = new Date(year, 0, 1);
+        let endOfTheYear = new Date(year, 11, 31);
+        new Calendar("#desktop-calendar", {
+            minDate: beginningOfTheYear,
+            maxDate: endOfTheYear,
+            dataSource: dataSlicesParsed,
+        });
+
+        document.querySelector('#desktop-calendar').addEventListener('clickDay', function(e) {
+            const id = e.date.getMonth() + 1 + "-" + e.date.getDate();
+            const searchId = "search_" + String(e.date.getMonth() + 1).padStart(2, "0") + "_" + String(e.date.getDate()).padStart(2, "0");
+            const site = id + ".html";
+            const url = window.location.href;
+            const index = url.lastIndexOf("/");
+            const path = url.substring(0, index);
+            const documentUrl = path + "/YellowCalendarHidden/" + site;
+
+            const $modalTarget = document.getElementById("cache-list");
+            const $modalContentTarget = document.getElementById("cache-list-modal-box-content");
+
+            if (searchUrls.hasOwnProperty(searchId)) {
+                console.log("Opening " + searchUrls[searchId]);
+                window.open(searchUrls[searchId], "_blank");
+            } else {
+                fetch(documentUrl).then((response) => {
+                response.text().then((text) => {
+                    $modalContentTarget.innerHTML = text;
+                    $modalTarget.classList.add("is-active");
+                });
+            });
+            }
+        })
+    </script>
+
+  </body>
 </html>

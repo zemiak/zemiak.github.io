@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Blue</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
-    <script src="index.js"></script>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="icons/globe-1920.png">
+    <link rel="icon" href="icons/globe-120.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+    <script src="index.js"></script>
+    
     <style>
         .styled-table,
         .matrix,
@@ -117,6 +134,7 @@
         }
 
     </style>
+
 </head>
 
 <body>
@@ -140,6 +158,399 @@
         </div>
     </nav>
 
+    
+    <div class="is-hidden-mobile">
+    <section class="section">
+      <div class="columns">
+        <div class="column is-4 is-offset-4">
+        <center><h1>Blue</h1></center>
+        <table class="table mystery">
+            <thead>
+                <tr>
+                    <th><abbr title="Difficulty / Terrain"><sub>D</sub>\<sup>T</sup></abbr></th>
+                    <th>1.0</th>
+                    <th>1.5</th>
+                    <th>2.0</th>
+                    <th>2.5</th>
+                    <th>3.0</th>
+                    <th>3.5</th>
+                    <th>4.0</th>
+                    <th>4.5</th>
+                    <th>5.0</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th><abbr title="Difficulty / Terrain"><sub>D</sub>\<sup>T</sup></abbr></th>
+                    <th>1.0</th>
+                    <th>1.5</th>
+                    <th>2.0</th>
+                    <th>2.5</th>
+                    <th>3.0</th>
+                    <th>3.5</th>
+                    <th>4.0</th>
+                    <th>4.5</th>
+                    <th>5.0</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                    <tr>
+                        <th>1.0</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d1.0.html" href="#">6</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d1.0.html" href="#">15</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d1.0.html" href="#">20</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d1.0.html" href="#">6</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d1.0.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.5-d1.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.0-d1.0.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d1.0.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t5.0-d1.0.html" href="#">1</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>1.5</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d1.5.html" href="#">10</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d1.5.html" href="#">55</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d1.5.html" href="#">41</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d1.5.html" href="#">17</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d1.5.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.5-d1.5.html" href="#">1</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.0-d1.5.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d1.5.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t5.0-d1.5.html" href="#">1</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>2.0</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d2.0.html" href="#">9</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d2.0.html" href="#">84</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d2.0.html" href="#">116</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d2.0.html" href="#">57</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d2.0.html" href="#">21</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.5-d2.0.html" href="#">7</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.0-d2.0.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d2.0.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t5.0-d2.0.html" href="#">1</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>2.5</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d2.5.html" href="#">10</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d2.5.html" href="#">68</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d2.5.html" href="#">61</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d2.5.html" href="#">41</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d2.5.html" href="#">32</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.5-d2.5.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.0-d2.5.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d2.5.html" href="#">3</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t5.0-d2.5.html" href="#">3</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>3.0</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d3.0.html" href="#">16</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d3.0.html" href="#">78</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d3.0.html" href="#">46</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d3.0.html" href="#">32</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d3.0.html" href="#">10</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.5-d3.0.html" href="#">9</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.0-d3.0.html" href="#">6</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d3.0.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t5.0-d3.0.html" href="#">2</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>3.5</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d3.5.html" href="#">9</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d3.5.html" href="#">28</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d3.5.html" href="#">32</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d3.5.html" href="#">23</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d3.5.html" href="#">7</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.5-d3.5.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.0-d3.5.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d3.5.html" href="#">2</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t5.0-d3.5.html" href="#">4</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>4.0</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d4.0.html" href="#">6</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d4.0.html" href="#">29</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d4.0.html" href="#">27</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d4.0.html" href="#">13</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d4.0.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.5-d4.0.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.0-d4.0.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d4.0.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t5.0-d4.0.html" href="#">2</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>4.5</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d4.5.html" href="#">7</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d4.5.html" href="#">6</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d4.5.html" href="#">10</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d4.5.html" href="#">6</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d4.5.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.5-d4.5.html" href="#">6</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.0-d4.5.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d4.5.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t5.0-d4.5.html" href="#">1</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>5.0</th>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.0-d5.0.html" href="#">7</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d5.0.html" href="#">11</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d5.0.html" href="#">14</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d5.0.html" href="#">6</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d5.0.html" href="#">5</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.5-d5.0.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.0-d5.0.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d5.0.html" href="#">4</a>
+
+                        </td>
+                        <td>
+                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t5.0-d5.0.html" href="#">2</a>
+
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        </div></div></section>
+    </div>
+
+    <div class="is-hidden-tablet">
     <center>
         <table class="matrix mystery">
             <tr>
@@ -243,7 +654,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d2.0.html" href="#">114</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d2.0.html" href="#">116</a>
 
                 </td>
                 <td>
@@ -278,15 +689,15 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d2.5.html" href="#">67</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d2.5.html" href="#">68</a>
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d2.5.html" href="#">60</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d2.5.html" href="#">61</a>
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d2.5.html" href="#">40</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d2.5.html" href="#">41</a>
 
                 </td>
                 <td>
@@ -325,7 +736,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d3.0.html" href="#">31</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.5-d3.0.html" href="#">32</a>
 
                 </td>
                 <td>
@@ -341,7 +752,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d3.0.html" href="#">1</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d3.0.html" href="#">2</a>
 
                 </td>
                 <td>
@@ -368,7 +779,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d3.5.html" href="#">6</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t3.0-d3.5.html" href="#">7</a>
 
                 </td>
                 <td>
@@ -380,7 +791,7 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d3.5.html" href="#">3</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t4.5-d3.5.html" href="#">2</a>
 
                 </td>
                 <td>
@@ -473,11 +884,11 @@
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d5.0.html" href="#">10</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t1.5-d5.0.html" href="#">11</a>
 
                 </td>
                 <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d5.0.html" href="#">13</a>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="BlueTable/t2.0-d5.0.html" href="#">14</a>
 
                 </td>
                 <td>
@@ -507,6 +918,7 @@
             </tr>
         </table>
     </center>
+    </div>
 
     <div class="modal" id="cache-list">
         <div class="modal-background"></div>
@@ -519,6 +931,6 @@
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
-</body>
 
+  </body>
 </html>
