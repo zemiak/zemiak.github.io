@@ -11,16 +11,16 @@
     <meta name="apple-mobile-web-app-title" content="GeoStats" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" sizes="120x120" href="icons/globe-120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="icons/globe-152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="icons/globe-167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/globe-180.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="icons/globe-192.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="icons/globe-512.png">
-    <link rel="apple-touch-icon" sizes="1024x1024" href="icons/globe-1024.png">
-    <link rel="apple-touch-icon" sizes="1920x1920" href="icons/globe-1920.png">
-    <link rel="icon" href="icons/globe-120.png">
-    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/geostats-static/icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/geostats-static/icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/geostats-static/icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/geostats-static/icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="/geostats-static/icons/globe-1920.png">
+    <link rel="icon" href="/geostats-static/icons/globe-120.png">
+    <link rel="shortcut icon" href="/geostats-static/favicon.ico" type="image/vnd.microsoft.icon">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
@@ -241,6 +241,7 @@
             minDate: beginningOfTheYear,
             maxDate: endOfTheYear,
             dataSource: dataSlicesParsed,
+            weekStart: 1
         });
 
         document.querySelector('#desktop-calendar').addEventListener('clickDay', function(e) {
