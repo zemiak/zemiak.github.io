@@ -38,6 +38,19 @@
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             }
 
+            .desktop-calendar caption {
+                background: lightblue;
+                border-radius:5px 5px 0 0;
+                padding:5px;
+                font-size:140%;
+                font-weight:300;
+                text-transform:uppercase;
+                letter-spacing:1px;
+                color:#fff;
+                cursor:default;
+                text-shadow:0 0 10px rgba(0,0,0,.8);
+            }
+
             .desktop-calendar thead tr {
                 text-align: left;
             }
@@ -61,27 +74,71 @@
 
 
 
-            .mobile-calendar {
-                border-collapse: collapse;
-                margin: 4px 0;
-                font-size: 1em;
-                font-family: sans-serif;
-                min-width: 300px;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            *{ margin:0;padding:0; }
+
+            #calendar {
+                width:267px;
+                margin:0 auto;
+                margin-top:2%;
+                margin-bottom:2%;
+                border-radius:5px;
+                text-align:center;
+                color:#555;
+                box-shadow:0 0 50px -14px rgba(0,0,0,.8);
             }
 
-            .mobile-calendar thead tr {
-                text-align: left;
+            #calendar h1 {
+                background: lightblue;
+                border-radius:5px 5px 0 0;
+                padding:5px;
+                font-size:140%;
+                font-weight:300;
+                text-transform:uppercase;
+                letter-spacing:1px;
+                color:#fff;
+                cursor:default;
+                text-shadow:0 0 10px rgba(0,0,0,.8);
             }
 
-            .mobile-calendar th,
-            .mobile-calendar td {
-                padding: 4px 6px;
+            #calendar table {
+                border-top:1px solid #ddd;
+                border-left:1px solid #ddd;
+                border-spacing:0;
+                border-radius:0 0 5px 5px;
             }
 
-            .mobile-calendar tbody tr.active-row {
-                font-weight: bold;
+            #calendar td {
+                width:38px;
+                height:38px;
+                border-right:1px solid #ddd;
+                border-bottom:1px solid #ddd;
+                padding:6px;
+                cursor:pointer;
+                transition:background .3s;
+                -webkit-transition:background .3s;
             }
+
+            #calendar td:hover {
+                color:yellow;
+            }
+
+            #calendar .lastmonth,#calendar .nextmonth,#calendar .nextmonth ~ *{
+                color:#999;
+            }
+
+            #calendar .current {
+                background: lightblue;
+                font-weight:700;
+                color:#fff;
+                text-shadow:0 0 10px rgba(0,0,0,.5);
+            }
+
+            #calendar .hastask{
+                font-weight:700;
+            }
+
+            #calendar tr:last-of-type td:first-of-type{ border-radius:0 0 0 5px; }
+            #calendar tr:last-of-type td:last-of-type{ border-radius:0 0 5px 0; }
         </style>
 
 </head>
@@ -118,8 +175,6 @@
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
-
-    <center><h1>MystiHidden</h1></center>
 
     <div class="is-hidden-mobile">
         <section class="section">
@@ -1282,170 +1337,140 @@
     </div>
 
     <div class="is-hidden-desktop">
-            <div class="columns is-mobile is-centered">
-                <div class="column is-one-quarter">&nbsp;</div>
-                <div class="column is-half">
-                    <table class="mobile-calendar">
-                        <caption id="month01">January</caption>
-                        <tbody>
-                                <tr>
+        <div class="columns is-mobile is-centered">
+            <div class="column is-12">
+                    <div id="calendar">
+                        <h1>January</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-28.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-29.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-29.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-30.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/1-31.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
@@ -1465,164 +1490,138 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month02">February</caption>
-                        <tbody>
-                                <tr>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>February</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-21.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-22.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-23.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">24</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-22.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-23.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-24.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-28.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">29</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/2-29.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
@@ -1630,196 +1629,166 @@
                                             &nbsp;
                                         </td>
 
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
                                         </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>March</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month03">March</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-28.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-29.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-29.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-30.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/3-31.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
@@ -1839,362 +1808,305 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month04">April</caption>
-                        <tbody>
-                                <tr>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>April</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-28.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">29</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-29.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">30</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/4-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
                                         </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>May</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month05">May</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-28.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-29.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-29.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-30.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/5-31.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
@@ -2214,362 +2126,305 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month06">June</caption>
-                        <tbody>
-                                <tr>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>June</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-28.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">29</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-29.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">30</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/6-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
                                         </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>July</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month07">July</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-28.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-29.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-29.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-30.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/7-31.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
@@ -2589,175 +2444,146 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month08">August</caption>
-                        <tbody>
-                                <tr>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>August</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-28.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-29.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-29.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-30.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/8-31.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
@@ -2777,362 +2603,305 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month09">September</caption>
-                        <tbody>
-                                <tr>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>September</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-28.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">29</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-29.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">30</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/9-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
                                         </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>October</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month10">October</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-28.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-29.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-29.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-30.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/10-31.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
@@ -3152,362 +2921,305 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month11">November</caption>
-                        <tbody>
-                                <tr>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>November</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-28.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">29</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-29.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">30</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/11-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
                                         </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>December</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month12">December</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-28.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-29.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-29.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-30.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="BlueCalendarHidden/12-31.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
@@ -3527,18 +3239,16 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    </table>
-                </div>
-                <div class="column is-one-quarter">&nbsp;</div>
+                            </tr>
+                        </table>
+                    </div>
             </div>
+        </div>
     </div>
 
   </body>

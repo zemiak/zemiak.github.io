@@ -38,6 +38,19 @@
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             }
 
+            .desktop-calendar caption {
+                background: lightblue;
+                border-radius:5px 5px 0 0;
+                padding:5px;
+                font-size:140%;
+                font-weight:300;
+                text-transform:uppercase;
+                letter-spacing:1px;
+                color:#fff;
+                cursor:default;
+                text-shadow:0 0 10px rgba(0,0,0,.8);
+            }
+
             .desktop-calendar thead tr {
                 text-align: left;
             }
@@ -61,27 +74,71 @@
 
 
 
-            .mobile-calendar {
-                border-collapse: collapse;
-                margin: 4px 0;
-                font-size: 1em;
-                font-family: sans-serif;
-                min-width: 300px;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            *{ margin:0;padding:0; }
+
+            #calendar {
+                width:267px;
+                margin:0 auto;
+                margin-top:2%;
+                margin-bottom:2%;
+                border-radius:5px;
+                text-align:center;
+                color:#555;
+                box-shadow:0 0 50px -14px rgba(0,0,0,.8);
             }
 
-            .mobile-calendar thead tr {
-                text-align: left;
+            #calendar h1 {
+                background: lightblue;
+                border-radius:5px 5px 0 0;
+                padding:5px;
+                font-size:140%;
+                font-weight:300;
+                text-transform:uppercase;
+                letter-spacing:1px;
+                color:#fff;
+                cursor:default;
+                text-shadow:0 0 10px rgba(0,0,0,.8);
             }
 
-            .mobile-calendar th,
-            .mobile-calendar td {
-                padding: 4px 6px;
+            #calendar table {
+                border-top:1px solid #ddd;
+                border-left:1px solid #ddd;
+                border-spacing:0;
+                border-radius:0 0 5px 5px;
             }
 
-            .mobile-calendar tbody tr.active-row {
-                font-weight: bold;
+            #calendar td {
+                width:38px;
+                height:38px;
+                border-right:1px solid #ddd;
+                border-bottom:1px solid #ddd;
+                padding:6px;
+                cursor:pointer;
+                transition:background .3s;
+                -webkit-transition:background .3s;
             }
+
+            #calendar td:hover {
+                color:yellow;
+            }
+
+            #calendar .lastmonth,#calendar .nextmonth,#calendar .nextmonth ~ *{
+                color:#999;
+            }
+
+            #calendar .current {
+                background: lightblue;
+                font-weight:700;
+                color:#fff;
+                text-shadow:0 0 10px rgba(0,0,0,.5);
+            }
+
+            #calendar .hastask{
+                font-weight:700;
+            }
+
+            #calendar tr:last-of-type td:first-of-type{ border-radius:0 0 0 5px; }
+            #calendar tr:last-of-type td:last-of-type{ border-radius:0 0 5px 0; }
         </style>
 
 </head>
@@ -118,8 +175,6 @@
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
-
-    <center><h1>Event</h1></center>
 
     <div class="is-hidden-mobile">
         <section class="section">
@@ -1282,170 +1337,140 @@
     </div>
 
     <div class="is-hidden-desktop">
-            <div class="columns is-mobile is-centered">
-                <div class="column is-one-quarter">&nbsp;</div>
-                <div class="column is-half">
-                    <table class="mobile-calendar">
-                        <caption id="month01">January</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
+        <div class="columns is-mobile is-centered">
+            <div class="column is-12">
+                    <div id="calendar">
+                        <h1>January</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-01" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">2</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-02" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">3</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-03" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">4</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-04" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/1-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/1-6.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">7</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-07" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-08" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">9</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-09" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">10</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-10" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">11</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-11" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">12</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-12" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">13</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-13" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-14" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-15" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">16</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-16" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">17</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-17" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/1-18.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">19</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-19" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">20</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-20" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">21</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-21" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-22" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-23" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">24</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-24" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/1-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/1-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/1-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">28</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-28" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-29" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-30" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-01-31" target="_blank">1</a>
                                         </td>
 
@@ -1465,164 +1490,138 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month02">February</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>February</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-01" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">2</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-02" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">3</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-03" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">4</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-04" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">5</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-05" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">6</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-06" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">7</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-07" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-08" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/2-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">10</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-10" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">11</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-11" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">12</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-12" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">13</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-13" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-14" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-15" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">16</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-16" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">17</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-17" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">18</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-18" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">19</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-19" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/2-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">21</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-21" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-22" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-23" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">24</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-24" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">25</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-25" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">26</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-26" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">27</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-02-27" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/2-28.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">29</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/2-29.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
@@ -1630,196 +1629,166 @@
                                             &nbsp;
                                         </td>
 
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
                                         </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month03">March</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>March</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-01" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">2</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-02" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">3</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-03" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">4</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-04" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">5</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-05" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">6</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-06" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/3-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-08" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/3-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">10</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-10" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">11</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-11" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">12</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-12" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">13</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-13" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">14</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/3-14.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-15" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">16</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-16" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/3-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">18</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-18" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/3-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">20</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-20" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/3-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-22" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-23" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">24</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-24" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/3-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">26</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-26" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">27</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-27" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/3-28.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-29" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-30" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-03-31" target="_blank">1</a>
                                         </td>
 
@@ -1839,362 +1808,305 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month04">April</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>April</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-01" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">2</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-02" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">3</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-03" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">4</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-04" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/4-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/4-6.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/4-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/4-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">9</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-09" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">10</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-10" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">11</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-11" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">12</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-12" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">13</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-13" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-14" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-15" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/4-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">17</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-17" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">18</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-18" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">19</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-19" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">20</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-20" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">21</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-21" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-22" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-23" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/4-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">25</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-25" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">26</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-26" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">27</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-27" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">28</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-28" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-29" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-04-30" target="_blank">1</a>
                                         </td>
 
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
                                         </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>May</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month05">May</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">3</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-03" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">4</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-04" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">5</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-05" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">6</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-06" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-08" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">9</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-09" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">10</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-10" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">12</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-12" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-14" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-15.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">16</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-16" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">17</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-17" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">18</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-18" target="_blank">1</a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-15.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-16" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-17" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-18" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-19" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">20</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-20" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">21</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-21" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-22" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-23" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">25</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-25" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">26</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-26" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">28</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-28" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-29.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-29.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/5-30.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-05-31" target="_blank">1</a>
                                         </td>
 
@@ -2214,362 +2126,305 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month06">June</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>June</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-01" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">4</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-04" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">5</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-05" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">6</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-06" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">7</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-07" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-08" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">9</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-09" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">10</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-10" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">11</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-11" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">12</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-12" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-13" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-14" target="_blank">1</a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-13" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-14" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">16</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-16.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">18</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-18" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">19</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-19" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">21</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-21" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-22.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-23" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">24</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-24" target="_blank">1</a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-22.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-23" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-24" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-25" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">27</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-27" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">28</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-06-28" target="_blank">1</a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">29</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-29.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">30</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/6-30.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
                                         </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>July</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month07">July</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/7-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/7-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/7-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/7-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/7-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">6</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-06" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">7</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-07" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-08" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">9</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-09" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">10</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-10" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/7-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/7-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/7-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-14" target="_blank">1</a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/7-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">16</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-16" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">17</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-17" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">18</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-18" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">19</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-19" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">20</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-20" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">21</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-21" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-22" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-23" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">24</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-24" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">25</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-25" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">26</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-26" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/7-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">28</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-28" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-29" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-30" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-07-31" target="_blank">1</a>
                                         </td>
 
@@ -2589,175 +2444,146 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month08">August</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>August</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-01" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">2</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-02" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">3</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-03" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">4</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-4.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">5</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-05" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">9</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-09" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">11</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-11" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">12</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-12" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">13</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-13" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-14" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-15" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">16</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-16" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">18</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-18" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-19.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">20</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-20" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">21</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-21" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-22.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-23" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">24</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-24" target="_blank">1</a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-22.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-23" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-24" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-25" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">26</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-26.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">27</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-27" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">28</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-28" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-29.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-30" target="_blank">1</a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/8-29.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-30" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-08-31" target="_blank">1</a>
                                         </td>
 
@@ -2777,362 +2603,305 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month09">September</caption>
-                        <tbody>
-                                <tr>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>September</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">2</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-2.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">4</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-04" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">5</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-05" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-6.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-7.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-8.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">10</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-10" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">11</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-11" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">12</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-12" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">13</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-13" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-14" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-15" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">16</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-16" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">17</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-17" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">18</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-18" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">19</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-19" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">20</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-20" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-22" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">24</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-24" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">25</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-25" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">26</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-26" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/9-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">28</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-28" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-29" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-09-30" target="_blank">1</a>
                                         </td>
 
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
                                         </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month10">October</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>October</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-01" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">2</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-02" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">3</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-3.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">4</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-04" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">5</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-05" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">6</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-06" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">7</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-07" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-08" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">9</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-09" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">10</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-10" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">11</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-11" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-14" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-15" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">16</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-16" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">17</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-17" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">18</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-18.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td>
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-19.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-20" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-21" target="_blank">1</a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-19.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">20</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-20" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">21</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-21" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">23</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-23.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">24</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-24" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">26</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-26" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">27</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-27" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">28</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-28.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-29.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-30" target="_blank">1</a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-29.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-10-30" target="_blank">1</a>
+                                        </td>
+
+                                        <td>
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/10-31.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
@@ -3152,362 +2921,305 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month11">November</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>November</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-01" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">2</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-02" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">3</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-03" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">4</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-04" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">5</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-5.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">6</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-6.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">7</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-07" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-08" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">9</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-9.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">11</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-11.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">12</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-12.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-13.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-14" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
-                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-15.html" href="#"><i class="fa fa-check"></i></a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">16</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-16" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">17</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-17" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">18</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-18" target="_blank">1</a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">19</span><br />
+                                            <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-15.html" href="#"><i class="fa fa-check"></i></a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-16" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-17" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-18" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-19" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">20</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-20.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">22</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-22" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-23" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">24</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-24.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">25</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-25.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">26</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-26" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">27</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/11-27.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">28</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-28" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-29" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-11-30" target="_blank">1</a>
                                         </td>
 
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
                                         </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="calendar">
+                        <h1>December</h1>
+                        <table>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
                                         <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        <td>
-                                            &nbsp;
-                                        </td>
-
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    <table class="mobile-calendar">
-                        <caption id="month12">December</caption>
-                        <tbody>
-                                <tr>
-                                        <td>
-                                            <span style="font-weight: bold;">1</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/12-1.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">2</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-02" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">3</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-03" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">4</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-04" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">5</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-05" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">6</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-06" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">7</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/12-7.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">8</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-08" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">9</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-09" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">10</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/12-10.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">11</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-11" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">12</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-12" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-13" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="current">
+                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-14" target="_blank">1</a>
                                         </td>
 
                                         </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">13</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-13" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">14</span><br />
-                                            <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-14" target="_blank">1</a>
-                                        </td>
-
-                                        <td>
-                                            <span style="font-weight: bold;">15</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/12-15.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">16</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-16" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">17</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/12-17.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">18</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-18" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">19</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-19" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">20</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-20" target="_blank">1</a>
                                         </td>
 
                                         <td>
-                                            <span style="font-weight: bold;">21</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/12-21.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
+                                        </tr><tr>
                                         <td>
-                                            <span style="font-weight: bold;">22</span><br />
                                             <a class="js-modal-trigger" data-target="cache-list" data-site="DailyEvent/12-22.html" href="#"><i class="fa fa-check"></i></a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">23</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-23" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">24</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-24" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">25</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-25" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">26</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-26" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">27</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-27" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">28</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-28" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">29</span><br />
+                                        </tr><tr>
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-29" target="_blank">1</a>
                                         </td>
 
-                                        <td>
-                                            <span style="font-weight: bold;">30</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-30" target="_blank">1</a>
                                         </td>
 
-                                        </tr><tr>
-                                        <td>
-                                            <span style="font-weight: bold;">31</span><br />
+                                        <td class="current">
                                             <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13&pod=2020-12-31" target="_blank">1</a>
                                         </td>
 
@@ -3527,18 +3239,16 @@
                                             &nbsp;
                                         </td>
 
+                                        </tr><tr>
                                         <td>
                                             &nbsp;
                                         </td>
 
-                                        </tr><tr>
-                                </tr>
-                        </tbody>
-                        <p>&nbsp;</p>
-                    </table>
-                </div>
-                <div class="column is-one-quarter">&nbsp;</div>
+                            </tr>
+                        </table>
+                    </div>
             </div>
+        </div>
     </div>
 
   </body>
