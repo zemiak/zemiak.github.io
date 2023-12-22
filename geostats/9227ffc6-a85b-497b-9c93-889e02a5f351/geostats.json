@@ -1,9 +1,8 @@
 {
-  "importDateTime" : "2023-12-21T10:46:29.252498683",
-  "gpxDateTime" : "2023-12-19T19:34:33.022023Z",
-  "labDateTime" : "2023-12-21T10:46:23.964Z",
+  "importDateTime" : "2023-12-15T20:26:41.390654",
+  "gpxDateTime" : "2023-12-15T19:25:14.8002098Z",
+  "labDateTime" : "2023-12-03T21:56:13.977Z",
   "cacher" : "zemiak",
-  "countLabs" : 791,
-  "countNotLabs" : 5431,
-  "dataUpdateStatus" : null
+  "countLabs" : 786,
+  "countNotLabs" : 5417
 }
