@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Weekday Climber</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/geostats-static/icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/geostats-static/icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/geostats-static/icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/geostats-static/icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="/geostats-static/icons/globe-1920.png">
+    <link rel="icon" href="/geostats-static/icons/globe-120.png">
+    <link rel="shortcut icon" href="/geostats-static/favicon.ico" type="image/vnd.microsoft.icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+    <script src="index.js"></script>
+    
+        <style>
+            @blue: #626E7E;
+            @light: lighten(@blue, 40%);
+            @light2: darken(@light, 3%);
+
+            table{
+            font-family:sans-serif;
+                    width: 100%;
+                    border-spacing: 0;
+                    border-collapse: separate;
+                    table-layout: fixed;
+                    margin-bottom: 50px;
+
+                    thead{
+                            tr{
+                                th{
+                                        background: @blue;
+                                        color: @light;
+                                        padding: 0.5em;
+                                        overflow: hidden;
+
+                                        &:first-child{
+                                            border-radius:3px 0 0 0;
+                                        }
+                                        &:last-child{
+                                            border-radius:0 3px  0 0;
+                                        }
+
+                                        .day{
+                                            display: block;
+                                            font-size: 1.2em;
+                                            border-radius: 50%;
+                                                width: 30px;
+                                            height: 30px;
+                                            margin: 0 auto 5px;
+                                            padding: 5px;
+                    line-height: 1.8;
+
+                                                &.active{
+                                                    background: @light;
+                                                    color: @blue;
+                                                }
+                                        }
+
+                                        .short{
+                                            display: none;
+                                        }
+
+                                        i{
+                                            vertical-align: middle;
+                                            font-size: 2em;
+                                        }
+                                }
+                            }
+                    }
+                    tbody{
+                            tr{
+                                background: @light;
+
+                                    &:nth-child(odd){
+                                            background:@light2;
+                                    }
+                                    &:nth-child(4n+0){
+                                            td{
+                                                border-bottom:1px solid @blue;
+                                            }
+                                    }
+                                td{
+                                        text-align: center;
+                                        vertical-align: middle;
+                                        border-left: 1px solid @blue;
+                                        position: relative;
+                                        height: 35px;
+                                        cursor: pointer;
+
+                                        &:last-child{
+                                            border-right:1px solid @blue;
+                                        }
+                    &.hour{
+                                            font-size: 2em;
+                                            padding: 0;
+                                            color: @blue;
+                                            background:#fff;
+                                            border-bottom:1px solid @blue;
+                                            border-collapse: separate;
+                                            min-width: 100px;
+                                            cursor: default;
+
+                                            span{
+                                                    display: block;
+
+                                            }
+                                        }
+                                }
+                            }
+                    }
+
+                    @media(max-width:60em){
+
+                            thead{
+                                tr{
+                                        th{
+                                            .long{
+                                                    display: none;
+                                            }
+
+                                            .short{
+                                                    display: block;
+                                            }
+
+                                        }
+                                }
+                            }
+
+                            tbody{
+                                tr{
+                                        td{
+                                            &.hour{
+                                                    span{
+                                                        transform:rotate(270deg);
+                        -webkit-transform:rotate(270deg);
+                        -moz-transform:rotate(270deg);
+                                                    }
+                                            }
+                            }
+                                }
+                            }
+                    }
+
+                    @media(max-width:27em){
+                            thead{
+                                tr{
+                                        th{
+                                            font-size: 65%;
+                                            .day{
+                                                    display: block;
+                                                    font-size: 1.2em;
+                                                    border-radius: 50%;
+                                                                width: 20px;
+                                                    height: 20px;
+                                                    margin: 0 auto 5px;
+                                                    padding: 5px;
+
+                                                    &.active{
+                                                        background: @light;
+                                                        color: @blue;
+                                                    }
+                                            }
+                                        }
+                                }
+                            }
+                            tbody{
+                                tr{
+                                        td{
+                                            &.hour{
+                                                    font-size: 1.7em;
+                                                    span{
+                                                    transform:translateY(16px)rotate(270deg);
+                        -webkit-transform:translateY(16px)rotate(270deg);
+                        -moz-transform:translateY(16px)rotate(270deg);
+                                                    }
+                                            }
+                        }
+                                }
+                            }
+                    }
+                }
+        </style>
+
+</head>
+
+<body>
+    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <i class="fa fa-globe fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" style="background-color: #f14668;" href="./not-passing.html">
+            <i class="fa fa-times fa-xl"></i>
+          </a>
+
+          <a class="navbar-item" href="./passing.html">
+            <i class="fa fa-check fa-xl"></i>
+          </a>
+
+          <a class="navbar-item"  href="./info.html">
+            <i class="fa fa-info fa-xl"></i>
+          </a>
+        </div>
+    </nav>
+
+        <div class="modal" id="cache-list">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <div class="content" id="cache-list-modal-box-content">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <div>
+        <section class="section">
+            <div class="columns is-centered">
+                <div class="column is-12">
+                    <table>
+                        <thead>
+                            <tr>
+                            <th>
+                                <span class="long">Monday</span>
+                                <span class="short">Mon</span>
+                            </th>
+                            <th>
+                                <span class="long">Tuesday</span>
+                                <span class="short">Tue</span>
+                            </th>
+                            <th>
+                                <span class="long">Wendsday</span>
+                                <span class="short">We</span>
+                            </th>
+                            <th>
+                                <span class="long">Thursday</span>
+                                <span class="short">Thu</span>
+                            </th>
+                            <th>
+                                <span class="long">Friday</span>
+                                <span class="short">Fri</span>
+                            </th>
+                            <th>
+                                <span class="long">Saturday</span>
+                                <span class="short">Sat</span>
+                            </th>
+                            <th>
+                                <span class="long">Sunday</span>
+                                <span class="short">Sun</span>
+                            </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                        <a class="js-modal-trigger"
+                                            data-target="cache-list"
+                                            data-site="EveryWeekdayClimber/0-1.html"
+                                            href="#">
+                                            16
+                                        </a>
+                                </td>
+                                <td>
+                                        <a class="js-modal-trigger"
+                                            data-target="cache-list"
+                                            data-site="EveryWeekdayClimber/0-2.html"
+                                            href="#">
+                                            30
+                                        </a>
+                                </td>
+                                <td>
+                                        <a class="js-modal-trigger"
+                                            data-target="cache-list"
+                                            data-site="EveryWeekdayClimber/0-3.html"
+                                            href="#">
+                                            20
+                                        </a>
+                                </td>
+                                <td>
+                                        <a class="js-modal-trigger"
+                                            data-target="cache-list"
+                                            data-site="EveryWeekdayClimber/0-4.html"
+                                            href="#">
+                                            16
+                                        </a>
+                                </td>
+                                <td>
+                                        <a class="js-modal-trigger"
+                                            data-target="cache-list"
+                                            data-site="EveryWeekdayClimber/0-5.html"
+                                            href="#">
+                                            31
+                                        </a>
+                                </td>
+                                <td>
+                                        <a class="js-modal-trigger"
+                                            data-target="cache-list"
+                                            data-site="EveryWeekdayClimber/0-6.html"
+                                            href="#">
+                                            54
+                                        </a>
+                                </td>
+                                <td>
+                                        <a class="js-modal-trigger"
+                                            data-target="cache-list"
+                                            data-site="EveryWeekdayClimber/0-7.html"
+                                            href="#">
+                                            25
+                                        </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+  </body>
+</html>
