@@ -1,10 +1,10 @@
 {
-  "importDateTime" : "2024-02-22T00:25:43.617774253",
-  "gpxDateTime" : "2024-02-19T16:58:19.9512076Z",
-  "labDateTime" : "2024-02-22T00:25:33.780Z",
+  "importDateTime" : "2024-02-22T20:19:00.533159188",
+  "gpxDateTime" : "2024-02-22T20:01:36.0326444Z",
+  "labDateTime" : "2024-02-22T20:18:52.724Z",
   "cacher" : "zemiak",
-  "countLabs" : 845,
-  "countNotLabs" : 5553,
+  "countLabs" : 846,
+  "countNotLabs" : 5559,
   "dataUpdateStatus" : null,
   "checkerRedFlag" : null
 }
