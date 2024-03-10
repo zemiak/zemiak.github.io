@@ -12,6 +12,10 @@
     <meta name="apple-mobile-web-app-title" content="GeoStats" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
     <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
@@ -28,11 +32,11 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
 
     <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
     
     <style>
-        .styled-table,
-        .matrix,
-        .variables_table {
+        .matrix {
             border-collapse: collapse;
             margin-top: 10px;
             font-size: 0.9em;
@@ -41,90 +45,18 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         }
 
-        .styled-table thead tr,
-        .matrix thead tr,
-        .variables_table thead tr {
+        .matrix thead tr {
             background-color: #000000;
             color: #ffffff;
             text-align: left;
         }
 
-        .styled-table th,
-        .styled-table td {
-            padding: 5px 15px;
-        }
-
         .matrix th,
-        .matrix td,
-        .variables_table td {
+        .matrix td {
             padding: 5px 3px;
             text-align: center;
         }
 
-        .variables_table th {
-            padding: 5px;
-            text-align: center;
-        }
-
-        .variables_table tbody>tr>:nth-child(even) {
-            background-color: lightgray;
-        }
-
-        .styled-table tr.traditional,
-        .traditional tr {
-            background-color: #00e600;
-        }
-
-        .styled-table tr.wherigo,
-        .wherigo tr {
-            background-color: #66ffff;
-        }
-
-        .styled-table tr.mystery,
-        .mystery tr,
-        .mystery td a {
-            background-color: #0099ff;
-            color: #F0F8FF;
-        }
-
-        .styled-table tr.earth,
-        .earth tr,
-        .earth td a {
-            background-color: #8B4513;
-            color: #F0F8FF;
-        }
-
-        .styled-table tr.events,
-        .events tr,
-        .events td a {
-            background-color: #8B4513;
-            color: #F0F8FF;
-        }
-
-        .styled-table tr.letterbox,
-        .letterbox tr,
-        .letterbox td a {
-            background-color: #008080;
-            color: #F0F8FF;
-        }
-
-        .styled-table tr.any,
-        .any tr,
-        .any td a {
-            background-color: #008080;
-            color: #F0F8FF;
-        }
-
-        .styled-table tr.multi,
-        .multi tr {
-            background-color: #ffad33;
-        }
-
-        .styled-table tbody tr {
-            border-bottom: 1px solid #dddddd;
-        }
-
-        .styled-table tbody tr:last-of-type,
         .matrix th {
             border-bottom: 2px solid #000000;
         }
@@ -150,15 +82,15 @@
             <i class="fa fa-globe fa-xl"></i>
           </a>
 
-          <a class="navbar-item" style="background-color: #f14668;" href="./not-passing.html">
+          <a class="navbar-item " style="background-color: #f14668;" href="./not-passing.html">
             <i class="fa fa-times fa-xl"></i>
           </a>
 
-          <a class="navbar-item" href="./passing.html">
+          <a class="navbar-item " href="./passing.html">
             <i class="fa fa-check fa-xl"></i>
           </a>
 
-          <a class="navbar-item"  href="./info.html">
+          <a class="navbar-item "  href="./info.html">
             <i class="fa fa-info fa-xl"></i>
           </a>
         </div>
@@ -191,1124 +123,1124 @@
             <tr>
                     <td class="first"><b>1</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/1-TRADITIONAL.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/1-TRADITIONAL.html">
                         <abbr title="✔">
                             161
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/1-UNKNOWN.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/1-UNKNOWN.html">
                         <abbr title="✔">
                             125
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/1-WHEREIGO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/1-WHEREIGO.html">
                         <abbr title="✔">
                             3
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/1-LETTERBOX.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/1-LETTERBOX.html">
                         <abbr title="✔">
                             6
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/1-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/1-MULTI.html">
                         <abbr title="✔">
                             36
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/1-VIRTUAL.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/1-VIRTUAL.html">
                         <abbr title="✔">
                             3
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/1-WEBCAM.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" data-target="cache-list" data-site="MonthTypeSilver/1-WEBCAM.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/1-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/1-EARTH.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/1-EVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/1-EVENT.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/1-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/1-CITO.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">10</td>
+                    <th class="last">10</th>
             </tr>
             <tr>
                     <td class="first"><b>2</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-TRADITIONAL.html">
+                <td class="stats_cell_lots">
+                    <a class="js-modal-trigger stats_cell_lots" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/2-TRADITIONAL.html">
                         <abbr title="✔">
                             306
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-UNKNOWN.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/2-UNKNOWN.html">
                         <abbr title="✔">
                             130
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-WHEREIGO.html">
+                <td class="stats_cell_few">
+                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/2-WHEREIGO.html">
                         <abbr title="✔">
                             11
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-LETTERBOX.html">
+                <td class="stats_cell_few">
+                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/2-LETTERBOX.html">
                         <abbr title="✔">
                             12
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/2-MULTI.html">
                         <abbr title="✔">
                             42
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-VIRTUAL.html">
+                <td class="stats_cell_few">
+                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/2-VIRTUAL.html">
                         <abbr title="✔">
                             12
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-WEBCAM.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" data-target="cache-list" data-site="MonthTypeSilver/2-WEBCAM.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/2-EARTH.html">
                         <abbr title="✔">
                             7
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-EVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/2-EVENT.html">
                         <abbr title="✔">
                             9
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-MEGAEVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" data-target="cache-list" data-site="MonthTypeSilver/2-MEGAEVENT.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-LOCATIONLESS.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" data-target="cache-list" data-site="MonthTypeSilver/2-LOCATIONLESS.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/2-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/2-CITO.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">12</td>
+                    <th class="last">12</th>
             </tr>
             <tr>
                     <td class="first"><b>3</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/3-TRADITIONAL.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/3-TRADITIONAL.html">
                         <abbr title="✔">
-                            239
+                            244
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/3-UNKNOWN.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/3-UNKNOWN.html">
                         <abbr title="✔">
-                            152
+                            162
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/3-WHEREIGO.html">
-                        <abbr title="✔">
-                            4
-                        </abbr>
-                    </a>
-
-                </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/3-LETTERBOX.html">
-                        <abbr title="✔">
-                            2
-                        </abbr>
-                    </a>
-
-                </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/3-MULTI.html">
-                        <abbr title="✔">
-                            40
-                        </abbr>
-                    </a>
-
-                </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/3-VIRTUAL.html">
-                        <abbr title="✔">
-                            2
-                        </abbr>
-                    </a>
-
-                </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/3-WEBCAM.html">
-                        <abbr title="✔">
-                            1
-                        </abbr>
-                    </a>
-
-                </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/3-EARTH.html">
-                        <abbr title="✔">
-                            1
-                        </abbr>
-                    </a>
-
-                </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/3-EVENT.html">
-                        <abbr title="✔">
-                            6
-                        </abbr>
-                    </a>
-
-                </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
-
-                </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
-
-                </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
-
-                </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
-
-                </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
-
-                </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
-
-                </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
-
-                </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/3-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/3-WHEREIGO.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/3-LETTERBOX.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/3-MULTI.html">
+                        <abbr title="✔">
+                            41
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/3-VIRTUAL.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" data-target="cache-list" data-site="MonthTypeSilver/3-WEBCAM.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/3-EARTH.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/3-EVENT.html">
+                        <abbr title="✔">
+                            7
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/3-CITO.html">
+                        <abbr title="✔">
+                            4
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">10</td>
+                    <th class="last">10</th>
             </tr>
             <tr>
                     <td class="first"><b>4</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/4-TRADITIONAL.html">
+                <td class="stats_cell_lots">
+                    <a class="js-modal-trigger stats_cell_lots" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/4-TRADITIONAL.html">
                         <abbr title="✔">
                             332
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/4-UNKNOWN.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/4-UNKNOWN.html">
                         <abbr title="✔">
                             102
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/4-WHEREIGO.html">
+                <td class="stats_cell_few">
+                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/4-WHEREIGO.html">
                         <abbr title="✔">
                             19
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/4-LETTERBOX.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/4-LETTERBOX.html">
                         <abbr title="✔">
                             5
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/4-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/4-MULTI.html">
                         <abbr title="✔">
                             41
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/4-VIRTUAL.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/4-VIRTUAL.html">
                         <abbr title="✔">
                             6
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/4-WEBCAM.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" data-target="cache-list" data-site="MonthTypeSilver/4-WEBCAM.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/4-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/4-EARTH.html">
                         <abbr title="✔">
                             6
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/4-EVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/4-EVENT.html">
                         <abbr title="✔">
                             3
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/4-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/4-CITO.html">
                         <abbr title="✔">
                             3
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">10</td>
+                    <th class="last">10</th>
             </tr>
             <tr>
                     <td class="first"><b>5</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-TRADITIONAL.html">
+                <td class="stats_cell_lots">
+                    <a class="js-modal-trigger stats_cell_lots" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/5-TRADITIONAL.html">
                         <abbr title="✔">
                             455
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-UNKNOWN.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/5-UNKNOWN.html">
                         <abbr title="✔">
                             236
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-WHEREIGO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/5-WHEREIGO.html">
                         <abbr title="✔">
                             9
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-LETTERBOX.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/5-LETTERBOX.html">
                         <abbr title="✔">
                             9
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/5-MULTI.html">
                         <abbr title="✔">
                             41
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-VIRTUAL.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/5-VIRTUAL.html">
                         <abbr title="✔">
                             5
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/5-EARTH.html">
                         <abbr title="✔">
                             6
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-EVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/5-EVENT.html">
                         <abbr title="✔">
                             5
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-MEGAEVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" data-target="cache-list" data-site="MonthTypeSilver/5-MEGAEVENT.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-CCE.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" data-target="cache-list" data-site="MonthTypeSilver/5-CCE.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/5-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/5-CITO.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">11</td>
+                    <th class="last">11</th>
             </tr>
             <tr>
                     <td class="first"><b>6</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/6-TRADITIONAL.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/6-TRADITIONAL.html">
                         <abbr title="✔">
                             224
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/6-UNKNOWN.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/6-UNKNOWN.html">
                         <abbr title="✔">
                             104
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/6-WHEREIGO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/6-WHEREIGO.html">
                         <abbr title="✔">
                             2
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/6-LETTERBOX.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/6-LETTERBOX.html">
                         <abbr title="✔">
                             3
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/6-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/6-MULTI.html">
                         <abbr title="✔">
                             37
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/6-VIRTUAL.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/6-VIRTUAL.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/6-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/6-EARTH.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/6-EVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/6-EVENT.html">
                         <abbr title="✔">
                             6
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/6-MEGAEVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" data-target="cache-list" data-site="MonthTypeSilver/6-MEGAEVENT.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/6-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/6-CITO.html">
                         <abbr title="✔">
                             5
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">10</td>
+                    <th class="last">10</th>
             </tr>
             <tr>
                     <td class="first"><b>7</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-TRADITIONAL.html">
+                <td class="stats_cell_lots">
+                    <a class="js-modal-trigger stats_cell_lots" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/7-TRADITIONAL.html">
                         <abbr title="✔">
                             388
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-UNKNOWN.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/7-UNKNOWN.html">
                         <abbr title="✔">
                             89
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-WHEREIGO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/7-WHEREIGO.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-LETTERBOX.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/7-LETTERBOX.html">
                         <abbr title="✔">
                             9
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/7-MULTI.html">
                         <abbr title="✔">
                             36
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-VIRTUAL.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/7-VIRTUAL.html">
                         <abbr title="✔">
                             7
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/7-EARTH.html">
                         <abbr title="✔">
                             5
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-EVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/7-EVENT.html">
                         <abbr title="✔">
                             9
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-MEGAEVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" data-target="cache-list" data-site="MonthTypeSilver/7-MEGAEVENT.html">
                         <abbr title="✔">
                             3
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-CCE.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" data-target="cache-list" data-site="MonthTypeSilver/7-CCE.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/7-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/7-CITO.html">
                         <abbr title="✔">
                             2
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">11</td>
+                    <th class="last">11</th>
             </tr>
             <tr>
                     <td class="first"><b>8</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-TRADITIONAL.html">
+                <td class="stats_cell_lots">
+                    <a class="js-modal-trigger stats_cell_lots" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/8-TRADITIONAL.html">
                         <abbr title="✔">
                             281
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-UNKNOWN.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/8-UNKNOWN.html">
                         <abbr title="✔">
                             200
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-WHEREIGO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/8-WHEREIGO.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-LETTERBOX.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/8-LETTERBOX.html">
                         <abbr title="✔">
                             8
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/8-MULTI.html">
                         <abbr title="✔">
                             42
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-VIRTUAL.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/8-VIRTUAL.html">
                         <abbr title="✔">
                             6
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-WEBCAM.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" data-target="cache-list" data-site="MonthTypeSilver/8-WEBCAM.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/8-EARTH.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-EVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/8-EVENT.html">
                         <abbr title="✔">
                             6
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-MEGAEVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" data-target="cache-list" data-site="MonthTypeSilver/8-MEGAEVENT.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/8-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/8-CITO.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">11</td>
+                    <th class="last">11</th>
             </tr>
             <tr>
                     <td class="first"><b>9</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-TRADITIONAL.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/9-TRADITIONAL.html">
                         <abbr title="✔">
                             190
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-UNKNOWN.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/9-UNKNOWN.html">
                         <abbr title="✔">
                             102
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-WHEREIGO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/9-WHEREIGO.html">
                         <abbr title="✔">
                             8
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-LETTERBOX.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/9-LETTERBOX.html">
                         <abbr title="✔">
                             3
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/9-MULTI.html">
                         <abbr title="✔">
                             42
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-VIRTUAL.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/9-VIRTUAL.html">
                         <abbr title="✔">
                             2
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/9-EARTH.html">
                         <abbr title="✔">
                             7
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-EVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/9-EVENT.html">
                         <abbr title="✔">
                             5
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-MEGAEVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" data-target="cache-list" data-site="MonthTypeSilver/9-MEGAEVENT.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-GIGAEVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" data-target="cache-list" data-site="MonthTypeSilver/9-GIGAEVENT.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-CCE.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" data-target="cache-list" data-site="MonthTypeSilver/9-CCE.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/9-CITO.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/9-MAZE_EXHIBIT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" data-target="cache-list" data-site="MonthTypeSilver/9-MAZE_EXHIBIT.html">
                         <abbr title="✔">
                             1
                         </abbr>
@@ -1316,396 +1248,392 @@
 
                 </td>
 
-                <td class="last">13</td>
+                    <th class="last">13</th>
             </tr>
             <tr>
                     <td class="first"><b>10</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/10-TRADITIONAL.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/10-TRADITIONAL.html">
                         <abbr title="✔">
                             237
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/10-UNKNOWN.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/10-UNKNOWN.html">
                         <abbr title="✔">
                             100
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/10-WHEREIGO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/10-WHEREIGO.html">
                         <abbr title="✔">
                             2
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/10-LETTERBOX.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/10-LETTERBOX.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/10-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/10-MULTI.html">
                         <abbr title="✔">
                             47
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/10-VIRTUAL.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/10-VIRTUAL.html">
                         <abbr title="✔">
                             3
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/10-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/10-EARTH.html">
                         <abbr title="✔">
                             10
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/10-EVENT.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/10-EVENT.html">
                         <abbr title="✔">
                             5
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/10-CCE.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" data-target="cache-list" data-site="MonthTypeSilver/10-CCE.html">
                         <abbr title="✔">
                             2
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/10-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/10-CITO.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">10</td>
+                    <th class="last">10</th>
             </tr>
             <tr>
                     <td class="first"><b>11</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-TRADITIONAL.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/11-TRADITIONAL.html">
                         <abbr title="✔">
                             157
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-UNKNOWN.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/11-UNKNOWN.html">
                         <abbr title="✔">
                             87
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-WHEREIGO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/11-WHEREIGO.html">
                         <abbr title="✔">
                             2
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-LETTERBOX.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/11-LETTERBOX.html">
                         <abbr title="✔">
                             2
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/11-MULTI.html">
                         <abbr title="✔">
                             38
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-VIRTUAL.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/11-VIRTUAL.html">
                         <abbr title="✔">
                             2
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/11-EARTH.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-EVENT.html">
+                <td class="stats_cell_few">
+                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/11-EVENT.html">
                         <abbr title="✔">
                             16
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-LOCATIONLESS.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" data-target="cache-list" data-site="MonthTypeSilver/11-LOCATIONLESS.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-CCE.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" data-target="cache-list" data-site="MonthTypeSilver/11-CCE.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/11-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/11-CITO.html">
                         <abbr title="✔">
                             2
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">11</td>
+                    <th class="last">11</th>
             </tr>
             <tr>
                     <td class="first"><b>12</b></td>
 
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-TRADITIONAL.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2" data-target="cache-list" data-site="MonthTypeSilver/12-TRADITIONAL.html">
                         <abbr title="✔">
                             203
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-UNKNOWN.html">
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8" data-target="cache-list" data-site="MonthTypeSilver/12-UNKNOWN.html">
                         <abbr title="✔">
                             118
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-WHEREIGO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858" data-target="cache-list" data-site="MonthTypeSilver/12-WHEREIGO.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-LETTERBOX.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5" data-target="cache-list" data-site="MonthTypeSilver/12-LETTERBOX.html">
                         <abbr title="✔">
                             5
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-MULTI.html">
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3" data-target="cache-list" data-site="MonthTypeSilver/12-MULTI.html">
                         <abbr title="✔">
                             42
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-VIRTUAL.html">
+                <td class="stats_cell_few">
+                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4" data-target="cache-list" data-site="MonthTypeSilver/12-VIRTUAL.html">
                         <abbr title="✔">
                             11
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-EARTH.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137" data-target="cache-list" data-site="MonthTypeSilver/12-EARTH.html">
                         <abbr title="✔">
                             4
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-EVENT.html">
+                <td class="stats_cell_few">
+                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6" data-target="cache-list" data-site="MonthTypeSilver/12-EVENT.html">
                         <abbr title="✔">
                             14
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-LOCATIONLESS.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12" data-target="cache-list" data-site="MonthTypeSilver/12-LOCATIONLESS.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-CCE.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653" data-target="cache-list" data-site="MonthTypeSilver/12-CCE.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a class="js-modal-trigger" data-target="cache-list" data-site="MonthTypeSilver/12-CITO.html">
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13" data-target="cache-list" data-site="MonthTypeSilver/12-CITO.html">
                         <abbr title="✔">
                             1
                         </abbr>
                     </a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
-                <td>
-                    <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304" target="_blank"><i class="fa fa-search"></i></a>
 
                 </td>
 
-                <td class="last">11</td>
+                    <th class="last">11</th>
             </tr>
         </table>
     </center>
 
+
     <div class="modal" id="cache-list">
         <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <div class="content" id="cache-list-modal-box-content">
-                    <p>Loading...</p>
-                </div>
-            </div>
+        <div class="modal-content" id="cache-list-modal-box-content">
+            <p>Loading...</p>
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
-
   </body>
 </html>
