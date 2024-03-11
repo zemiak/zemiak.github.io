@@ -12,10 +12,6 @@
     <meta name="apple-mobile-web-app-title" content="GeoStats" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-
     <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
     <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
@@ -32,37 +28,108 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
 
     <script src="index.js"></script>
-    <link rel="stylesheet" type="text/css" href="index.css">
-
     
     <style>
-        .matrix {
+        .styled-table,
+        .matrix,
+        .variables_table {
             border-collapse: collapse;
             margin-top: 10px;
+            font-size: 0.8em;
+            font-family: sans-serif;
             min-width: 300px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-            text-align: center;
         }
 
-        .mobile th,
-        .mobile td {
-            padding: 3px 2px;
-            text-align: center;
-            min-width: 1em;
-            font-size: 0.5em;
-        }
-
-        .matrix thead tr {
+        .styled-table thead tr,
+        .matrix thead tr,
+        .variables_table thead tr {
+            background-color: #000000;
             color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 5px 15px;
         }
 
         .matrix th,
-        .matrix td {
+        .matrix td,
+        .variables_table td {
             padding: 3px 2px;
             text-align: center;
-            min-width: 3em;
+            color: beige;
         }
 
+        .variables_table th {
+            padding: 3px;
+            text-align: center;
+        }
+
+        .variables_table tbody>tr>:nth-child(even) {
+            background-color: lightgray;
+        }
+
+        .styled-table tr.traditional,
+        .traditional tr,
+        .traditional td a {
+            background-color: darkolivegreen;
+            color: black;
+        }
+
+        .styled-table tr.wherigo,
+        .wherigo tr {
+            background-color: darkred;
+        }
+
+        .styled-table tr.mystery,
+        .mystery tr,
+        .mystery td a {
+            background-color: darkblue;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.earth,
+        .earth tr,
+        .earth td a {
+            background-color: darkred;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.events,
+        .events tr,
+        .events td a {
+            background-color: darkred;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.letterbox,
+        .letterbox tr,
+        .letterbox td a {
+            background-color: darkred;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.any,
+        .any tr,
+        .any td a {
+            background-color: darkred;
+            color: #F0F8FF;
+        }
+
+        .styled-table tr.multi,
+        .multi tr,
+        .multi td a {
+            background-color: darkorange;
+            color: black;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .styled-table tbody tr:last-of-type,
         .matrix td.top {
             border-bottom: 2px solid #000000;
         }
@@ -72,21 +139,12 @@
             border-right: 2px solid #000000;
         }
 
-        .sum, tr.sum, td.sum, th.sum {
-            background-color: rgb(215, 215, 215);
-            color: black;
-            text-align: center;
-            font-weight: bold;
+        .table thead td,
+        .table tfoot td,
+        .table tbody td.first {
+            color: beige;
         }
 
-        #mobileTable td.stats_cell_couple,
-        #mobileTable td.stats_cell_few,
-        #mobileTable td.stats_cell_some,
-        #mobileTable td.stats_cell_many,
-        #mobileTable td.stats_cell_lots,
-        #mobileTable td.stats_cell_missing {
-            color: white;
-        }
     </style>
 
 </head>
@@ -98,15 +156,15 @@
             <i class="fa fa-globe fa-xl"></i>
           </a>
 
-          <a class="navbar-item " style="background-color: #f14668;" href="./not-passing.html">
+          <a class="navbar-item" style="background-color: #f14668;" href="./not-passing.html">
             <i class="fa fa-times fa-xl"></i>
           </a>
 
-          <a class="navbar-item " href="./passing.html">
+          <a class="navbar-item" href="./passing.html">
             <i class="fa fa-check fa-xl"></i>
           </a>
 
-          <a class="navbar-item "  href="./info.html">
+          <a class="navbar-item"  href="./info.html">
             <i class="fa fa-info fa-xl"></i>
           </a>
         </div>
@@ -116,318 +174,318 @@
     <div class="is-hidden-mobile">
     <section class="section">
       <div class="columns is-centered">
-        <div class="column is-8 is-offset-2">
-        <table class="matrix">
+        <div class="column is-8 is-offset-4">
+        <table class="table any">
             <caption>Micro</caption>
             <thead>
                 <tr>
-                    <th class="rightborder"><sub>D</sub>\<sup>T</sup></th>
-                    <th>1.0</th>
-                    <th>1.5</th>
-                    <th>2.0</th>
-                    <th>2.5</th>
-                    <th>3.0</th>
-                    <th>3.5</th>
-                    <th>4.0</th>
-                    <th>4.5</th>
-                    <th>5.0</th>
-                    <th>∑</th>
+                    <td class="rightborder"><sub>D</sub>\<sup>T</sup></td>
+                    <td class="first top">1.0</td>
+                    <td class="first top">1.5</td>
+                    <td class="first top">2.0</td>
+                    <td class="first top">2.5</td>
+                    <td class="first top">3.0</td>
+                    <td class="first top">3.5</td>
+                    <td class="first top">4.0</td>
+                    <td class="first top">4.5</td>
+                    <td class="first top">5.0</td>
+                    <td class="first top">∑</td>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
                     <td><abbr title="Sum">∑</abbr></td>
-                    <td class="sum">222</td>
-                    <td class="sum">1012</td>
-                    <td class="sum">699</td>
-                    <td class="sum">322</td>
-                    <td class="sum">102</td>
-                    <td class="sum">40</td>
-                    <td class="sum">49</td>
-                    <td class="sum">23</td>
-                    <td class="sum">26</td>
-                    <td class="sum">2495</td>
+                    <td>222</td>
+                    <td>1012</td>
+                    <td>699</td>
+                    <td>322</td>
+                    <td>102</td>
+                    <td>40</td>
+                    <td>49</td>
+                    <td>23</td>
+                    <td>26</td>
+                    <td>2495</td>
                 </tr>
             </tfoot>
             <tbody>
                     <tr>
-                        <td style="font-weight: bold;">1.0</td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="66" data-target="cache-list" data-site="MicroTable/t1.0-d1.0.html" href="#">66</a>
+                        <td class="first">1.0</td>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d1.0.html" href="#">66</a>
                             </td>
-                            <td class="stats_cell_many">
-                                    <a class="js-modal-trigger stats_cell_many" data-search="108" data-target="cache-list" data-site="MicroTable/t1.5-d1.0.html" href="#">108</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d1.0.html" href="#">108</a>
                             </td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="36" data-target="cache-list" data-site="MicroTable/t2.0-d1.0.html" href="#">36</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d1.0.html" href="#">36</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="9" data-target="cache-list" data-site="MicroTable/t2.5-d1.0.html" href="#">9</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d1.0.html" href="#">9</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t3.0-d1.0.html" href="#">4</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d1.0.html" href="#">4</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t3.5-d1.0.html" href="#">2</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d1.0.html" href="#">2</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t4.0-d1.0.html" href="#">2</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d1.0.html" href="#">2</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="1" data-target="cache-list" data-site="MicroTable/t4.5-d1.0.html" href="#">1</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d1.0.html" href="#">1</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t5.0-d1.0.html" href="#">4</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d1.0.html" href="#">4</a>
                             </td>
-                        <td class="sum">232</td>
+                        <td class="first top">232</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">1.5</td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="50" data-target="cache-list" data-site="MicroTable/t1.0-d1.5.html" href="#">50</a>
+                        <td class="first">1.5</td>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d1.5.html" href="#">50</a>
                             </td>
-                            <td class="stats_cell_lots">
-                                    <a class="js-modal-trigger stats_cell_lots" data-search="464" data-target="cache-list" data-site="MicroTable/t1.5-d1.5.html" href="#">464</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d1.5.html" href="#">464</a>
                             </td>
-                            <td class="stats_cell_many">
-                                    <a class="js-modal-trigger stats_cell_many" data-search="213" data-target="cache-list" data-site="MicroTable/t2.0-d1.5.html" href="#">213</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d1.5.html" href="#">213</a>
                             </td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="50" data-target="cache-list" data-site="MicroTable/t2.5-d1.5.html" href="#">50</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d1.5.html" href="#">50</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="9" data-target="cache-list" data-site="MicroTable/t3.0-d1.5.html" href="#">9</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d1.5.html" href="#">9</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t3.5-d1.5.html" href="#">6</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d1.5.html" href="#">6</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t4.0-d1.5.html" href="#">6</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d1.5.html" href="#">6</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t4.5-d1.5.html" href="#">3</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d1.5.html" href="#">3</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t5.0-d1.5.html" href="#">2</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d1.5.html" href="#">2</a>
                             </td>
-                        <td class="sum">803</td>
+                        <td class="first top">803</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">2.0</td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="37" data-target="cache-list" data-site="MicroTable/t1.0-d2.0.html" href="#">37</a>
+                        <td class="first">2.0</td>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d2.0.html" href="#">37</a>
                             </td>
-                            <td class="stats_cell_many">
-                                    <a class="js-modal-trigger stats_cell_many" data-search="213" data-target="cache-list" data-site="MicroTable/t1.5-d2.0.html" href="#">213</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d2.0.html" href="#">213</a>
                             </td>
-                            <td class="stats_cell_lots">
-                                    <a class="js-modal-trigger stats_cell_lots" data-search="266" data-target="cache-list" data-site="MicroTable/t2.0-d2.0.html" href="#">266</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d2.0.html" href="#">266</a>
                             </td>
-                            <td class="stats_cell_many">
-                                    <a class="js-modal-trigger stats_cell_many" data-search="122" data-target="cache-list" data-site="MicroTable/t2.5-d2.0.html" href="#">122</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d2.0.html" href="#">122</a>
                             </td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="28" data-target="cache-list" data-site="MicroTable/t3.0-d2.0.html" href="#">28</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d2.0.html" href="#">28</a>
                             </td>
-                            <td class="stats_cell_few">
-                                    <a class="js-modal-trigger stats_cell_few" data-search="12" data-target="cache-list" data-site="MicroTable/t3.5-d2.0.html" href="#">12</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d2.0.html" href="#">12</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="7" data-target="cache-list" data-site="MicroTable/t4.0-d2.0.html" href="#">7</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d2.0.html" href="#">7</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t4.5-d2.0.html" href="#">3</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d2.0.html" href="#">3</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t5.0-d2.0.html" href="#">2</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d2.0.html" href="#">2</a>
                             </td>
-                        <td class="sum">690</td>
+                        <td class="first top">690</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">2.5</td>
-                            <td class="stats_cell_few">
-                                    <a class="js-modal-trigger stats_cell_few" data-search="17" data-target="cache-list" data-site="MicroTable/t1.0-d2.5.html" href="#">17</a>
+                        <td class="first">2.5</td>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d2.5.html" href="#">17</a>
                             </td>
-                            <td class="stats_cell_many">
-                                    <a class="js-modal-trigger stats_cell_many" data-search="110" data-target="cache-list" data-site="MicroTable/t1.5-d2.5.html" href="#">110</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d2.5.html" href="#">110</a>
                             </td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="77" data-target="cache-list" data-site="MicroTable/t2.0-d2.5.html" href="#">77</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d2.5.html" href="#">77</a>
                             </td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="71" data-target="cache-list" data-site="MicroTable/t2.5-d2.5.html" href="#">71</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d2.5.html" href="#">71</a>
                             </td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="40" data-target="cache-list" data-site="MicroTable/t3.0-d2.5.html" href="#">40</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d2.5.html" href="#">40</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t3.5-d2.5.html" href="#">5</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d2.5.html" href="#">5</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="9" data-target="cache-list" data-site="MicroTable/t4.0-d2.5.html" href="#">9</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d2.5.html" href="#">9</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t4.5-d2.5.html" href="#">2</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d2.5.html" href="#">2</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t5.0-d2.5.html" href="#">4</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d2.5.html" href="#">4</a>
                             </td>
-                        <td class="sum">335</td>
+                        <td class="first top">335</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">3.0</td>
-                            <td class="stats_cell_few">
-                                    <a class="js-modal-trigger stats_cell_few" data-search="14" data-target="cache-list" data-site="MicroTable/t1.0-d3.0.html" href="#">14</a>
+                        <td class="first">3.0</td>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d3.0.html" href="#">14</a>
                             </td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="61" data-target="cache-list" data-site="MicroTable/t1.5-d3.0.html" href="#">61</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d3.0.html" href="#">61</a>
                             </td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="67" data-target="cache-list" data-site="MicroTable/t2.0-d3.0.html" href="#">67</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d3.0.html" href="#">67</a>
                             </td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="33" data-target="cache-list" data-site="MicroTable/t2.5-d3.0.html" href="#">33</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d3.0.html" href="#">33</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="9" data-target="cache-list" data-site="MicroTable/t3.0-d3.0.html" href="#">9</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d3.0.html" href="#">9</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t3.5-d3.0.html" href="#">4</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d3.0.html" href="#">4</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t4.0-d3.0.html" href="#">3</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d3.0.html" href="#">3</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t4.5-d3.0.html" href="#">3</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d3.0.html" href="#">3</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t5.0-d3.0.html" href="#">3</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d3.0.html" href="#">3</a>
                             </td>
-                        <td class="sum">197</td>
+                        <td class="first top">197</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">3.5</td>
-                            <td class="stats_cell_few">
-                                    <a class="js-modal-trigger stats_cell_few" data-search="14" data-target="cache-list" data-site="MicroTable/t1.0-d3.5.html" href="#">14</a>
+                        <td class="first">3.5</td>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d3.5.html" href="#">14</a>
                             </td>
-                            <td class="stats_cell_some">
-                                    <a class="js-modal-trigger stats_cell_some" data-search="32" data-target="cache-list" data-site="MicroTable/t1.5-d3.5.html" href="#">32</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d3.5.html" href="#">32</a>
                             </td>
-                            <td class="stats_cell_few">
-                                    <a class="js-modal-trigger stats_cell_few" data-search="14" data-target="cache-list" data-site="MicroTable/t2.0-d3.5.html" href="#">14</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d3.5.html" href="#">14</a>
                             </td>
-                            <td class="stats_cell_few">
-                                    <a class="js-modal-trigger stats_cell_few" data-search="14" data-target="cache-list" data-site="MicroTable/t2.5-d3.5.html" href="#">14</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d3.5.html" href="#">14</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t3.0-d3.5.html" href="#">3</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d3.5.html" href="#">3</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t3.5-d3.5.html" href="#">2</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d3.5.html" href="#">2</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t4.0-d3.5.html" href="#">4</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d3.5.html" href="#">4</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t4.5-d3.5.html" href="#">3</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d3.5.html" href="#">3</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t5.0-d3.5.html" href="#">6</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d3.5.html" href="#">6</a>
                             </td>
-                        <td class="sum">92</td>
+                        <td class="first top">92</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">4.0</td>
-                            <td class="stats_cell_few">
-                                    <a class="js-modal-trigger stats_cell_few" data-search="12" data-target="cache-list" data-site="MicroTable/t1.0-d4.0.html" href="#">12</a>
+                        <td class="first">4.0</td>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d4.0.html" href="#">12</a>
                             </td>
-                            <td class="stats_cell_few">
-                                    <a class="js-modal-trigger stats_cell_few" data-search="15" data-target="cache-list" data-site="MicroTable/t1.5-d4.0.html" href="#">15</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d4.0.html" href="#">15</a>
                             </td>
-                            <td class="stats_cell_few">
-                                    <a class="js-modal-trigger stats_cell_few" data-search="14" data-target="cache-list" data-site="MicroTable/t2.0-d4.0.html" href="#">14</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d4.0.html" href="#">14</a>
                             </td>
-                            <td class="stats_cell_few">
-                                    <a class="js-modal-trigger stats_cell_few" data-search="11" data-target="cache-list" data-site="MicroTable/t2.5-d4.0.html" href="#">11</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d4.0.html" href="#">11</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t3.0-d4.0.html" href="#">5</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d4.0.html" href="#">5</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="1" data-target="cache-list" data-site="MicroTable/t3.5-d4.0.html" href="#">1</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d4.0.html" href="#">1</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="7" data-target="cache-list" data-site="MicroTable/t4.0-d4.0.html" href="#">7</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d4.0.html" href="#">7</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t4.5-d4.0.html" href="#">2</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d4.0.html" href="#">2</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="1" data-target="cache-list" data-site="MicroTable/t5.0-d4.0.html" href="#">1</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d4.0.html" href="#">1</a>
                             </td>
-                        <td class="sum">68</td>
+                        <td class="first top">68</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">4.5</td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t1.0-d4.5.html" href="#">6</a>
+                        <td class="first">4.5</td>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d4.5.html" href="#">6</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t1.5-d4.5.html" href="#">4</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d4.5.html" href="#">4</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="7" data-target="cache-list" data-site="MicroTable/t2.0-d4.5.html" href="#">7</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d4.5.html" href="#">7</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t2.5-d4.5.html" href="#">4</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d4.5.html" href="#">4</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t3.0-d4.5.html" href="#">2</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d4.5.html" href="#">2</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t3.5-d4.5.html" href="#">3</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d4.5.html" href="#">3</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t4.0-d4.5.html" href="#">6</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d4.5.html" href="#">6</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t4.5-d4.5.html" href="#">5</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d4.5.html" href="#">5</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="1" data-target="cache-list" data-site="MicroTable/t5.0-d4.5.html" href="#">1</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d4.5.html" href="#">1</a>
                             </td>
-                        <td class="sum">38</td>
+                        <td class="first top">38</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">5.0</td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t1.0-d5.0.html" href="#">6</a>
+                        <td class="first">5.0</td>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d5.0.html" href="#">6</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t1.5-d5.0.html" href="#">5</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d5.0.html" href="#">5</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t2.0-d5.0.html" href="#">5</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d5.0.html" href="#">5</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="8" data-target="cache-list" data-site="MicroTable/t2.5-d5.0.html" href="#">8</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d5.0.html" href="#">8</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t3.0-d5.0.html" href="#">2</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d5.0.html" href="#">2</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t3.5-d5.0.html" href="#">5</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d5.0.html" href="#">5</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t4.0-d5.0.html" href="#">5</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d5.0.html" href="#">5</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="1" data-target="cache-list" data-site="MicroTable/t4.5-d5.0.html" href="#">1</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d5.0.html" href="#">1</a>
                             </td>
-                            <td class="stats_cell_couple">
-                                    <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t5.0-d5.0.html" href="#">3</a>
+                            <td>
+                                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d5.0.html" href="#">3</a>
                             </td>
-                        <td class="sum">40</td>
+                        <td class="first top">40</td>
                     </tr>
             </tbody>
         </table>
@@ -436,330 +494,385 @@
 
     <div class="is-hidden-tablet">
     <center>
-        <table id="mobileTable" class="matrix mobile">
-        <caption>Micro</caption>
-        <thead>
+        <table class="matrix any">
             <tr>
-                <th class="rightborder"><sub>D</sub>\<sup>T</sup></th>
-                <th class="first top">1.0</th>
-                <th class="first top">1.5</th>
-                <th class="first top">2.0</th>
-                <th class="first top">2.5</th>
-                <th class="first top">3.0</th>
-                <th class="first top">3.5</th>
-                <th class="first top">4.0</th>
-                <th class="first top">4.5</th>
-                <th class="first top">5.0</th>
-                <th>∑</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <td><abbr title="Sum">∑</abbr></td>
-                <td class="sum">222</td>
-                <td class="sum">1012</td>
-                <td class="sum">699</td>
-                <td class="sum">322</td>
-                <td class="sum">102</td>
-                <td class="sum">40</td>
-                <td class="sum">49</td>
-                <td class="sum">23</td>
-                <td class="sum">26</td>
-                <td class="sum">2495</td>
-            </tr>
-        </tfoot>
-        <tbody>
-            <tr>
-                <td><b>1.0</b></td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="66" data-target="cache-list" data-site="MicroTable/t1.0-d1.0.html" href="#">66</a>
-                    </td>
-                    <td class="stats_cell_many">
-                        <a class="js-modal-trigger stats_cell_many" data-search="108" data-target="cache-list" data-site="MicroTable/t1.5-d1.0.html" href="#">108</a>
-                    </td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="36" data-target="cache-list" data-site="MicroTable/t2.0-d1.0.html" href="#">36</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="9" data-target="cache-list" data-site="MicroTable/t2.5-d1.0.html" href="#">9</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t3.0-d1.0.html" href="#">4</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t3.5-d1.0.html" href="#">2</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t4.0-d1.0.html" href="#">2</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="1" data-target="cache-list" data-site="MicroTable/t4.5-d1.0.html" href="#">1</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t5.0-d1.0.html" href="#">4</a>
-                    </td>
-                <td class="sum">232</td>
+                <td class="rightborder"><sub>D</sub>\<sup>T</sup></td>
+                <td class="first top">1.0</td>
+                <td class="first top">1.5</td>
+                <td class="first top">2.0</td>
+                <td class="first top">2.5</td>
+                <td class="first top">3.0</td>
+                <td class="first top">3.5</td>
+                <td class="first top">4.0</td>
+                <td class="first top">4.5</td>
+                <td class="first top">5.0</td>
             </tr>
             <tr>
-                <td><b>1.5</b></td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="50" data-target="cache-list" data-site="MicroTable/t1.0-d1.5.html" href="#">50</a>
-                    </td>
-                    <td class="stats_cell_lots">
-                        <a class="js-modal-trigger stats_cell_lots" data-search="464" data-target="cache-list" data-site="MicroTable/t1.5-d1.5.html" href="#">464</a>
-                    </td>
-                    <td class="stats_cell_many">
-                        <a class="js-modal-trigger stats_cell_many" data-search="213" data-target="cache-list" data-site="MicroTable/t2.0-d1.5.html" href="#">213</a>
-                    </td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="50" data-target="cache-list" data-site="MicroTable/t2.5-d1.5.html" href="#">50</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="9" data-target="cache-list" data-site="MicroTable/t3.0-d1.5.html" href="#">9</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t3.5-d1.5.html" href="#">6</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t4.0-d1.5.html" href="#">6</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t4.5-d1.5.html" href="#">3</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t5.0-d1.5.html" href="#">2</a>
-                    </td>
-                <td class="sum">803</td>
+                <td class="first"><b>1.0</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d1.0.html" href="#">66</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d1.0.html" href="#">108</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d1.0.html" href="#">36</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d1.0.html" href="#">9</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d1.0.html" href="#">4</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d1.0.html" href="#">2</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d1.0.html" href="#">2</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d1.0.html" href="#">1</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d1.0.html" href="#">4</a>
+
+                </td>
             </tr>
             <tr>
-                <td><b>2.0</b></td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="37" data-target="cache-list" data-site="MicroTable/t1.0-d2.0.html" href="#">37</a>
-                    </td>
-                    <td class="stats_cell_many">
-                        <a class="js-modal-trigger stats_cell_many" data-search="213" data-target="cache-list" data-site="MicroTable/t1.5-d2.0.html" href="#">213</a>
-                    </td>
-                    <td class="stats_cell_lots">
-                        <a class="js-modal-trigger stats_cell_lots" data-search="266" data-target="cache-list" data-site="MicroTable/t2.0-d2.0.html" href="#">266</a>
-                    </td>
-                    <td class="stats_cell_many">
-                        <a class="js-modal-trigger stats_cell_many" data-search="122" data-target="cache-list" data-site="MicroTable/t2.5-d2.0.html" href="#">122</a>
-                    </td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="28" data-target="cache-list" data-site="MicroTable/t3.0-d2.0.html" href="#">28</a>
-                    </td>
-                    <td class="stats_cell_few">
-                        <a class="js-modal-trigger stats_cell_few" data-search="12" data-target="cache-list" data-site="MicroTable/t3.5-d2.0.html" href="#">12</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="7" data-target="cache-list" data-site="MicroTable/t4.0-d2.0.html" href="#">7</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t4.5-d2.0.html" href="#">3</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t5.0-d2.0.html" href="#">2</a>
-                    </td>
-                <td class="sum">690</td>
+                <td class="first"><b>1.5</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d1.5.html" href="#">50</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d1.5.html" href="#">464</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d1.5.html" href="#">213</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d1.5.html" href="#">50</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d1.5.html" href="#">9</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d1.5.html" href="#">6</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d1.5.html" href="#">6</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d1.5.html" href="#">3</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d1.5.html" href="#">2</a>
+
+                </td>
             </tr>
             <tr>
-                <td><b>2.5</b></td>
-                    <td class="stats_cell_few">
-                        <a class="js-modal-trigger stats_cell_few" data-search="17" data-target="cache-list" data-site="MicroTable/t1.0-d2.5.html" href="#">17</a>
-                    </td>
-                    <td class="stats_cell_many">
-                        <a class="js-modal-trigger stats_cell_many" data-search="110" data-target="cache-list" data-site="MicroTable/t1.5-d2.5.html" href="#">110</a>
-                    </td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="77" data-target="cache-list" data-site="MicroTable/t2.0-d2.5.html" href="#">77</a>
-                    </td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="71" data-target="cache-list" data-site="MicroTable/t2.5-d2.5.html" href="#">71</a>
-                    </td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="40" data-target="cache-list" data-site="MicroTable/t3.0-d2.5.html" href="#">40</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t3.5-d2.5.html" href="#">5</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="9" data-target="cache-list" data-site="MicroTable/t4.0-d2.5.html" href="#">9</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t4.5-d2.5.html" href="#">2</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t5.0-d2.5.html" href="#">4</a>
-                    </td>
-                <td class="sum">335</td>
+                <td class="first"><b>2.0</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d2.0.html" href="#">37</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d2.0.html" href="#">213</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d2.0.html" href="#">266</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d2.0.html" href="#">122</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d2.0.html" href="#">28</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d2.0.html" href="#">12</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d2.0.html" href="#">7</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d2.0.html" href="#">3</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d2.0.html" href="#">2</a>
+
+                </td>
             </tr>
             <tr>
-                <td><b>3.0</b></td>
-                    <td class="stats_cell_few">
-                        <a class="js-modal-trigger stats_cell_few" data-search="14" data-target="cache-list" data-site="MicroTable/t1.0-d3.0.html" href="#">14</a>
-                    </td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="61" data-target="cache-list" data-site="MicroTable/t1.5-d3.0.html" href="#">61</a>
-                    </td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="67" data-target="cache-list" data-site="MicroTable/t2.0-d3.0.html" href="#">67</a>
-                    </td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="33" data-target="cache-list" data-site="MicroTable/t2.5-d3.0.html" href="#">33</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="9" data-target="cache-list" data-site="MicroTable/t3.0-d3.0.html" href="#">9</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t3.5-d3.0.html" href="#">4</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t4.0-d3.0.html" href="#">3</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t4.5-d3.0.html" href="#">3</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t5.0-d3.0.html" href="#">3</a>
-                    </td>
-                <td class="sum">197</td>
+                <td class="first"><b>2.5</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d2.5.html" href="#">17</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d2.5.html" href="#">110</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d2.5.html" href="#">77</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d2.5.html" href="#">71</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d2.5.html" href="#">40</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d2.5.html" href="#">5</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d2.5.html" href="#">9</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d2.5.html" href="#">2</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d2.5.html" href="#">4</a>
+
+                </td>
             </tr>
             <tr>
-                <td><b>3.5</b></td>
-                    <td class="stats_cell_few">
-                        <a class="js-modal-trigger stats_cell_few" data-search="14" data-target="cache-list" data-site="MicroTable/t1.0-d3.5.html" href="#">14</a>
-                    </td>
-                    <td class="stats_cell_some">
-                        <a class="js-modal-trigger stats_cell_some" data-search="32" data-target="cache-list" data-site="MicroTable/t1.5-d3.5.html" href="#">32</a>
-                    </td>
-                    <td class="stats_cell_few">
-                        <a class="js-modal-trigger stats_cell_few" data-search="14" data-target="cache-list" data-site="MicroTable/t2.0-d3.5.html" href="#">14</a>
-                    </td>
-                    <td class="stats_cell_few">
-                        <a class="js-modal-trigger stats_cell_few" data-search="14" data-target="cache-list" data-site="MicroTable/t2.5-d3.5.html" href="#">14</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t3.0-d3.5.html" href="#">3</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t3.5-d3.5.html" href="#">2</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t4.0-d3.5.html" href="#">4</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t4.5-d3.5.html" href="#">3</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t5.0-d3.5.html" href="#">6</a>
-                    </td>
-                <td class="sum">92</td>
+                <td class="first"><b>3.0</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d3.0.html" href="#">14</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d3.0.html" href="#">61</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d3.0.html" href="#">67</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d3.0.html" href="#">33</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d3.0.html" href="#">9</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d3.0.html" href="#">4</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d3.0.html" href="#">3</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d3.0.html" href="#">3</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d3.0.html" href="#">3</a>
+
+                </td>
             </tr>
             <tr>
-                <td><b>4.0</b></td>
-                    <td class="stats_cell_few">
-                        <a class="js-modal-trigger stats_cell_few" data-search="12" data-target="cache-list" data-site="MicroTable/t1.0-d4.0.html" href="#">12</a>
-                    </td>
-                    <td class="stats_cell_few">
-                        <a class="js-modal-trigger stats_cell_few" data-search="15" data-target="cache-list" data-site="MicroTable/t1.5-d4.0.html" href="#">15</a>
-                    </td>
-                    <td class="stats_cell_few">
-                        <a class="js-modal-trigger stats_cell_few" data-search="14" data-target="cache-list" data-site="MicroTable/t2.0-d4.0.html" href="#">14</a>
-                    </td>
-                    <td class="stats_cell_few">
-                        <a class="js-modal-trigger stats_cell_few" data-search="11" data-target="cache-list" data-site="MicroTable/t2.5-d4.0.html" href="#">11</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t3.0-d4.0.html" href="#">5</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="1" data-target="cache-list" data-site="MicroTable/t3.5-d4.0.html" href="#">1</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="7" data-target="cache-list" data-site="MicroTable/t4.0-d4.0.html" href="#">7</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t4.5-d4.0.html" href="#">2</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="1" data-target="cache-list" data-site="MicroTable/t5.0-d4.0.html" href="#">1</a>
-                    </td>
-                <td class="sum">68</td>
+                <td class="first"><b>3.5</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d3.5.html" href="#">14</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d3.5.html" href="#">32</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d3.5.html" href="#">14</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d3.5.html" href="#">14</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d3.5.html" href="#">3</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d3.5.html" href="#">2</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d3.5.html" href="#">4</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d3.5.html" href="#">3</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d3.5.html" href="#">6</a>
+
+                </td>
             </tr>
             <tr>
-                <td><b>4.5</b></td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t1.0-d4.5.html" href="#">6</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t1.5-d4.5.html" href="#">4</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="7" data-target="cache-list" data-site="MicroTable/t2.0-d4.5.html" href="#">7</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="4" data-target="cache-list" data-site="MicroTable/t2.5-d4.5.html" href="#">4</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t3.0-d4.5.html" href="#">2</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t3.5-d4.5.html" href="#">3</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t4.0-d4.5.html" href="#">6</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t4.5-d4.5.html" href="#">5</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="1" data-target="cache-list" data-site="MicroTable/t5.0-d4.5.html" href="#">1</a>
-                    </td>
-                <td class="sum">38</td>
+                <td class="first"><b>4.0</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d4.0.html" href="#">12</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d4.0.html" href="#">15</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d4.0.html" href="#">14</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d4.0.html" href="#">11</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d4.0.html" href="#">5</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d4.0.html" href="#">1</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d4.0.html" href="#">7</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d4.0.html" href="#">2</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d4.0.html" href="#">1</a>
+
+                </td>
             </tr>
             <tr>
-                <td><b>5.0</b></td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="6" data-target="cache-list" data-site="MicroTable/t1.0-d5.0.html" href="#">6</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t1.5-d5.0.html" href="#">5</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t2.0-d5.0.html" href="#">5</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="8" data-target="cache-list" data-site="MicroTable/t2.5-d5.0.html" href="#">8</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="2" data-target="cache-list" data-site="MicroTable/t3.0-d5.0.html" href="#">2</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t3.5-d5.0.html" href="#">5</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="5" data-target="cache-list" data-site="MicroTable/t4.0-d5.0.html" href="#">5</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="1" data-target="cache-list" data-site="MicroTable/t4.5-d5.0.html" href="#">1</a>
-                    </td>
-                    <td class="stats_cell_couple">
-                        <a class="js-modal-trigger stats_cell_couple" data-search="3" data-target="cache-list" data-site="MicroTable/t5.0-d5.0.html" href="#">3</a>
-                    </td>
-                <td class="sum">40</td>
+                <td class="first"><b>4.5</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d4.5.html" href="#">6</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d4.5.html" href="#">4</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d4.5.html" href="#">7</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d4.5.html" href="#">4</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d4.5.html" href="#">2</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d4.5.html" href="#">3</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d4.5.html" href="#">6</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d4.5.html" href="#">5</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d4.5.html" href="#">1</a>
+
+                </td>
             </tr>
-        </tbody>
+            <tr>
+                <td class="first"><b>5.0</b></td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.0-d5.0.html" href="#">6</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t1.5-d5.0.html" href="#">5</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.0-d5.0.html" href="#">5</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t2.5-d5.0.html" href="#">8</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.0-d5.0.html" href="#">2</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t3.5-d5.0.html" href="#">5</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.0-d5.0.html" href="#">5</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t4.5-d5.0.html" href="#">1</a>
+
+                </td>
+                <td>
+                    <a class="js-modal-trigger" data-target="cache-list" data-site="MicroTable/t5.0-d5.0.html" href="#">3</a>
+
+                </td>
+            </tr>
         </table>
     </center>
     </div>
 
-
     <div class="modal" id="cache-list">
         <div class="modal-background"></div>
-        <div class="modal-content" id="cache-list-modal-box-content">
-            <p>Loading...</p>
+        <div class="modal-content">
+            <div class="box">
+                <div class="content" id="cache-list-modal-box-content">
+                    <p>Loading...</p>
+                </div>
+            </div>
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
+
   </body>
 </html>

@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 fetch(documentUrl).then((response) => {
                     response.text().then((text) => {
-                        $modalContentTarget.innerHTML = replaceSearchCell(text, $trigger.attributes["data-search"].value);
+                        $modalContentTarget.innerHTML = text;
                         openModal($modalTarget);
                     });
                 });
@@ -59,9 +59,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-    function replaceSearchCell(text, searchUrl) {
-        const replacement = '<a href="' + searchUrl + '" target="_blank"><i class="fa fa-search"></i></a>';
-        const searchText = '<abbr title="Geocaching Code">GC</abbr>';
-        return text.replace(searchText, replacement);
+    function loadModal(site, modalId) {
+        const url = window.location.href;
+        const index = url.lastIndexOf("/");
+        const path = url.substring(0, index);
+        const documentUrl = path + "/" + site;
+
+        const $modalTarget = document.getElementById(modalId);
+        const $modalContentTarget = document.getElementById(
+            modalId + "-content"
+        );
+
+        console.log("Loading modal content from " + documentUrl);
+
+        fetch(documentUrl).then((response) => {
+            response.text().then((text) => {
+                $modalContentTarget.innerHTML = text;
+                openModal($modalTarget);
+            });
+        });
     }
 });
