@@ -1,20 +1,20 @@
 :root {
-    --stats_cell_couple: #d6dfbf;
+    --stats_cell_couple: #b8c694; /* orig: #d6dfbf */
     --stats_cell_couple_text: #8c9e65;
 
-    --stats_cell_few: #b8c694;
+    --stats_cell_few: #8c9e65; /* orig: #b8c694 */
     --stats_cell_few_text: white;
 
-    --stats_cell_some: #8c9e65;
+    --stats_cell_some: #697d3e; /* orig: #8c9e65 */
     --stats_cell_some_text: white;
 
-    --stats_cell_many: #697d3e;
+    --stats_cell_many: #495829; /* orig: #697d3e */
     --stats_cell_many_text: white;
 
-    --stats_cell_lots: #495829;
+    --stats_cell_lots: #36411e; /* orig: #495829 */
     --stats_cell_lots_text: white;
 
-    --stats_cell_missing: darkorange;
+    --stats_cell_missing: red;
     --stats_cell_missing_text: white;
 }
 
