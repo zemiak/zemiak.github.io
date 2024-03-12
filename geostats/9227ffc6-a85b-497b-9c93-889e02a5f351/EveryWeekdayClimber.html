@@ -12,6 +12,10 @@
     <meta name="apple-mobile-web-app-title" content="GeoStats" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
     <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
@@ -28,174 +32,59 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
 
     <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
     
         <style>
-            @blue: #626E7E;
-            @light: lighten(@blue, 40%);
-            @light2: darken(@light, 3%);
+            .desktop-calendar {
+                border-collapse: collapse;
+                margin: 6px 0;
+            }
 
-            table{
-            font-family:sans-serif;
-                    width: 100%;
-                    border-spacing: 0;
-                    border-collapse: separate;
-                    table-layout: fixed;
-                    margin-bottom: 50px;
+            .desktop-calendar caption {
+                background: darkgreen;
+                border-radius:5px 5px 0 0;
+                padding:4px;
+                text-transform:uppercase;
+                letter-spacing:1px;
+                color:#fff;
+                cursor:default;
+            }
 
-                    thead{
-                            tr{
-                                th{
-                                        background: @blue;
-                                        color: @light;
-                                        padding: 0.5em;
-                                        overflow: hidden;
+            .desktop-calendar thead tr {
+                text-align: left;
+            }
 
-                                        &:first-child{
-                                            border-radius:3px 0 0 0;
-                                        }
-                                        &:last-child{
-                                            border-radius:0 3px  0 0;
-                                        }
+            .desktop-calendar th,
+            .desktop-calendar td {
+                padding: 4px 6px;
+            }
 
-                                        .day{
-                                            display: block;
-                                            font-size: 1.2em;
-                                            border-radius: 50%;
-                                                width: 30px;
-                                            height: 30px;
-                                            margin: 0 auto 5px;
-                                            padding: 5px;
-                    line-height: 1.8;
+            .desktop-calendar tbody tr {
+                border-bottom: 1px solid;
+            }
 
-                                                &.active{
-                                                    background: @light;
-                                                    color: @blue;
-                                                }
-                                        }
+            .desktop-calendar tbody tr:last-of-type {
+                border-bottom: 1px solid;
+            }
 
-                                        .short{
-                                            display: none;
-                                        }
+            *{ margin:0;padding:0; }
 
-                                        i{
-                                            vertical-align: middle;
-                                            font-size: 2em;
-                                        }
-                                }
-                            }
-                    }
-                    tbody{
-                            tr{
-                                background: @light;
+            .sum, tr.sum, td.sum, th.sum {
+                background-color: rgb(215, 215, 215);
+                color: black;
+                text-align: center;
+                font-weight: bold;
+            }
 
-                                    &:nth-child(odd){
-                                            background:@light2;
-                                    }
-                                    &:nth-child(4n+0){
-                                            td{
-                                                border-bottom:1px solid @blue;
-                                            }
-                                    }
-                                td{
-                                        text-align: center;
-                                        vertical-align: middle;
-                                        border-left: 1px solid @blue;
-                                        position: relative;
-                                        height: 35px;
-                                        cursor: pointer;
-
-                                        &:last-child{
-                                            border-right:1px solid @blue;
-                                        }
-                    &.hour{
-                                            font-size: 2em;
-                                            padding: 0;
-                                            color: @blue;
-                                            background:#fff;
-                                            border-bottom:1px solid @blue;
-                                            border-collapse: separate;
-                                            min-width: 100px;
-                                            cursor: default;
-
-                                            span{
-                                                    display: block;
-
-                                            }
-                                        }
-                                }
-                            }
-                    }
-
-                    @media(max-width:60em){
-
-                            thead{
-                                tr{
-                                        th{
-                                            .long{
-                                                    display: none;
-                                            }
-
-                                            .short{
-                                                    display: block;
-                                            }
-
-                                        }
-                                }
-                            }
-
-                            tbody{
-                                tr{
-                                        td{
-                                            &.hour{
-                                                    span{
-                                                        transform:rotate(270deg);
-                        -webkit-transform:rotate(270deg);
-                        -moz-transform:rotate(270deg);
-                                                    }
-                                            }
-                            }
-                                }
-                            }
-                    }
-
-                    @media(max-width:27em){
-                            thead{
-                                tr{
-                                        th{
-                                            font-size: 65%;
-                                            .day{
-                                                    display: block;
-                                                    font-size: 1.2em;
-                                                    border-radius: 50%;
-                                                                width: 20px;
-                                                    height: 20px;
-                                                    margin: 0 auto 5px;
-                                                    padding: 5px;
-
-                                                    &.active{
-                                                        background: @light;
-                                                        color: @blue;
-                                                    }
-                                            }
-                                        }
-                                }
-                            }
-                            tbody{
-                                tr{
-                                        td{
-                                            &.hour{
-                                                    font-size: 1.7em;
-                                                    span{
-                                                    transform:translateY(16px)rotate(270deg);
-                        -webkit-transform:translateY(16px)rotate(270deg);
-                        -moz-transform:translateY(16px)rotate(270deg);
-                                                    }
-                                            }
-                        }
-                                }
-                            }
-                    }
-                }
+            #mobileWeeklyTable td.stats_cell_couple,
+            #mobileWeeklyTable td.stats_cell_few,
+            #mobileWeeklyTable td.stats_cell_some,
+            #mobileWeeklyTable td.stats_cell_many,
+            #mobileWeeklyTable td.stats_cell_lots,
+            #mobileWeeklyTable td.stats_cell_missing {
+                color: white;
+            }
         </style>
 
 </head>
@@ -207,134 +96,118 @@
             <i class="fa fa-globe fa-xl"></i>
           </a>
 
-          <a class="navbar-item" style="background-color: #f14668;" href="./not-passing.html">
+          <a class="navbar-item " style="background-color: #f14668;" href="./not-passing.html">
             <i class="fa fa-times fa-xl"></i>
           </a>
 
-          <a class="navbar-item" href="./passing.html">
+          <a class="navbar-item " href="./passing.html">
             <i class="fa fa-check fa-xl"></i>
           </a>
 
-          <a class="navbar-item"  href="./info.html">
+          <a class="navbar-item "  href="./info.html">
             <i class="fa fa-info fa-xl"></i>
           </a>
         </div>
     </nav>
 
-        <div class="modal" id="cache-list">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <div class="content" id="cache-list-modal-box-content">
-                    <p>Loading...</p>
-                </div>
+        <section class="section">
+        <div class="columns is-centered">
+            <div class="column is-8 is-offset-4">
+                <table id="mobileWeeklyTable" class="desktop-calendar">
+                    <caption>Weekday Climber</caption>
+                    <tbody>
+                        <tr>
+                            <td>Mon</td>
+                            <td>Tue</td>
+                            <td>Wed</td>
+                            <td>Thu</td>
+                            <td>Fri</td>
+                            <td>Sat</td>
+                            <td>Sun</td>
+                            <td>∑</td>
+                        </tr>
+
+                        <tr>
+                            <td class="stats_cell_few">
+                                    <a class="js-modal-trigger stats_cell_few"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;att=64"
+                                        data-site="EveryWeekdayClimber/0-1.html"
+                                        href="#">
+                                        18
+                                    </a>
+                            </td>
+                            <td class="stats_cell_some">
+                                    <a class="js-modal-trigger stats_cell_some"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;att=64"
+                                        data-site="EveryWeekdayClimber/0-2.html"
+                                        href="#">
+                                        32
+                                    </a>
+                            </td>
+                            <td class="stats_cell_few">
+                                    <a class="js-modal-trigger stats_cell_few"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;att=64"
+                                        data-site="EveryWeekdayClimber/0-3.html"
+                                        href="#">
+                                        20
+                                    </a>
+                            </td>
+                            <td class="stats_cell_few">
+                                    <a class="js-modal-trigger stats_cell_few"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;att=64"
+                                        data-site="EveryWeekdayClimber/0-4.html"
+                                        href="#">
+                                        25
+                                    </a>
+                            </td>
+                            <td class="stats_cell_some">
+                                    <a class="js-modal-trigger stats_cell_some"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;att=64"
+                                        data-site="EveryWeekdayClimber/0-5.html"
+                                        href="#">
+                                        33
+                                    </a>
+                            </td>
+                            <td class="stats_cell_some">
+                                    <a class="js-modal-trigger stats_cell_some"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;att=64"
+                                        data-site="EveryWeekdayClimber/0-6.html"
+                                        href="#">
+                                        64
+                                    </a>
+                            </td>
+                            <td class="stats_cell_some">
+                                    <a class="js-modal-trigger stats_cell_some"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;att=64"
+                                        data-site="EveryWeekdayClimber/0-7.html"
+                                        href="#">
+                                        30
+                                    </a>
+                            </td>
+
+                            <!-- Total -->
+                            <td class="sum stats_cell_many">222</td>
+                        </tr>
+                    </tbody>
+                    </table>
             </div>
+        </div>
+    </section>
+
+
+    <div class="modal" id="cache-list">
+        <div class="modal-background"></div>
+        <div class="modal-content" id="cache-list-modal-box-content">
+            <p>Loading...</p>
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
-
-    <div>
-        <section class="section">
-            <div class="columns is-centered">
-                <div class="column is-12">
-                    <table>
-                        <thead>
-                            <tr>
-                            <th>
-                                <span class="long">Monday</span>
-                                <span class="short">Mon</span>
-                            </th>
-                            <th>
-                                <span class="long">Tuesday</span>
-                                <span class="short">Tue</span>
-                            </th>
-                            <th>
-                                <span class="long">Wendsday</span>
-                                <span class="short">We</span>
-                            </th>
-                            <th>
-                                <span class="long">Thursday</span>
-                                <span class="short">Thu</span>
-                            </th>
-                            <th>
-                                <span class="long">Friday</span>
-                                <span class="short">Fri</span>
-                            </th>
-                            <th>
-                                <span class="long">Saturday</span>
-                                <span class="short">Sat</span>
-                            </th>
-                            <th>
-                                <span class="long">Sunday</span>
-                                <span class="short">Sun</span>
-                            </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                        <a class="js-modal-trigger"
-                                            data-target="cache-list"
-                                            data-site="EveryWeekdayClimber/0-1.html"
-                                            href="#">
-                                            18
-                                        </a>
-                                </td>
-                                <td>
-                                        <a class="js-modal-trigger"
-                                            data-target="cache-list"
-                                            data-site="EveryWeekdayClimber/0-2.html"
-                                            href="#">
-                                            32
-                                        </a>
-                                </td>
-                                <td>
-                                        <a class="js-modal-trigger"
-                                            data-target="cache-list"
-                                            data-site="EveryWeekdayClimber/0-3.html"
-                                            href="#">
-                                            20
-                                        </a>
-                                </td>
-                                <td>
-                                        <a class="js-modal-trigger"
-                                            data-target="cache-list"
-                                            data-site="EveryWeekdayClimber/0-4.html"
-                                            href="#">
-                                            25
-                                        </a>
-                                </td>
-                                <td>
-                                        <a class="js-modal-trigger"
-                                            data-target="cache-list"
-                                            data-site="EveryWeekdayClimber/0-5.html"
-                                            href="#">
-                                            33
-                                        </a>
-                                </td>
-                                <td>
-                                        <a class="js-modal-trigger"
-                                            data-target="cache-list"
-                                            data-site="EveryWeekdayClimber/0-6.html"
-                                            href="#">
-                                            64
-                                        </a>
-                                </td>
-                                <td>
-                                        <a class="js-modal-trigger"
-                                            data-target="cache-list"
-                                            data-site="EveryWeekdayClimber/0-7.html"
-                                            href="#">
-                                            30
-                                        </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                        </table>
-                </div>
-            </div>
-        </section>
-    </div>
-
   </body>
 </html>

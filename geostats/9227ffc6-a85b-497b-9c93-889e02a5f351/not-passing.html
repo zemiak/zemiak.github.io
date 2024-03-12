@@ -12,6 +12,10 @@
     <meta name="apple-mobile-web-app-title" content="GeoStats" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
     <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
@@ -28,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
 
     <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
 
     <!-- no head -->
 </head>
@@ -61,23 +66,50 @@
 
 
             <div class="column is-3">
+              <div class="notification is-warning has-text">
+                <p class="title is-4">
+                    <span class="icon is-small is-left">
+                        <i class="fa fa-calendar-days"></i>
+                    </span>
+                    &nbsp;
+                    Calendar
+                </p><p></p>
+
+
+                  <p class="subtitle is-5">
+                      <a href="calendar-not-passing.html">
+                      <span class="icon is-small is-left">
+                          <i class="fa fa-calendar-days"></i>
+                      </span>
+                      &nbsp;
+                      2 failing
+                      </a>
+                  </p>
+
+
+
+              </div>
+            </div>
+
+
+            <div class="column is-3">
               <div class="notification is-danger has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
                         <i class="fa fa-calendar-days"></i>
                     </span>
                     &nbsp;
-                    Regular
+                    Daily
                 </p><p></p>
 
 
                   <p class="subtitle is-5">
-                      <a href="RegularCalendar.html">
+                      <a href="daily-not-passing.html">
                       <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
+                          <i class="fa fa-calendar-days"></i>
                       </span>
                       &nbsp;
-                      1 missing
+                      10 failing
                       </a>
                   </p>
 
@@ -94,314 +126,17 @@
                         <i class="fa fa-mountain"></i>
                     </span>
                     &nbsp;
-                    Yellow
+                    Fizzy
                 </p><p></p>
 
 
                   <p class="subtitle is-5">
-                      <a href="YellowTable.html">
+                      <a href="fizzy-not-passing.html">
                       <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
+                          <i class="fa fa-mountain"></i>
                       </span>
                       &nbsp;
-                      15 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification is-warning has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-mountain"></i>
-                    </span>
-                    &nbsp;
-                    Regular
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="RegularTable.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      6 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification is-warning has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-mountain"></i>
-                    </span>
-                    &nbsp;
-                    Other
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="OtherTable.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      2 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification is-warning has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-mountain"></i>
-                    </span>
-                    &nbsp;
-                    Large
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="LargeTable.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      51 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification is-warning has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-mountain"></i>
-                    </span>
-                    &nbsp;
-                    Earth
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="EarthTable.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      59 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification is-warning has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-mountain"></i>
-                    </span>
-                    &nbsp;
-                    Letter
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="LetterTable.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      46 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification  has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-calendar-days"></i>
-                    </span>
-                    &nbsp;
-                    Twelve
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="EverydayTwelve.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      730 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification  has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-calendar-days"></i>
-                    </span>
-                    &nbsp;
-                    LAB
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="EverydayLab.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      199 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification is-warning has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-calendar-days"></i>
-                    </span>
-                    &nbsp;
-                    D3+
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="D3Calendar.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      1 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification  has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-calendar-days"></i>
-                    </span>
-                    &nbsp;
-                    T3+
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="T3Calendar.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      2 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification  has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-calendar-days"></i>
-                    </span>
-                    &nbsp;
-                    Letter
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="LetterCalendar.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      310 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification  has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-calendar-days"></i>
-                    </span>
-                    &nbsp;
-                    Large
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="LargeCalendar.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      318 missing
+                      7 failing
                       </a>
                   </p>
 
@@ -418,17 +153,17 @@
                         <i class="fa fa-tree"></i>
                     </span>
                     &nbsp;
-                    T5 (100)
+                    Count
                 </p><p></p>
 
 
                   <p class="subtitle is-5">
-                      <a href="Times100Terrain5.html">
+                      <a href="count-not-passing.html">
                       <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
+                          <i class="fa fa-tree"></i>
                       </span>
                       &nbsp;
-                      12 missing
+                      2 failing
                       </a>
                   </p>
 
@@ -442,128 +177,20 @@
               <div class="notification  has-text">
                 <p class="title is-4">
                     <span class="icon is-small is-left">
-                        <i class="fa fa-calendar-days"></i>
+                        <i class="fa fa-calendar-day"></i>
                     </span>
                     &nbsp;
-                    Month / Type Diamond
+                    Monthly
                 </p><p></p>
 
 
                   <p class="subtitle is-5">
-                      <a href="MonthTypeDiamond.html">
+                      <a href="monthly-not-passing.html">
                       <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
+                          <i class="fa fa-calendar-day"></i>
                       </span>
                       &nbsp;
-                      10 of 12
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification  has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-person"></i>
-                    </span>
-                    &nbsp;
-                    Social Gold
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6%2C1304%2C3653%2C3774%2C4738%2C453%2C7005%2C13">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      585pt missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification  has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-calendar-days"></i>
-                    </span>
-                    &nbsp;
-                    Other
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="OtherCalendar.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      6 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification  has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-calendar-days"></i>
-                    </span>
-                    &nbsp;
-                    Event
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="DailyEvent.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      247 missing
-                      </a>
-                  </p>
-
-
-
-              </div>
-            </div>
-
-
-            <div class="column is-3">
-              <div class="notification is-warning has-text">
-                <p class="title is-4">
-                    <span class="icon is-small is-left">
-                        <i class="fa fa-calendar-days"></i>
-                    </span>
-                    &nbsp;
-                    Jasmer
-                </p><p></p>
-
-
-                  <p class="subtitle is-5">
-                      <a href="Jasmer.html">
-                      <span class="icon is-small is-left">
-                          <i class="fa fa-xmark"></i>
-                      </span>
-                      &nbsp;
-                      30 missing
+                      1 failing
                       </a>
                   </p>
 
@@ -578,5 +205,13 @@
       </div>
     </section>
 
+
+    <div class="modal" id="cache-list">
+        <div class="modal-background"></div>
+        <div class="modal-content" id="cache-list-modal-box-content">
+            <p>Loading...</p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
   </body>
 </html>
