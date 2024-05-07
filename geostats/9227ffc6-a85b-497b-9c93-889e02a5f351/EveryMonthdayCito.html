@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Monthday CITO</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/geostats-static/icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/geostats-static/icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/geostats-static/icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/geostats-static/icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="/geostats-static/icons/globe-1920.png">
+    <link rel="icon" href="/geostats-static/icons/globe-120.png">
+    <link rel="shortcut icon" href="/geostats-static/favicon.ico" type="image/vnd.microsoft.icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+    <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    
+        <style>
+            .desktop-calendar {
+                border-collapse: collapse;
+                margin: 12px 0;
+                min-width: 400px;
+            }
+
+            .desktop-calendar caption {
+                background: darkgreen;
+                border-radius:5px 5px 0 0;
+                padding:5px;
+                text-transform:uppercase;
+                letter-spacing:1px;
+                color:#fff;
+                cursor:default;
+            }
+
+            .desktop-calendar thead tr {
+                text-align: left;
+            }
+
+            .desktop-calendar th,
+            .desktop-calendar td {
+                padding: 6px 8px;
+            }
+
+            .desktop-calendar tbody tr {
+                border-bottom: 1px solid;
+            }
+
+            .desktop-calendar tbody tr:last-of-type {
+                border-bottom: 2px solid;
+            }
+
+            *{ margin:0;padding:0; }
+
+            .mobile-calendar {
+                width:267px;
+                margin:0 auto;
+                margin-top:2%;
+                margin-bottom:2%;
+                border-radius:5px;
+                text-align:center;
+                color:#555;
+            }
+
+            .mobile-calendar h1 {
+                background: darkgreen;
+                border-radius:5px 5px 0 0;
+                padding:5px;
+                text-transform:uppercase;
+                letter-spacing:1px;
+                color:#fff;
+                cursor:default;
+            }
+
+            .mobile-calendar table {
+                border-top:1px solid #ddd;
+                border-left:1px solid #ddd;
+                border-spacing:0;
+                border-radius:0 0 5px 5px;
+            }
+
+            .mobile-calendar td {
+                width:34px;
+                height:34px;
+                border:1px solid darkgrey;
+                padding:4px;
+                cursor:pointer;
+                transition:background .3s;
+                -webkit-transition:background .3s;
+            }
+
+            .mobile-calendar .lastmonth,.mobile-calendar .nextmonth,.mobile-calendar .nextmonth ~ *{
+                color:#999;
+            }
+
+            .mobile-calendar .lastmonth {
+                font-size: 0.5em;
+                font-weight: bold;
+                height:15px;
+            }
+
+            .mobile-calendar caption {
+                background: darkgreen;
+                color:#fff;
+            }
+
+            .mobile-calendar tr:last-of-type td:first-of-type {
+                border-radius:0 0 0 5px;
+            }
+
+            .mobile-calendar tr:last-of-type td:last-of-type {
+                border-radius:0 0 5px 0;
+            }
+        </style>
+
+</head>
+
+<body>
+    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <i class="fa fa-globe fa-xl"></i>
+          </a>
+
+          <a class="navbar-item " style="background-color: #f14668;" href="./not-passing.html">
+            <i class="fa fa-times fa-xl"></i>
+          </a>
+
+          <a class="navbar-item " href="./passing.html">
+            <i class="fa fa-check fa-xl"></i>
+          </a>
+
+          <a class="navbar-item "  href="./info.html">
+            <i class="fa fa-info fa-xl"></i>
+          </a>
+        </div>
+    </nav>
+
+        <div class="is-hidden-mobile">
+        <section class="section">
+            <div class="columns is-centered">
+                <div class="column is-12">
+                    <table class="desktop-calendar">
+                        <caption>Monthday CITO</caption>
+                        <thead>
+                            <tr><th scope="col"></th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th><th scope="col">6</th><th scope="col">7</th><th scope="col">8</th><th scope="col">9</th><th scope="col">10</th><th scope="col">11</th><th scope="col">12</th><th scope="col">13</th><th scope="col">14</th><th scope="col">15</th><th scope="col">16</th><th scope="col">17</th><th scope="col">18</th><th scope="col">19</th><th scope="col">20</th><th scope="col">21</th><th scope="col">22</th><th scope="col">23</th><th scope="col">24</th><th scope="col">25</th><th scope="col">26</th><th scope="col">27</th><th scope="col">28</th><th scope="col">29</th><th scope="col">30</th><th scope="col">31</th><th scope="col">∑</th></tr>
+                        </thead>
+                        <tbody>
+                                <tr><th>Month</th>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-1.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-2.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-3.html" href="#">2</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-4.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-5.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-6.html" href="#">2</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-7.html" href="#">4</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-8.html" href="#">2</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-9.html" href="#">3</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-10.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_missing">
+                                                <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-12.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-13.html" href="#">2</a>
+                                            </td>
+                                            <td class="stats_cell_missing">
+                                                <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-15.html" href="#">4</a>
+                                            </td>
+                                            <td class="stats_cell_missing">
+                                                <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-17.html" href="#">3</a>
+                                            </td>
+                                            <td class="stats_cell_missing">
+                                                <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-19.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-20.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-21.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-22.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-23.html" href="#">2</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-24.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-25.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-26.html" href="#">2</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-27.html" href="#">2</a>
+                                            </td>
+                                            <td class="stats_cell_missing">
+                                                <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-29.html" href="#">3</a>
+                                            </td>
+                                            <td class="stats_cell_couple">
+                                                <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-30.html" href="#">1</a>
+                                            </td>
+                                            <td class="stats_cell_missing">
+                                                <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                            </td>
+                                <th scope="col">
+                                    44
+                                </th>
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="is-hidden-desktop">
+        <div class="columns is-mobile is-centered">
+            <div class="column is-12">
+                    <div>
+                        <table class="mobile-calendar">
+                                <caption id="month07">Monthday CITO</caption>
+                            <tr>
+                                <td class="lastmonth">1</td><td class="lastmonth">2</td><td class="lastmonth">3</td><td class="lastmonth">4</td><td class="lastmonth">5</td><td class="lastmonth">6</td><td class="lastmonth">7</td>
+                            </tr>
+                            <tr>
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-1.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-2.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-3.html" href="#">2</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-4.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-5.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-6.html" href="#">2</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-7.html" href="#">4</a>
+                                        </td>
+
+                                        </tr><tr>
+                                            <td class="lastmonth">8</td><td class="lastmonth">9</td><td class="lastmonth">10</td><td class="lastmonth">11</td><td class="lastmonth">12</td><td class="lastmonth">13</td><td class="lastmonth">14</td>
+                                        </tr><tr>
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-8.html" href="#">2</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-9.html" href="#">3</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-10.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_missing">
+                                            <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-12.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-13.html" href="#">2</a>
+                                        </td>
+
+                                        <td class="stats_cell_missing">
+                                            <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                        </td>
+
+                                        </tr><tr>
+                                            <td class="lastmonth">15</td><td class="lastmonth">16</td><td class="lastmonth">17</td><td class="lastmonth">18</td><td class="lastmonth">19</td><td class="lastmonth">20</td><td class="lastmonth">21</td>
+                                        </tr><tr>
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-15.html" href="#">4</a>
+                                        </td>
+
+                                        <td class="stats_cell_missing">
+                                            <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-17.html" href="#">3</a>
+                                        </td>
+
+                                        <td class="stats_cell_missing">
+                                            <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-19.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-20.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-21.html" href="#">1</a>
+                                        </td>
+
+                                        </tr><tr>
+                                            <td class="lastmonth">22</td><td class="lastmonth">23</td><td class="lastmonth">24</td><td class="lastmonth">25</td><td class="lastmonth">26</td><td class="lastmonth">27</td><td class="lastmonth">28</td>
+                                        </tr><tr>
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-22.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-23.html" href="#">2</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-24.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-25.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-26.html" href="#">2</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-27.html" href="#">2</a>
+                                        </td>
+
+                                        <td class="stats_cell_missing">
+                                            <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                        </td>
+
+                                        </tr><tr>
+                                            <td class="lastmonth">29</td><td class="lastmonth">30</td><td class="lastmonth">31</td><td class="lastmonth">32</td><td class="lastmonth">33</td><td class="lastmonth">34</td><td class="lastmonth">35</td>
+                                        </tr><tr>
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-29.html" href="#">3</a>
+                                        </td>
+
+                                        <td class="stats_cell_couple">
+                                            <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" data-target="cache-list" data-site="EveryMonthdayCito/7-30.html" href="#">1</a>
+                                        </td>
+
+                                        <td class="stats_cell_missing">
+                                            <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&ct=13" target="_blank">1</a>
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                                        <td>
+                                            &nbsp;
+                                        </td>
+
+                            </tr>
+                        </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="cache-list">
+        <div class="modal-background"></div>
+        <div class="modal-content" id="cache-list-modal-box-content">
+            <p>Loading...</p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </body>
+</html>
