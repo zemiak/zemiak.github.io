@@ -63,6 +63,41 @@
             background-color: white;
         }
 
+        /* Mobile navigation with emojis */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 0.5rem;
+            }
+
+            nav a[href="#home"] .text {
+                display: none;
+            }
+            nav a[href="#home"]::before {
+                content: '☀️';
+            }
+
+            nav a[href="#mestska"] .text {
+                display: none;
+            }
+            nav a[href="#mestska"]::before {
+                content: '🏠';
+            }
+
+            nav a[href="#lesna"] .text {
+                display: none;
+            }
+            nav a[href="#lesna"]::before {
+                content: '🌳';
+            }
+
+            nav a[href="#hadankova"] .text {
+                display: none;
+            }
+            nav a[href="#hadankova"]::before {
+                content: '🧩';
+            }
+        }
+
         section {
             min-height: 100vh;
             padding: 6rem 2rem 2rem;
@@ -119,9 +154,12 @@
 
         @media (max-width: 768px) {
             nav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
+                gap: 0.5rem;
+                justify-content: space-around;
+            }
+
+            nav a {
+                padding: 0.5rem;
             }
 
             h1 {
@@ -138,10 +176,10 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#home">Letné cesty</a></li>
-            <li><a href="#mestska">Mestská cesta</a></li>
-            <li><a href="#lesna">Lesná cesta</a></li>
-            <li><a href="#hadankova">Hádanková cesta</a></li>
+            <li><a href="#home"><span class="text">☀️ Letné cesty</span></a></li>
+            <li><a href="#mestska"><span class="text">🏠 Mestská cesta</span></a></li>
+            <li><a href="#lesna"><span class="text">🌳 Lesná cesta</span></a></li>
+            <li><a href="#hadankova"><span class="text">🧩 Hádanková cesta</span></a></li>
         </ul>
     </nav>
 
@@ -177,7 +215,6 @@
     <section id="mestska">
         <div class="content">
             <h1>Mestská cesta</h1>
-            <h2>pre kaviarenské typy</h2>
             <ul>
                 <li>🚌 nájdi 5 kešiek s atribútom Public Transportation Nearby</li>
                 <li>👶 nájdi 3 kešky s atribútom Stroller Accessible</li>
@@ -191,7 +228,6 @@
     <section id="lesna">
         <div class="content">
             <h1>Lesná cesta</h1>
-            <h2>pre objímačov stromov a trampov</h2>
             <ul>
                 <li>🌎 nájdi 5 earth kešiek</li>
                 <li>🧳 nájdi 3 kešky s atribútom Recommended for Tourists</li>
@@ -205,9 +241,8 @@
     <section id="hadankova">
         <div class="content">
             <h1>Hádanková cesta</h1>
-            <h2>pre ajnštajnov</h2>
             <ul>
-                <li>🧠 nájdi 5 mystery kešiek bez atribútu Challenge Cache</li>
+                <li>🧩 nájdi 5 mystery kešiek bez atribútu Challenge Cache</li>
                 <li>🏅 nájdi 3 challenge kešky, ktoré spĺňaš (mystery keška s atribútom Challenge Cache)</li>
                 <li>🚶 nájdi 5 multi kešiek</li>
                 <li>📫 nájdi 2 kešky typu Whereigo alebo Letterbox</li>
