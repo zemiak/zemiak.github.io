@@ -96,6 +96,13 @@
             nav a[href="#hadankova"]::before {
                 content: '🧩';
             }
+
+            nav a[href="#help"] .text {
+                display: none;
+            }
+            nav a[href="#help"]::before {
+                content: '❓';
+            }
         }
 
         section {
@@ -127,6 +134,11 @@
             color: #333;
         }
 
+        #help {
+            background: linear-gradient(135deg, #ef9a9a 0%, #ffebee 100%);
+            color: #333;
+        }
+
         h1 {
             font-size: 3rem;
             margin-bottom: 2rem;
@@ -151,6 +163,12 @@
             padding-left: 0;
             font-size: 1.2rem;
         }
+
+    /* Code snippet with copy button */
+    .code-snippet { position: relative; max-width: 800px; margin: 0.5rem auto 0; }
+    .code-snippet pre { background: #f5f5f5; color: #222; padding: 0.75rem 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid #e0e0e0; }
+    .copy-btn { position: absolute; top: 6px; right: 6px; font-size: 0.85rem; padding: 0.35rem 0.6rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; background: #fff; cursor: pointer; }
+    .copy-btn:hover { background: #fafafa; }
 
         @media (max-width: 768px) {
             nav ul {
@@ -180,6 +198,7 @@
             <li><a href="#mestska"><span class="text">🏠 Mestská cesta</span></a></li>
             <li><a href="#lesna"><span class="text">🌳 Lesná cesta</span></a></li>
             <li><a href="#hadankova"><span class="text">🧩 Hádanková cesta</span></a></li>
+            <li><a href="#help"><span class="text">❓ Checker</span></a></li>
         </ul>
     </nav>
 
@@ -256,7 +275,74 @@
             </ul>
         </div>
     </section>
+
+    <section id="help">
+        <div class="content">
+            <h1>Checker</h1>
+            <h2>Braniova stránka</h2>
+            <p>
+                Ak používate Braniove štatistiky, môžete si overiť splnenie úloh cez ne.
+            </p>
+
+            <h2>Pošlite mi My Finds Pocket Query</h2>
+            <p>
+                Nastavte si formát My Finds Pocket Query na verziu 1.1 a pošlite mi ho mailom.
+                Choďte na <a href="https://www.geocaching.com/account/settings/preferences">
+                stránku s nastaveniami</a> a zmeňte "GPX VERSION" na hodnotu "1.0.1". Uložte zmeny.
+                <br><br>
+                Potom choďte na <a href="https://www.geocaching.com/pocket/default.aspx">
+                Pocket Queries</a>, nájdite sekciu "My Finds" a kliknite na "Add to Queue".
+                Za 10 minút bude súbor pripravený v záložke "Pocket Queries Ready for Download"
+                pod menom "My Finds Pocket Query".
+            </p>
+
+            <h2>Použite špecializovaný checker</h2>
+                <p>
+                    <a href="https://www.jbang.dev/download/">Nainštalujte si nástroj jbang</a>
+                    a stiahnite si Pocket Query ako je spomínané vyššie.
+                    Spustite nasledovný príkaz v termináli (PowerShell pre Windows alebo
+                    Terminal pre macOS) a pošlite mi výsledok.
+                </p>
+
+                <div class="code-snippet">
+                        <button class="copy-btn" type="button" aria-label="Copy command">Copy</button>
+                        <pre><code class="language-shell">jbang letnecesty2025@zemiak</code></pre>
+                </div>
+        </div>
+    </section>
 </body>
+<script>
+
+// Copy button for code snippets
+document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+    const container = btn.closest('.code-snippet');
+    const codeEl = container && container.querySelector('code');
+    if (!codeEl) return;
+    const text = codeEl.innerText.trim();
+    const confirm = () => {
+        const orig = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.disabled = true;
+        setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(confirm, confirm);
+    } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (_) {}
+        document.body.removeChild(ta);
+        confirm();
+    }
+});
+</script>
+</html>
 </html>
 
 <!--
