@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,38 @@
     <script src="index.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css">
 
-    <!-- no head -->
+    
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin="" />
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+<style>
+    #map {
+        height: 600px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .county-info {
+        padding: 6px 8px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
+
+    .county-info h4 {
+        margin: 0 0 5px;
+        color: #777;
+    }
+</style>
+
 </head>
 
 <body>
@@ -58,39 +90,226 @@
         </div>
     </nav>
 
-    
-    <center>
-<div class="table-container">
-    <table class="table is-striped is-hoverable">
-    <thead>
-        <tr>
-                <th><a href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ot=country&amp;st=Slovakia&amp;oid=182" target="_blank"><i class="fa fa-search"></i></a></th>
-            <th><abbr title="Cache Name">Name</abbr></th>
-            <th><abbr title="Cache Type">C</abbr></th>
-            <th><abbr title="Cache Size">S</abbr></th>
-            <th><abbr title="Difficulty">D</abbr></th>
-            <th><abbr title="Terrain">T</abbr></th>
-            <th><abbr title="Found Date">Date</abbr></th>
-            <th><abbr title="Cache Links">⚓︎</abbr></th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <th><abbr title="Geocaching Code">GC</abbr></th>
-            <th><abbr title="Cache Name">Name</abbr></th>
-            <th><abbr title="Cache Type">C</abbr></th>
-            <th><abbr title="Cache Size">S</abbr></th>
-            <th><abbr title="Difficulty">D</abbr></th>
-            <th><abbr title="Terrain">T</abbr></th>
-            <th><abbr title="Found Date">Date</abbr></th>
-            <th><abbr title="Cache Links">⚓︎</abbr></th>
-        </tr>
-    </tfoot>
-    <tbody>
-    </tbody>
-    </table>
-</div>
-    </center>
+    <section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="box">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Initialize the map centered on Slovakia
+    var map = L.map('map').setView([48.7, 19.5], 7);
+    var counts = {};
+
+    counts["Rožňava"] = 3;
+    counts["Ružomberok"] = 4;
+    counts["Tvrdošín"] = 7;
+    counts["Šaľa"] = 72;
+    counts["Košice II"] = 0;
+    counts["Nové Mesto nad Váhom"] = 15;
+    counts["Banská Bystrica"] = 13;
+    counts["Košice IV"] = 0;
+    counts["Poltár"] = 1;
+    counts["Galanta"] = 150;
+    counts["Liptovský Mikuláš"] = 19;
+    counts["Vranov nad Topľou"] = 1;
+    counts["Stropkov"] = 2;
+    counts["Hlohovec"] = 18;
+    counts["Poprad"] = 47;
+    counts["Humenné"] = 2;
+    counts["Nitra"] = 94;
+    counts["Spišská Nová Ves"] = 19;
+    counts["Košice I"] = 0;
+    counts["Kysucké Nové Mesto"] = 1;
+    counts["Levice"] = 12;
+    counts["Svidník"] = 1;
+    counts["Krupina"] = 1;
+    counts["Senec"] = 185;
+    counts["Bratislava IV"] = 832;
+    counts["Bardejov"] = 3;
+    counts["Ilava"] = 9;
+    counts["Trenčín"] = 9;
+    counts["Sobrance"] = 1;
+    counts["Kežmarok"] = 4;
+    counts["Rimavská Sobota"] = 1;
+    counts["Stará Ľubovňa"] = 1;
+    counts["Banská Štiavnica"] = 1;
+    counts["Čadca"] = 8;
+    counts["Bratislava III"] = 625;
+    counts["Veľký Krtíš"] = 1;
+    counts["Malacky"] = 363;
+    counts["Senica"] = 44;
+    counts["Brezno"] = 10;
+    counts["Bánovce nad Bebravou"] = 1;
+    counts["Námestovo"] = 5;
+    counts["Detva"] = 8;
+    counts["Žiar nad Hronom"] = 21;
+    counts["Žarnovica"] = 70;
+    counts["Košice III"] = 0;
+    counts["Partizánske"] = 4;
+    counts["Sabinov"] = 13;
+    counts["Skalica"] = 80;
+    counts["Púchov"] = 12;
+    counts["Revúca"] = 1;
+    counts["Snina"] = 6;
+    counts["Medzilaborce"] = 1;
+    counts["Bytča"] = 12;
+    counts["Bratislava I"] = 338;
+    counts["Myjava"] = 7;
+    counts["Topoľčany"] = 15;
+    counts["Zlaté Moravce"] = 57;
+    counts["Dunajská Streda"] = 103;
+    counts["Prešov"] = 5;
+    counts["Prievidza"] = 26;
+    counts["Žilina"] = 26;
+    counts["Gelnica"] = 1;
+    counts["Komárno"] = 8;
+    counts["Michalovce"] = 1;
+    counts["Zvolen"] = 8;
+    counts["Trebišov"] = 1;
+    counts["Košice - okolie"] = 33;
+    counts["Martin"] = 10;
+    counts["Piešťany"] = 65;
+    counts["Trnava"] = 156;
+    counts["Bratislava II"] = 376;
+    counts["Považská Bystrica"] = 7;
+    counts["Levoča"] = 4;
+    counts["Nové Zámky"] = 13;
+    counts["Pezinok"] = 258;
+    counts["Lučenec"] = 1;
+    counts["Bratislava V"] = 611;
+    counts["Dolný Kubín"] = 26;
+    counts["Turčianske Teplice"] = 2;
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Info control
+    var info = L.control();
+
+    info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'county-info');
+        this.update();
+        return this._div;
+    };
+
+    info.update = function (props) {
+        var countyName = props && props.NM3 ? props.NM3 : null;
+        var cacheCount = counts[countyName] ? counts[countyName] : 0;
+
+        this._div.innerHTML = '<h4>SK Counties</h4>' +
+            (props ? '<b>' + countyName + '</b><br />' +
+                'Caches: ' + cacheCount + '<br />'
+                : 'Hover over a district');
+    };
+
+    info.addTo(map);
+
+    // Style function for the GeoJSON layer
+    function style(feature) {
+        return {
+            fillColor: getColor(feature.properties.NM3),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+        };
+    }
+
+    // Color based on area size
+    function getColor(countyName) {
+        var cacheCount = counts[countyName] ? counts[countyName] : 0;
+
+        if (cacheCount == null || cacheCount == 0) {
+            return "#ff0000";
+        }
+
+        if (cacheCount < 11) {
+            return "#b8c694";
+        }
+
+        if (cacheCount < 26) {
+            return "#8c9e65";
+        }
+
+        if (cacheCount < 100) {
+            return "#697d3e";
+        }
+
+        if (cacheCount < 251) {
+            return "#495829";
+        }
+
+        return "#36411e";
+    }
+
+    // Highlight feature on mouse over
+    function highlightFeature(e) {
+        var layer = e.target;
+
+        layer.setStyle({
+            weight: 5,
+            color: 'white',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+
+        info.update(layer.feature.properties);
+    }
+
+    // Reset highlight when mouse leaves
+    function resetHighlight(e) {
+        geojsonLayer.resetStyle(e.target);
+        info.update();
+    }
+
+    // Zoom to feature on click
+    function zoomToFeature(e) {
+        map.fitBounds(e.target.getBounds());
+    }
+
+    // Bind events to each feature
+    function onEachFeature(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: zoomToFeature
+        });
+    }
+
+    // Variable to hold the GeoJSON layer
+    var geojsonLayer;
+
+    // Fetch and add the GeoJSON data
+    fetch('districts_epsg_4326.geojson')
+        .then(response => response.json())
+        .then(data => {
+            geojsonLayer = L.geoJSON(data, {
+                style: style,
+                onEachFeature: onEachFeature
+            }).addTo(map);
+
+            // Fit map to GeoJSON bounds
+            map.fitBounds(geojsonLayer.getBounds());
+        })
+        .catch(error => {
+            console.error('Error loading GeoJSON:', error);
+            alert('Error loading county data. Please ensure the districts_epsg_4326.geojson file is available.');
+        });
+</script>
 
 
     <div class="modal" id="cache-list">
