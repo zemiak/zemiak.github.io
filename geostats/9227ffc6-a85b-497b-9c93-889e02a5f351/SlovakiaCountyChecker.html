@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
 
     <script src="index.js"></script>
+    <script src="searchBuilder.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css">
 
     
@@ -64,6 +65,33 @@
     .county-info h4 {
         margin: 0 0 5px;
         color: #777;
+    }
+
+    .county-search-icon {
+        /* Leaflet DivIcon container for the centered search overlay */
+        background: #000; /* opaque */
+        color: #fff;
+        padding: 6px 8px;
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1;
+        cursor: pointer;
+        /* Center the bubble over the marker's LatLng */
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        user-select: none;
+    }
+
+    .county-search-icon i {
+        margin-right: 8px;
+    }
+
+    /* Ensure default Leaflet div icon container has no extra chrome */
+    .leaflet-div-icon {
+        background: transparent;
+        border: none;
     }
 </style>
 
@@ -111,10 +139,10 @@
     counts["Ružomberok"] = 4;
     counts["Tvrdošín"] = 7;
     counts["Šaľa"] = 72;
-    counts["Košice II"] = 0;
+    counts["Košice II"] = 1;
     counts["Nové Mesto nad Váhom"] = 15;
     counts["Banská Bystrica"] = 13;
-    counts["Košice IV"] = 0;
+    counts["Košice IV"] = 1;
     counts["Poltár"] = 1;
     counts["Galanta"] = 150;
     counts["Liptovský Mikuláš"] = 19;
@@ -125,7 +153,7 @@
     counts["Humenné"] = 2;
     counts["Nitra"] = 94;
     counts["Spišská Nová Ves"] = 19;
-    counts["Košice I"] = 0;
+    counts["Košice I"] = 1;
     counts["Kysucké Nové Mesto"] = 1;
     counts["Levice"] = 12;
     counts["Svidník"] = 1;
@@ -151,7 +179,7 @@
     counts["Detva"] = 8;
     counts["Žiar nad Hronom"] = 21;
     counts["Žarnovica"] = 70;
-    counts["Košice III"] = 0;
+    counts["Košice III"] = 1;
     counts["Partizánske"] = 4;
     counts["Sabinov"] = 13;
     counts["Skalica"] = 80;
@@ -186,6 +214,8 @@
     counts["Bratislava V"] = 611;
     counts["Dolný Kubín"] = 26;
     counts["Turčianske Teplice"] = 2;
+
+    var cacherName = "zemiak";
 
     // Add OpenStreetMap tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -267,7 +297,7 @@
             layer.bringToFront();
         }
 
-        info.update(layer.feature.properties);
+    info.update(layer.feature.properties);
     }
 
     // Reset highlight when mouse leaves
@@ -290,6 +320,20 @@
         });
     }
 
+    // Layer group to hold all county search markers (always visible)
+    var countySearchMarkers = L.layerGroup().addTo(map);
+
+    function searchCounty(countyName) {
+        var builder = new SearchBuilder();
+        var url = builder.county("Slovakia", countyName).cacherName(cacherName).build();
+
+        var win = window.open(url, '_blank');
+        if (win) {
+            win.opener = null;
+            win.focus();
+        }
+    }
+
     // Variable to hold the GeoJSON layer
     var geojsonLayer;
 
@@ -304,6 +348,32 @@
 
             // Fit map to GeoJSON bounds
             map.fitBounds(geojsonLayer.getBounds());
+
+            // Create a fixed, always-visible search icon for every county
+            geojsonLayer.eachLayer(function (layer) {
+                if (!layer.feature || !layer.feature.properties) return;
+                var countyName = layer.feature.properties.NM3;
+                if (!countyName) return;
+
+                // Center point of the county (using bounds center as an approximation)
+                var center = layer.getBounds().getCenter();
+                var html = '<i class="fa fa-search"></i>';
+
+                var marker = L.marker(center, {
+                    icon: L.divIcon({
+                        className: 'county-search-icon',
+                        html: html,
+                        iconSize: null
+                    }),
+                    interactive: true
+                });
+
+                marker.on('click', function () {
+                    searchCounty(countyName);
+                });
+
+                countySearchMarkers.addLayer(marker);
+            });
         })
         .catch(error => {
             console.error('Error loading GeoJSON:', error);
