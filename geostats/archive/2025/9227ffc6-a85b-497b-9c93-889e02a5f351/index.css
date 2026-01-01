@@ -1,0 +1,144 @@
+:root {
+    --stats_cell_couple: #b8c694; /* orig: #d6dfbf */
+    --stats_cell_couple_text: #8c9e65;
+
+    --stats_cell_few: #8c9e65; /* orig: #b8c694 */
+    --stats_cell_few_text: white;
+
+    --stats_cell_some: #697d3e; /* orig: #8c9e65 */
+    --stats_cell_some_text: white;
+
+    --stats_cell_many: #495829; /* orig: #697d3e */
+    --stats_cell_many_text: white;
+
+    --stats_cell_lots: #36411e; /* orig: #495829 */
+    --stats_cell_lots_text: white;
+
+    --stats_cell_missing: red;
+    --stats_cell_missing_text: white;
+}
+
+/** weekly.html */
+
+.stats_cell_couple, .td.stats_cell_couple, a.stats_cell_couple {
+    background-color: var(--stats_cell_couple);
+    color: var(--stats_cell_couple_text);
+}
+
+.stats_cell_few, .td.stats_cell_few, a.stats_cell_few {
+    background-color: var(--stats_cell_few);
+    color: var(--stats_cell_few_text);
+}
+
+.stats_cell_some, td.stats_cell_some, a.stats_cell_some {
+    background-color: var(--stats_cell_some);
+    color: var(--stats_cell_some_text);
+}
+
+.stats_cell_many, .td.stats_cell_many, a.stats_cell_many {
+    background-color: var(--stats_cell_many);
+    color: var(--stats_cell_many_text);
+}
+
+.stats_cell_lots, .td.stats_cell_lots, a.stats_cell_lots {
+    background-color: var(--stats_cell_lots);
+    color: var(--stats_cell_lots_text);
+}
+
+.stats_cell_missing, .td.stats_cell_missing, a.stats_cell_missing {
+    background-color: var(--stats_cell_missing);
+    color: var(--stats_cell_missing_text);
+}
+
+/** table.html */
+.matrix .stats_cell_couple, .td.stats_cell_couple, a.stats_cell_couple {
+    background-color: var(--stats_cell_couple);
+    color: var(--stats_cell_couple_text);
+}
+
+.matrix .stats_cell_few, .td.stats_cell_few, a.stats_cell_few {
+    background-color: var(--stats_cell_few);
+    color: var(--stats_cell_few_text);
+}
+
+.matrix .stats_cell_some, .td.stats_cell_some, a.stats_cell_some {
+    background-color: var(--stats_cell_some);
+    color: var(--stats_cell_some_text);
+}
+
+.matrix .stats_cell_many, .td.stats_cell_many, a.stats_cell_many {
+    background-color: var(--stats_cell_many);
+    color: var(--stats_cell_many_text);
+}
+
+.matrix .stats_cell_lots, .td.stats_cell_lots, a.stats_cell_lots {
+    background-color: var(--stats_cell_lots);
+    color: var(--stats_cell_lots_text);
+}
+
+.matrix .stats_cell_missing, .td.stats_cell_missing, a.stats_cell_missing {
+    background-color: var(--stats_cell_missing);
+    color: var(--stats_cell_missing_text);
+}
+
+/** calendar.html: Mobile and Desktop */
+
+.mobile-calendar td.stats_cell_couple, a.stats_cell_couple {
+    background-color: var(--stats_cell_couple);
+    color: var(--stats_cell_couple_text);
+}
+
+.mobile-calendar td.stats_cell_few, a.stats_cell_few {
+    background-color: var(--stats_cell_few);
+    color: var(--stats_cell_few_text);
+}
+
+.mobile-calendar td.stats_cell_some, a.stats_cell_some {
+    background-color: var(--stats_cell_some);
+    color: var(--stats_cell_some_text);
+}
+
+.mobile-calendar td.stats_cell_many, a.stats_cell_many {
+    background-color: var(--stats_cell_many);
+    color: var(--stats_cell_many_text);
+}
+
+.mobile-calendar td.stats_cell_lots, a.stats_cell_lots {
+    background-color: var(--stats_cell_lots);
+    color: var(--stats_cell_lots_text);
+}
+
+.mobile-calendar td.stats_cell_missing, a.stats_cell_missing {
+    background-color: var(--stats_cell_missing);
+    color: var(--stats_cell_missing_text);
+}
+
+.desktop-calendar td.stats_cell_couple, a.stats_cell_couple {
+    background-color: var(--stats_cell_couple);
+    color: var(--stats_cell_couple_text);
+}
+
+.desktop-calendar td.stats_cell_few, a.stats_cell_few {
+    background-color: var(--stats_cell_few);
+    color: var(--stats_cell_few_text);
+}
+
+.desktop-calendar td.stats_cell_some, a.stats_cell_some {
+    background-color: var(--stats_cell_some);
+    color: var(--stats_cell_some_text);
+}
+
+.desktop-calendar td.stats_cell_many, a.stats_cell_many {
+    background-color: var(--stats_cell_many);
+    color: var(--stats_cell_many_text);
+}
+
+.desktop-calendar td.stats_cell_lots, a.stats_cell_lots {
+    background-color: var(--stats_cell_lots);
+    color: var(--stats_cell_lots_text);
+}
+
+.desktop-calendar td.stats_cell_missing, a.stats_cell_missing {
+    background-color: var(--stats_cell_missing);
+    color: var(--stats_cell_missing_text);
+}

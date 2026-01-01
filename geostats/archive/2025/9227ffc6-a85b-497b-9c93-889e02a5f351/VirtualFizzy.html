@@ -1,0 +1,1022 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Virtual</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/geostats-static/icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/geostats-static/icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/geostats-static/icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/geostats-static/icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="/geostats-static/icons/globe-1920.png">
+    <link rel="icon" href="/geostats-static/icons/globe-120.png">
+    <link rel="shortcut icon" href="/geostats-static/favicon.ico" type="image/vnd.microsoft.icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+    <script src="index.js"></script>
+    <script src="searchBuilder.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    
+    <style>
+        .matrix {
+            border-collapse: collapse;
+            margin-top: 10px;
+            min-width: 300px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .mobile th,
+        .mobile td {
+            padding: 3px 2px;
+            text-align: center;
+            min-width: 1em;
+            font-size: 0.5em;
+        }
+
+        .matrix thead tr {
+            color: #ffffff;
+        }
+
+        .matrix th,
+        .matrix td {
+            padding: 3px 2px;
+            text-align: center;
+            min-width: 3em;
+        }
+
+        .matrix td.top {
+            border-bottom: 2px solid #000000;
+        }
+
+        .matrix td.first,
+        .matrix td.rightborder {
+            border-right: 2px solid #000000;
+        }
+
+        .sum, tr.sum, td.sum, th.sum {
+            background-color: rgb(215, 215, 215);
+            color: black;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #mobileTable td.stats_cell_couple,
+        #mobileTable td.stats_cell_few,
+        #mobileTable td.stats_cell_some,
+        #mobileTable td.stats_cell_many,
+        #mobileTable td.stats_cell_lots,
+        #mobileTable td.stats_cell_missing {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <i class="fa fa-globe fa-xl"></i>
+          </a>
+
+          <a class="navbar-item "  href="./not-passing.html">
+            <i class="fa fa-times fa-xl"></i>
+          </a>
+
+          <a class="navbar-item " href="./passing.html">
+            <i class="fa fa-check fa-xl"></i>
+          </a>
+
+          <a class="navbar-item "  href="./info.html">
+            <i class="fa fa-info fa-xl"></i>
+          </a>
+
+          <a class="navbar-item " href="./year-calendar.html" title="Year Calendar">
+            <i class="fa fa-calendar fa-xl"></i>
+          </a>
+        </div>
+    </nav>
+
+    
+    <div class="is-hidden-mobile">
+    <section class="section">
+      <div class="columns is-centered">
+        <div class="column is-8 is-offset-2">
+        <table class="matrix">
+            <caption>Virtual</caption>
+            <thead>
+                <tr>
+                    <th class="rightborder"><sub>D</sub>\<sup>T</sup></th>
+                    <th>1.0</th>
+                    <th>1.5</th>
+                    <th>2.0</th>
+                    <th>2.5</th>
+                    <th>3.0</th>
+                    <th>3.5</th>
+                    <th>4.0</th>
+                    <th>4.5</th>
+                    <th>5.0</th>
+                    <th>∑</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th><abbr title="Sum">∑</abbr></th>
+                    <th>98</th>
+                    <th>37</th>
+                    <th>7</th>
+                    <th>1</th>
+                    <th>5</th>
+                    <th>0</th>
+                    <th>0</th>
+                    <th>0</th>
+                    <th>0</th>
+                    <th>148</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                    <tr>
+                        <td style="font-weight: bold;">1.0</td>
+                            <td class="stats_cell_some">
+                                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d1.0.html" href="#">66</a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=1.5&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.5-d1.0.html" href="#">5</a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=2.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=2.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=3.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t3.0-d1.0.html" href="#">1</a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=3.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=4.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=4.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=5.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                        <th>72</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">1.5</td>
+                            <td class="stats_cell_few">
+                                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d1.5.html" href="#">23</a>
+                            </td>
+                            <td class="stats_cell_few">
+                                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=1.5&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.5-d1.5.html" href="#">23</a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=2.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t2.0-d1.5.html" href="#">2</a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=2.5&ct=4" data-target="cache-list" data-site="VirtualFizzy/t2.5-d1.5.html" href="#">1</a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=3.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t3.0-d1.5.html" href="#">1</a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=3.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=4.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=4.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=5.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                        <th>50</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">2.0</td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d2.0.html" href="#">4</a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=1.5&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.5-d2.0.html" href="#">6</a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=2.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t2.0-d2.0.html" href="#">4</a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=2.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=3.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=3.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=4.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=4.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=5.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                        <th>14</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">2.5</td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d2.5.html" href="#">2</a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=1.5&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.5-d2.5.html" href="#">3</a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=2.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t2.0-d2.5.html" href="#">1</a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=2.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=3.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=3.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=4.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=4.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=5.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                        <th>6</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">3.0</td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=1.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=1.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=2.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=2.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=3.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t3.0-d3.0.html" href="#">2</a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=3.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=4.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=4.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=5.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                        <th>2</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">3.5</td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d3.5.html" href="#">2</a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=1.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=2.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=2.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=3.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=3.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=4.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=4.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=5.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                        <th>2</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">4.0</td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=1.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=1.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=2.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=2.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=3.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t3.0-d4.0.html" href="#">1</a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=3.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=4.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=4.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=5.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                        <th>1</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">4.5</td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=1.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=1.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=2.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=2.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=3.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=3.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=4.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=4.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=5.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                        <th>0</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">5.0</td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d5.0.html" href="#">1</a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=1.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=2.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=2.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=3.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=3.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=4.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=4.5&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                            <td class="stats_cell_missing">
+                                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=5.0&ct=4" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                            </td>
+                        <th>1</th>
+                    </tr>
+            </tbody>
+        </table>
+        </div></div></section>
+    </div>
+
+    <div class="is-hidden-tablet">
+    <center>
+        <table id="mobileTable" class="matrix mobile">
+        <caption>Virtual</caption>
+        <thead>
+            <tr>
+                <th class="rightborder"><sub>D</sub>\<sup>T</sup></th>
+                <th class="first top">1.0</th>
+                <th class="first top">1.5</th>
+                <th class="first top">2.0</th>
+                <th class="first top">2.5</th>
+                <th class="first top">3.0</th>
+                <th class="first top">3.5</th>
+                <th class="first top">4.0</th>
+                <th class="first top">4.5</th>
+                <th class="first top">5.0</th>
+                <th>∑</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th><abbr title="Sum">∑</abbr></th>
+                <th>98</th>
+                <th>37</th>
+                <th>7</th>
+                <th>1</th>
+                <th>5</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+                <th>0</th>
+                <th>148</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td><b>1.0</b></td>
+                    <td class="stats_cell_some">
+                        <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d1.0.html" href="#">66</a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=1.5&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.5-d1.0.html" href="#">5</a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=2.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=2.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=3.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t3.0-d1.0.html" href="#">1</a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=3.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=4.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=4.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.0&t=5.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                <th>72</th>
+            </tr>
+            <tr>
+                <td><b>1.5</b></td>
+                    <td class="stats_cell_few">
+                        <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d1.5.html" href="#">23</a>
+                    </td>
+                    <td class="stats_cell_few">
+                        <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=1.5&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.5-d1.5.html" href="#">23</a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=2.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t2.0-d1.5.html" href="#">2</a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=2.5&ct=4" data-target="cache-list" data-site="VirtualFizzy/t2.5-d1.5.html" href="#">1</a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=3.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t3.0-d1.5.html" href="#">1</a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=3.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=4.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=4.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=1.5&t=5.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                <th>50</th>
+            </tr>
+            <tr>
+                <td><b>2.0</b></td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d2.0.html" href="#">4</a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=1.5&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.5-d2.0.html" href="#">6</a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=2.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t2.0-d2.0.html" href="#">4</a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=2.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=3.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=3.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=4.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=4.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.0&t=5.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                <th>14</th>
+            </tr>
+            <tr>
+                <td><b>2.5</b></td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d2.5.html" href="#">2</a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=1.5&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.5-d2.5.html" href="#">3</a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=2.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t2.0-d2.5.html" href="#">1</a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=2.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=3.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=3.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=4.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=4.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=2.5&t=5.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                <th>6</th>
+            </tr>
+            <tr>
+                <td><b>3.0</b></td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=1.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=1.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=2.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=2.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=3.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t3.0-d3.0.html" href="#">2</a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=3.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=4.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=4.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.0&t=5.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                <th>2</th>
+            </tr>
+            <tr>
+                <td><b>3.5</b></td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d3.5.html" href="#">2</a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=1.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=2.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=2.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=3.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=3.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=4.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=4.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=3.5&t=5.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                <th>2</th>
+            </tr>
+            <tr>
+                <td><b>4.0</b></td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=1.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=1.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=2.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=2.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=3.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t3.0-d4.0.html" href="#">1</a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=3.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=4.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=4.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.0&t=5.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                <th>1</th>
+            </tr>
+            <tr>
+                <td><b>4.5</b></td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=1.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=1.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=2.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=2.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=3.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=3.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=4.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=4.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=4.5&t=5.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                <th>0</th>
+            </tr>
+            <tr>
+                <td><b>5.0</b></td>
+                    <td class="stats_cell_couple">
+                        <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=1.0&ct=4" data-target="cache-list" data-site="VirtualFizzy/t1.0-d5.0.html" href="#">1</a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=1.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=2.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=2.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=3.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=3.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=4.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=4.5&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                    <td class="stats_cell_missing">
+                        <a href="https://www.geocaching.com/play/results?r=10&oid=-1&ot=home&hf=1&ho=1&nfb=zemiak&d=5.0&t=5.0&ct=4" target="_blank" class="stats_cell_missing">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                <th>1</th>
+            </tr>
+        </tbody>
+        </table>
+    </center>
+    </div>
+
+
+    <div class="modal" id="cache-list">
+        <div class="modal-background"></div>
+        <div class="modal-content" id="cache-list-modal-box-content">
+            <p>Loading...</p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </body>
+</html>

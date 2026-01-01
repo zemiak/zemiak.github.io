@@ -1,0 +1,2438 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Country Types</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/geostats-static/icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/geostats-static/icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/geostats-static/icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/geostats-static/icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="/geostats-static/icons/globe-1920.png">
+    <link rel="icon" href="/geostats-static/icons/globe-120.png">
+    <link rel="shortcut icon" href="/geostats-static/favicon.ico" type="image/vnd.microsoft.icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+    <script src="index.js"></script>
+    <script src="searchBuilder.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    
+    <style>
+        .matrix {
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .matrix thead tr {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .matrix th,
+        .matrix td {
+            padding: 5px 3px;
+            text-align: center;
+        }
+
+        .matrix th {
+            border-bottom: 2px solid #000000;
+        }
+
+        .matrix td.first,
+        .matrix th.rightborder {
+            border-right: 2px solid #000000;
+        }
+
+        .matrix td.violation {
+            background-color: red;
+            color: yellow;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <i class="fa fa-globe fa-xl"></i>
+          </a>
+
+          <a class="navbar-item "  href="./not-passing.html">
+            <i class="fa fa-times fa-xl"></i>
+          </a>
+
+          <a class="navbar-item " href="./passing.html">
+            <i class="fa fa-check fa-xl"></i>
+          </a>
+
+          <a class="navbar-item "  href="./info.html">
+            <i class="fa fa-info fa-xl"></i>
+          </a>
+
+          <a class="navbar-item " href="./year-calendar.html" title="Year Calendar">
+            <i class="fa fa-calendar fa-xl"></i>
+          </a>
+        </div>
+    </nav>
+
+        <center>
+        <table class="matrix">
+            <tr>
+                <th class="rightborder"><sub>M</sub>\<sup>T</sup></th>
+                    <th><abbr title="Traditional Cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-2"/></svg></abbr></th>
+                    <th><abbr title="Unknown Cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-8"/></svg></abbr></th>
+                    <th><abbr title="Wherigo Cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-1858"/></svg></abbr></th>
+                    <th><abbr title="Letterbox Hybrid"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-5"/></svg></abbr></th>
+                    <th><abbr title="Multi-cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-3"/></svg></abbr></th>
+                    <th><abbr title="Virtual Cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-4"/></svg></abbr></th>
+                    <th><abbr title="Webcam Cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-11"/></svg></abbr></th>
+                    <th><abbr title="Earthcache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-137"/></svg></abbr></th>
+                    <th><abbr title="Event Cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-6"/></svg></abbr></th>
+                    <th><abbr title="Mega-Event Cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-453"/></svg></abbr></th>
+                    <th><abbr title="Giga-Event Cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-7005"/></svg></abbr></th>
+                    <th><abbr title="Locationless (Reverse) Cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-12"/></svg></abbr></th>
+                    <th><abbr title="Community Celebration Event"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-3653"/></svg></abbr></th>
+                    <th><abbr title="Geocaching HQ Block Party"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-4738"/></svg></abbr></th>
+                    <th><abbr title="Gecaching Headquarters"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-3773"/></svg></abbr></th>
+                    <th><abbr title="Groundspeak Lost and Found Celebration"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-3774"/></svg></abbr></th>
+                    <th><abbr title="Cache In Trash Out Event"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-13"/></svg></abbr></th>
+                    <th><abbr title="Project APE Cache"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-9"/></svg></abbr></th>
+                    <th><abbr title="GPS Adventures Exhibit"><svg height="24px" width="24px"><use xlink:href="/geostats-static/types/cache-types.svg#icon-1304"/></svg></abbr></th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Austria</b></td>
+
+                <td class="stats_cell_lots">
+                    <a class="js-modal-trigger stats_cell_lots" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-TRADITIONAL.html">
+                        <abbr title="✔">
+                            883
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-UNKNOWN.html">
+                        <abbr title="✔">
+                            235
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-WHEREIGO.html">
+                        <abbr title="✔">
+                            9
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-LETTERBOX.html">
+                        <abbr title="✔">
+                            9
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-MULTI.html">
+                        <abbr title="✔">
+                            53
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-VIRTUAL.html">
+                        <abbr title="✔">
+                            10
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-WEBCAM.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-EARTH.html">
+                        <abbr title="✔">
+                            5
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-EVENT.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Austria&amp;oid=227" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Austria&amp;oid=227" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Austria&amp;oid=227" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-CCE.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Austria&amp;oid=227" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Austria&amp;oid=227" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Austria&amp;oid=227" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Austria&amp;oid=227" data-target="cache-list" data-site="CountryType/Austria-CITO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Austria&amp;oid=227" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Austria&amp;oid=227" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">11</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Belgium</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Belgium&amp;oid=4" data-target="cache-list" data-site="CountryType/Belgium-TRADITIONAL.html">
+                        <abbr title="✔">
+                            7
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Belgium&amp;oid=4" data-target="cache-list" data-site="CountryType/Belgium-UNKNOWN.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Belgium&amp;oid=4" data-target="cache-list" data-site="CountryType/Belgium-WHEREIGO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Belgium&amp;oid=4" data-target="cache-list" data-site="CountryType/Belgium-LETTERBOX.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Belgium&amp;oid=4" data-target="cache-list" data-site="CountryType/Belgium-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Belgium&amp;oid=4" data-target="cache-list" data-site="CountryType/Belgium-VIRTUAL.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Belgium&amp;oid=4" data-target="cache-list" data-site="CountryType/Belgium-EARTH.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Belgium&amp;oid=4" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">7</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Croatia</b></td>
+
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Croatia&amp;oid=53" data-target="cache-list" data-site="CountryType/Croatia-TRADITIONAL.html">
+                        <abbr title="✔">
+                            46
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Croatia&amp;oid=53" data-target="cache-list" data-site="CountryType/Croatia-UNKNOWN.html">
+                        <abbr title="✔">
+                            5
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Croatia&amp;oid=53" data-target="cache-list" data-site="CountryType/Croatia-WHEREIGO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Croatia&amp;oid=53" data-target="cache-list" data-site="CountryType/Croatia-LETTERBOX.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Croatia&amp;oid=53" data-target="cache-list" data-site="CountryType/Croatia-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Croatia&amp;oid=53" data-target="cache-list" data-site="CountryType/Croatia-VIRTUAL.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Croatia&amp;oid=53" data-target="cache-list" data-site="CountryType/Croatia-EARTH.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Croatia&amp;oid=53" data-target="cache-list" data-site="CountryType/Croatia-EVENT.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Croatia&amp;oid=53" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">8</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Czechia</b></td>
+
+                <td class="stats_cell_lots">
+                    <a class="js-modal-trigger stats_cell_lots" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-TRADITIONAL.html">
+                        <abbr title="✔">
+                            485
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-UNKNOWN.html">
+                        <abbr title="✔">
+                            185
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-WHEREIGO.html">
+                        <abbr title="✔">
+                            8
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-LETTERBOX.html">
+                        <abbr title="✔">
+                            10
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-MULTI.html">
+                        <abbr title="✔">
+                            53
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-VIRTUAL.html">
+                        <abbr title="✔">
+                            37
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-WEBCAM.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_few">
+                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-EARTH.html">
+                        <abbr title="✔">
+                            14
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-EVENT.html">
+                        <abbr title="✔">
+                            6
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-MEGAEVENT.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-GIGAEVENT.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Czechia&amp;oid=null" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-CCE.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-HQ_BLOCK_PARTY.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Czechia&amp;oid=null" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Czechia&amp;oid=null" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-CITO.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Czechia&amp;oid=null" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Czechia&amp;oid=null" data-target="cache-list" data-site="CountryType/Czechia-MAZE_EXHIBIT.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+
+                    <th class="last">15</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Denmark</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Denmark&amp;oid=57" data-target="cache-list" data-site="CountryType/Denmark-TRADITIONAL.html">
+                        <abbr title="✔">
+                            9
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Denmark&amp;oid=57" data-target="cache-list" data-site="CountryType/Denmark-UNKNOWN.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Denmark&amp;oid=57" data-target="cache-list" data-site="CountryType/Denmark-WHEREIGO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Denmark&amp;oid=57" data-target="cache-list" data-site="CountryType/Denmark-LETTERBOX.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Denmark&amp;oid=57" data-target="cache-list" data-site="CountryType/Denmark-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Denmark&amp;oid=57" data-target="cache-list" data-site="CountryType/Denmark-VIRTUAL.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Denmark&amp;oid=57" data-target="cache-list" data-site="CountryType/Denmark-WEBCAM.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Denmark&amp;oid=57" data-target="cache-list" data-site="CountryType/Denmark-EARTH.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Denmark&amp;oid=57" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">8</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Estonia</b></td>
+
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Estonia&amp;oid=66" data-target="cache-list" data-site="CountryType/Estonia-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Estonia&amp;oid=66" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">1</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>France</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=France&amp;oid=73" data-target="cache-list" data-site="CountryType/France-TRADITIONAL.html">
+                        <abbr title="✔">
+                            7
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=France&amp;oid=73" data-target="cache-list" data-site="CountryType/France-UNKNOWN.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=France&amp;oid=73" data-target="cache-list" data-site="CountryType/France-WHEREIGO.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=France&amp;oid=73" data-target="cache-list" data-site="CountryType/France-LETTERBOX.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=France&amp;oid=73" data-target="cache-list" data-site="CountryType/France-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=France&amp;oid=73" data-target="cache-list" data-site="CountryType/France-VIRTUAL.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=France&amp;oid=73" data-target="cache-list" data-site="CountryType/France-EARTH.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=France&amp;oid=73" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">7</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Germany</b></td>
+
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Germany&amp;oid=79" data-target="cache-list" data-site="CountryType/Germany-TRADITIONAL.html">
+                        <abbr title="✔">
+                            46
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Germany&amp;oid=79" data-target="cache-list" data-site="CountryType/Germany-UNKNOWN.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Germany&amp;oid=79" data-target="cache-list" data-site="CountryType/Germany-WHEREIGO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Germany&amp;oid=79" data-target="cache-list" data-site="CountryType/Germany-LETTERBOX.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Germany&amp;oid=79" data-target="cache-list" data-site="CountryType/Germany-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Germany&amp;oid=79" data-target="cache-list" data-site="CountryType/Germany-VIRTUAL.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Germany&amp;oid=79" data-target="cache-list" data-site="CountryType/Germany-WEBCAM.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Germany&amp;oid=79" data-target="cache-list" data-site="CountryType/Germany-EARTH.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Germany&amp;oid=79" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">8</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Hungary</b></td>
+
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-TRADITIONAL.html">
+                        <abbr title="✔">
+                            66
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-UNKNOWN.html">
+                        <abbr title="✔">
+                            4
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-WHEREIGO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-LETTERBOX.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-MULTI.html">
+                        <abbr title="✔">
+                            4
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-VIRTUAL.html">
+                        <abbr title="✔">
+                            4
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Hungary&amp;oid=92" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-EARTH.html">
+                        <abbr title="✔">
+                            7
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-EVENT.html">
+                        <abbr title="✔">
+                            4
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-MEGAEVENT.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Hungary&amp;oid=92" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Hungary&amp;oid=92" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Hungary&amp;oid=92" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-HQ_BLOCK_PARTY.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Hungary&amp;oid=92" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Hungary&amp;oid=92" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Hungary&amp;oid=92" data-target="cache-list" data-site="CountryType/Hungary-CITO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Hungary&amp;oid=92" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Hungary&amp;oid=92" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">11</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Ireland</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Ireland&amp;oid=7" data-target="cache-list" data-site="CountryType/Ireland-TRADITIONAL.html">
+                        <abbr title="✔">
+                            5
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Ireland&amp;oid=7" data-target="cache-list" data-site="CountryType/Ireland-UNKNOWN.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Ireland&amp;oid=7" data-target="cache-list" data-site="CountryType/Ireland-WHEREIGO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Ireland&amp;oid=7" data-target="cache-list" data-site="CountryType/Ireland-LETTERBOX.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Ireland&amp;oid=7" data-target="cache-list" data-site="CountryType/Ireland-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Ireland&amp;oid=7" data-target="cache-list" data-site="CountryType/Ireland-VIRTUAL.html">
+                        <abbr title="✔">
+                            5
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Ireland&amp;oid=7" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Ireland&amp;oid=7" data-target="cache-list" data-site="CountryType/Ireland-EARTH.html">
+                        <abbr title="✔">
+                            4
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Ireland&amp;oid=7" data-target="cache-list" data-site="CountryType/Ireland-EVENT.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Ireland&amp;oid=7" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Ireland&amp;oid=7" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Ireland&amp;oid=7" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Ireland&amp;oid=7" data-target="cache-list" data-site="CountryType/Ireland-CCE.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Ireland&amp;oid=7" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Ireland&amp;oid=7" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Ireland&amp;oid=7" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Ireland&amp;oid=7" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Ireland&amp;oid=7" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Ireland&amp;oid=7" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">9</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Liechtenstein</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" data-target="cache-list" data-site="CountryType/Liechtenstein-TRADITIONAL.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" data-target="cache-list" data-site="CountryType/Liechtenstein-UNKNOWN.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" data-target="cache-list" data-site="CountryType/Liechtenstein-WHEREIGO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" data-target="cache-list" data-site="CountryType/Liechtenstein-LETTERBOX.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" data-target="cache-list" data-site="CountryType/Liechtenstein-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" data-target="cache-list" data-site="CountryType/Liechtenstein-VIRTUAL.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" data-target="cache-list" data-site="CountryType/Liechtenstein-EARTH.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Liechtenstein&amp;oid=116" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">7</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Luxembourg</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Luxembourg&amp;oid=8" data-target="cache-list" data-site="CountryType/Luxembourg-TRADITIONAL.html">
+                        <abbr title="✔">
+                            4
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Luxembourg&amp;oid=8" data-target="cache-list" data-site="CountryType/Luxembourg-UNKNOWN.html">
+                        <abbr title="✔">
+                            5
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Luxembourg&amp;oid=8" data-target="cache-list" data-site="CountryType/Luxembourg-WHEREIGO.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Luxembourg&amp;oid=8" data-target="cache-list" data-site="CountryType/Luxembourg-LETTERBOX.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Luxembourg&amp;oid=8" data-target="cache-list" data-site="CountryType/Luxembourg-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Luxembourg&amp;oid=8" data-target="cache-list" data-site="CountryType/Luxembourg-VIRTUAL.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Luxembourg&amp;oid=8" data-target="cache-list" data-site="CountryType/Luxembourg-EARTH.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Luxembourg&amp;oid=8" data-target="cache-list" data-site="CountryType/Luxembourg-EVENT.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Luxembourg&amp;oid=8" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">8</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Netherlands</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Netherlands&amp;oid=141" data-target="cache-list" data-site="CountryType/Netherlands-TRADITIONAL.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Netherlands&amp;oid=141" data-target="cache-list" data-site="CountryType/Netherlands-VIRTUAL.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Netherlands&amp;oid=141" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">2</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Poland</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Poland&amp;oid=158" data-target="cache-list" data-site="CountryType/Poland-TRADITIONAL.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Poland&amp;oid=158" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">1</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Slovakia</b></td>
+
+                <td class="stats_cell_lots">
+                    <a class="js-modal-trigger stats_cell_lots" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-TRADITIONAL.html">
+                        <abbr title="✔">
+                            2384
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_lots">
+                    <a class="js-modal-trigger stats_cell_lots" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-UNKNOWN.html">
+                        <abbr title="✔">
+                            1628
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-WHEREIGO.html">
+                        <abbr title="✔">
+                            140
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-LETTERBOX.html">
+                        <abbr title="✔">
+                            111
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_lots">
+                    <a class="js-modal-trigger stats_cell_lots" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-MULTI.html">
+                        <abbr title="✔">
+                            522
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-VIRTUAL.html">
+                        <abbr title="✔">
+                            72
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-WEBCAM.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-EARTH.html">
+                        <abbr title="✔">
+                            67
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_many">
+                    <a class="js-modal-trigger stats_cell_many" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-EVENT.html">
+                        <abbr title="✔">
+                            244
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-MEGAEVENT.html">
+                        <abbr title="✔">
+                            7
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Slovakia&amp;oid=182" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Slovakia&amp;oid=182" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_few">
+                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-CCE.html">
+                        <abbr title="✔">
+                            24
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-HQ_BLOCK_PARTY.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Slovakia&amp;oid=182" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Slovakia&amp;oid=182" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_some">
+                    <a class="js-modal-trigger stats_cell_some" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Slovakia&amp;oid=182" data-target="cache-list" data-site="CountryType/Slovakia-CITO.html">
+                        <abbr title="✔">
+                            49
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Slovakia&amp;oid=182" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Slovakia&amp;oid=182" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">13</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Slovenia</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Slovenia&amp;oid=181" data-target="cache-list" data-site="CountryType/Slovenia-TRADITIONAL.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Slovenia&amp;oid=181" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">1</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Sweden</b></td>
+
+                <td class="stats_cell_few">
+                    <a class="js-modal-trigger stats_cell_few" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Sweden&amp;oid=10" data-target="cache-list" data-site="CountryType/Sweden-TRADITIONAL.html">
+                        <abbr title="✔">
+                            22
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Sweden&amp;oid=10" data-target="cache-list" data-site="CountryType/Sweden-UNKNOWN.html">
+                        <abbr title="✔">
+                            6
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Sweden&amp;oid=10" data-target="cache-list" data-site="CountryType/Sweden-WHEREIGO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Sweden&amp;oid=10" data-target="cache-list" data-site="CountryType/Sweden-LETTERBOX.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Sweden&amp;oid=10" data-target="cache-list" data-site="CountryType/Sweden-MULTI.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Sweden&amp;oid=10" data-target="cache-list" data-site="CountryType/Sweden-VIRTUAL.html">
+                        <abbr title="✔">
+                            4
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Sweden&amp;oid=10" data-target="cache-list" data-site="CountryType/Sweden-WEBCAM.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Sweden&amp;oid=10" data-target="cache-list" data-site="CountryType/Sweden-EARTH.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Sweden&amp;oid=10" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">8</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Switzerland</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Switzerland&amp;oid=192" data-target="cache-list" data-site="CountryType/Switzerland-TRADITIONAL.html">
+                        <abbr title="✔">
+                            6
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Switzerland&amp;oid=192" data-target="cache-list" data-site="CountryType/Switzerland-UNKNOWN.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Switzerland&amp;oid=192" data-target="cache-list" data-site="CountryType/Switzerland-WHEREIGO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Switzerland&amp;oid=192" data-target="cache-list" data-site="CountryType/Switzerland-LETTERBOX.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Switzerland&amp;oid=192" data-target="cache-list" data-site="CountryType/Switzerland-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Switzerland&amp;oid=192" data-target="cache-list" data-site="CountryType/Switzerland-VIRTUAL.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Switzerland&amp;oid=192" data-target="cache-list" data-site="CountryType/Switzerland-WEBCAM.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Switzerland&amp;oid=192" data-target="cache-list" data-site="CountryType/Switzerland-EARTH.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Switzerland&amp;oid=192" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">8</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>Ukraine</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=Ukraine&amp;oid=207" data-target="cache-list" data-site="CountryType/Ukraine-TRADITIONAL.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=Ukraine&amp;oid=207" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">1</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>United Kingdom</b></td>
+
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" data-target="cache-list" data-site="CountryType/United Kingdom-TRADITIONAL.html">
+                        <abbr title="✔">
+                            10
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" data-target="cache-list" data-site="CountryType/United Kingdom-UNKNOWN.html">
+                        <abbr title="✔">
+                            2
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" data-target="cache-list" data-site="CountryType/United Kingdom-WHEREIGO.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" data-target="cache-list" data-site="CountryType/United Kingdom-LETTERBOX.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" data-target="cache-list" data-site="CountryType/United Kingdom-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" data-target="cache-list" data-site="CountryType/United Kingdom-VIRTUAL.html">
+                        <abbr title="✔">
+                            3
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" data-target="cache-list" data-site="CountryType/United Kingdom-EARTH.html">
+                        <abbr title="✔">
+                            8
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" data-target="cache-list" data-site="CountryType/United Kingdom-EVENT.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=United+Kingdom&amp;oid=11" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">8</th>
+            </tr>
+            <tr>
+                    <td class="first"><b>United States</b></td>
+
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=2&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=8&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1858&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=5&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3&amp;ot=country&amp;st=United+States&amp;oid=2" data-target="cache-list" data-site="CountryType/United States-MULTI.html">
+                        <abbr title="✔">
+                            1
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=11&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=137&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=6&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=453&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=7005&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_couple">
+                    <a class="js-modal-trigger stats_cell_couple" data-search="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=12&amp;ot=country&amp;st=United+States&amp;oid=2" data-target="cache-list" data-site="CountryType/United States-LOCATIONLESS.html">
+                        <abbr title="✔">
+                            4
+                        </abbr>
+                    </a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3653&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=4738&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3773&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=3774&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=9&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+                <td class="stats_cell_missing">
+                    <a class="stats_cell_missing" href="https://www.geocaching.com/play/results?r=10&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=1304&amp;ot=country&amp;st=United+States&amp;oid=2" target="_blank"><i class="fa fa-search"></i></a>
+
+                </td>
+
+                    <th class="last">2</th>
+            </tr>
+        </table>
+    </center>
+
+
+    <div class="modal" id="cache-list">
+        <div class="modal-background"></div>
+        <div class="modal-content" id="cache-list-modal-box-content">
+            <p>Loading...</p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </body>
+</html>

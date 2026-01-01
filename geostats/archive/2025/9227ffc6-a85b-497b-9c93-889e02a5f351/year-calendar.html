@@ -1,0 +1,2774 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Year Calendar - 2026-01-01 - 2027-01-01</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/geostats-static/icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/geostats-static/icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/geostats-static/icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/geostats-static/icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="/geostats-static/icons/globe-1920.png">
+    <link rel="icon" href="/geostats-static/icons/globe-120.png">
+    <link rel="shortcut icon" href="/geostats-static/favicon.ico" type="image/vnd.microsoft.icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+    <script src="index.js"></script>
+    <script src="searchBuilder.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    
+        <style>
+            /* Year Calendar Styles */
+            .year-calendar-container {
+                padding: 10px;
+            }
+
+            .year-calendar-header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .year-calendar-header h1 {
+                font-size: 1.5rem;
+                margin-bottom: 5px;
+            }
+
+            .year-calendar-header .subtitle {
+                font-size: 0.9rem;
+                color: #666;
+            }
+
+            .year-calendar-stats {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
+
+            .year-calendar-stat {
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-align: center;
+            }
+
+            .year-calendar-stat-danger {
+                background-color: #f14668;
+                color: white;
+            }
+
+            .year-calendar-stat-ok {
+                background-color: #48c774;
+                color: white;
+            }
+
+            /* Month grid */
+            .year-calendar-months {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 20px;
+                padding: 10px;
+            }
+
+            .year-calendar-month {
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .year-calendar-month-header {
+                background: #363636;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            @media (prefers-color-scheme: light) {
+                .year-calendar-month-header {
+                    background: #48c774;
+                }
+            }
+
+            .year-calendar-weekdays {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                background: #f5f5f5;
+                border-bottom: 1px solid #ddd;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .year-calendar-weekdays {
+                    background: #2c2c2c;
+                }
+            }
+
+            .year-calendar-weekday {
+                text-align: center;
+                padding: 5px;
+                font-size: 0.8rem;
+                font-weight: bold;
+            }
+
+            .year-calendar-days {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                min-height: 200px;
+            }
+
+            .year-calendar-day {
+                min-height: 50px;
+                border: 1px solid #eee;
+                padding: 3px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .year-calendar-day-number {
+                font-size: 0.85rem;
+                font-weight: bold;
+                margin-bottom: 2px;
+            }
+
+            .year-calendar-day-empty {
+                background: #f9f9f9;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .year-calendar-day-empty {
+                    background: #1a1a1a;
+                }
+            }
+
+            .year-calendar-day-weekend {
+                background: #f0f0f0;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .year-calendar-day-weekend {
+                    background: #2a2a2a;
+                }
+            }
+
+            .year-calendar-today {
+                border: 2px solid #3273dc !important;
+                background: #ebf3ff;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .year-calendar-today {
+                    background: #1e3a5f;
+                }
+            }
+
+            .year-calendar-past {
+                opacity: 0.5;
+            }
+
+            .year-calendar-danger .year-calendar-day-number {
+                color: #f14668;
+            }
+
+            .year-calendar-warning .year-calendar-day-number {
+                color: #ffdd57;
+            }
+
+            .year-calendar-attention .year-calendar-day-number {
+                color: #3298dc;
+            }
+
+            /* Badges */
+            .year-calendar-badges {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2px;
+            }
+
+            .year-calendar-badge {
+                font-size: 0.6rem;
+                padding: 1px 4px;
+                border-radius: 3px;
+                text-decoration: none;
+                white-space: nowrap;
+            }
+
+            .year-calendar-badge.is-info {
+                background: #3298dc;
+                color: white;
+            }
+
+            .year-calendar-badge.is-link {
+                background: #485fc7;
+                color: white;
+            }
+
+            .year-calendar-badge.is-primary {
+                background: #00d1b2;
+                color: white;
+            }
+
+            .year-calendar-badge.is-warning {
+                background: #ffdd57;
+                color: #000;
+            }
+
+            .year-calendar-badge.is-success {
+                background: #48c774;
+                color: white;
+            }
+
+            .year-calendar-badge.is-danger {
+                background: #f14668;
+                color: white;
+            }
+
+            .year-calendar-badge.is-dark {
+                background: #363636;
+                color: white;
+            }
+
+            /* Failing count indicator */
+            .year-calendar-fail-count {
+                font-size: 0.7rem;
+                color: #f14668;
+                font-weight: bold;
+            }
+
+            /* Mobile specific */
+            @media screen and (max-width: 768px) {
+                .year-calendar-months {
+                    grid-template-columns: 1fr;
+                }
+
+                .year-calendar-day {
+                    min-height: 40px;
+                    padding: 2px;
+                }
+
+                .year-calendar-day-number {
+                    font-size: 0.75rem;
+                }
+
+                .year-calendar-badge {
+                    font-size: 0.5rem;
+                    padding: 1px 2px;
+                }
+
+                .year-calendar-header h1 {
+                    font-size: 1.2rem;
+                }
+            }
+
+            /* Legend */
+            .year-calendar-legend {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 20px;
+                padding: 10px;
+            }
+
+            .year-calendar-legend-item {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 0.8rem;
+            }
+
+            .year-calendar-legend-badge {
+                padding: 2px 8px;
+                border-radius: 3px;
+            }
+
+            /* Quick nav */
+            .year-calendar-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5px;
+                margin-bottom: 20px;
+            }
+
+            .year-calendar-nav a {
+                padding: 5px 10px;
+                background: #f5f5f5;
+                border-radius: 5px;
+                text-decoration: none;
+                font-size: 0.8rem;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                .year-calendar-nav a {
+                    background: #363636;
+                    color: white;
+                }
+            }
+
+            .year-calendar-nav a:hover {
+                background: #48c774;
+                color: white;
+            }
+        </style>
+
+</head>
+
+<body>
+    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <i class="fa fa-globe fa-xl"></i>
+          </a>
+
+          <a class="navbar-item "  href="./not-passing.html">
+            <i class="fa fa-times fa-xl"></i>
+          </a>
+
+          <a class="navbar-item " href="./passing.html">
+            <i class="fa fa-check fa-xl"></i>
+          </a>
+
+          <a class="navbar-item "  href="./info.html">
+            <i class="fa fa-info fa-xl"></i>
+          </a>
+
+          <a class="navbar-item " href="./year-calendar.html" title="Year Calendar">
+            <i class="fa fa-calendar fa-xl"></i>
+          </a>
+        </div>
+    </nav>
+
+        <section class="section year-calendar-container">
+        <div class="year-calendar-months">
+            <div class="year-calendar-month" id="yc-2026-01">
+                <div class="year-calendar-month-header">
+                    January 2026
+                    <span class="year-calendar-fail-count">(24 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-today ">
+                        <span class="year-calendar-day-number">1</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning ">
+                        <span class="year-calendar-day-number">2</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month01" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month01" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">3</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">4</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">5</span>
+                        <div class="year-calendar-badges">
+                            <a href="Other2Calendar.html#month01" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">6</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month01" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning ">
+                        <span class="year-calendar-day-number">7</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month01" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="D15T15Calendar.html#month01" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">8</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month01" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">9</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month01" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">10</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month01" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Small2Calendar.html#month01" class="year-calendar-badge is-warning" title="Small2Calendar: 1 missing">
+                                s
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">11</span>
+                        <div class="year-calendar-badges">
+                            <a href="D1Calendar.html#month01" class="year-calendar-badge is-link" title="D1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month01" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">12</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month01" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">13</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month01" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning ">
+                        <span class="year-calendar-day-number">14</span>
+                        <div class="year-calendar-badges">
+                            <a href="D1Calendar.html#month01" class="year-calendar-badge is-link" title="D1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="T1Calendar.html#month01" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Small2Calendar.html#month01" class="year-calendar-badge is-warning" title="Small2Calendar: 1 missing">
+                                s
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">15</span>
+                        <div class="year-calendar-badges">
+                            <a href="Small2Calendar.html#month01" class="year-calendar-badge is-warning" title="Small2Calendar: 1 missing">
+                                s
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning ">
+                        <span class="year-calendar-day-number">16</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Small2Calendar.html#month01" class="year-calendar-badge is-warning" title="Small2Calendar: 1 missing">
+                                s
+                            </a>
+                            <a href="D15T15Calendar.html#month01" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">17</span>
+                        <div class="year-calendar-badges">
+                            <a href="D1Calendar.html#month01" class="year-calendar-badge is-link" title="D1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">18</span>
+                        <div class="year-calendar-badges">
+                            <a href="Small2Calendar.html#month01" class="year-calendar-badge is-warning" title="Small2Calendar: 1 missing">
+                                s
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">19</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month01" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">20</span>
+                        <div class="year-calendar-badges">
+                            <a href="D1Calendar.html#month01" class="year-calendar-badge is-link" title="D1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">21</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="D15T15Calendar.html#month01" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">22</span>
+                        <div class="year-calendar-badges">
+                            <a href="Small2Calendar.html#month01" class="year-calendar-badge is-warning" title="Small2Calendar: 1 missing">
+                                s
+                            </a>
+                            <a href="D15T15Calendar.html#month01" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">23</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">24</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Micro2Calendar.html#month01" class="year-calendar-badge is-warning" title="Micro2Calendar: 1 missing">
+                                μ
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">25</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">26</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month01" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="Other2Calendar.html#month01" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">27</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">28</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">29</span>
+                        <div class="year-calendar-badges">
+                            <a href="Other2Calendar.html#month01" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">30</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month01" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">31</span>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-02">
+                <div class="year-calendar-month-header">
+                    February 2026
+                    <span class="year-calendar-fail-count">(15 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">1</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month02" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">2</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="D15T15Calendar.html#month02" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">3</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month02" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning ">
+                        <span class="year-calendar-day-number">4</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month02" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                            <a href="D15T15Calendar.html#month02" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">5</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">6</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="D15T15Calendar.html#month02" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">7</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month02" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">8</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">9</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">10</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">11</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month02" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">12</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">13</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month02" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">14</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="D15T15Calendar.html#month02" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">15</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">16</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">17</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Small2Calendar.html#month02" class="year-calendar-badge is-warning" title="Small2Calendar: 1 missing">
+                                s
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">18</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month02" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">19</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">20</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">21</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">22</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">23</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">24</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">25</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">26</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">27</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month02" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month02" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">28</span>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-03">
+                <div class="year-calendar-month-header">
+                    March 2026
+                    <span class="year-calendar-fail-count">(11 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">1</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">2</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month03" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">3</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month03" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">4</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month03" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">5</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">6</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month03" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="D15T15Calendar.html#month03" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">7</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month03" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="Other2Calendar.html#month03" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                            <a href="D15T15Calendar.html#month03" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">8</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">9</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">10</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month03" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month03" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">11</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">12</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">13</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month03" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month03" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">14</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">15</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">16</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">17</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">18</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month03" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">19</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">20</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">21</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">22</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">23</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">24</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month03" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">25</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">26</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">27</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month03" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">28</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month03" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">29</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">30</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">31</span>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-04">
+                <div class="year-calendar-month-header">
+                    April 2026
+                    <span class="year-calendar-fail-count">(15 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">1</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">2</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">3</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">4</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">5</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">6</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">7</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">8</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month04" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">9</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning ">
+                        <span class="year-calendar-day-number">10</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month04" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                            <a href="D15T15Calendar.html#month04" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">11</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month04" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">12</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">13</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">14</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">15</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">16</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month04" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">17</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">18</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">19</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">20</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">21</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">22</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">23</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">24</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">25</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">26</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month04" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">27</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning ">
+                        <span class="year-calendar-day-number">28</span>
+                        <div class="year-calendar-badges">
+                            <a href="D1Calendar.html#month04" class="year-calendar-badge is-link" title="D1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="D15T15Calendar.html#month04" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">29</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month04" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-05">
+                <div class="year-calendar-month-header">
+                    May 2026
+                    <span class="year-calendar-fail-count">(14 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">1</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">2</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">3</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">4</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month05" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">5</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">6</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">7</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">8</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">9</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">10</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">11</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">12</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">13</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">14</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month05" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">15</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">16</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">17</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">18</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">19</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">20</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month05" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">21</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">22</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">23</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">24</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month05" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">25</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month05" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">26</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month05" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month05" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">27</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">28</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">29</span>
+                        <div class="year-calendar-badges">
+                            <a href="Other2Calendar.html#month05" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                            <a href="D15T15Calendar.html#month05" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">30</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">31</span>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-06">
+                <div class="year-calendar-month-header">
+                    June 2026
+                    <span class="year-calendar-fail-count">(16 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">1</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">2</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month06" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">3</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">4</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">5</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">6</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">7</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">8</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month06" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">9</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">10</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">11</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month06" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">12</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month06" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">13</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">14</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month06" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">15</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month06" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">16</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month06" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">17</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">18</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">19</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">20</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">21</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">22</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">23</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">24</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning ">
+                        <span class="year-calendar-day-number">25</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month06" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="D15T15Calendar.html#month06" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">26</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">27</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">28</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month06" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="D15T15Calendar.html#month06" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">29</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-07">
+                <div class="year-calendar-month-header">
+                    July 2026
+                    <span class="year-calendar-fail-count">(10 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">1</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">2</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">3</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">4</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">5</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">6</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month07" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">7</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">8</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month07" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">9</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">10</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month07" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">11</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">12</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">13</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">14</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">15</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">16</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month07" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">17</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month07" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">18</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month07" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">19</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-warning ">
+                        <span class="year-calendar-day-number">20</span>
+                        <div class="year-calendar-badges">
+                            <a href="T1Calendar.html#month07" class="year-calendar-badge is-primary" title="T1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month07" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month07" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">21</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">22</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">23</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month07" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">24</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">25</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">26</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month07" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">27</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">28</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month07" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">29</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">30</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">31</span>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-08">
+                <div class="year-calendar-month-header">
+                    August 2026
+                    <span class="year-calendar-fail-count">(15 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">1</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">2</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">3</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month08" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">4</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">5</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">6</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">7</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">8</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">9</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">10</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">11</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">12</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">13</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">14</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month08" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">15</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">16</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">17</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">18</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">19</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">20</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">21</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">22</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">23</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">24</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">25</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">26</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">27</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">28</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">29</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">30</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">31</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month08" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-09">
+                <div class="year-calendar-month-header">
+                    September 2026
+                    <span class="year-calendar-fail-count">(12 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">1</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">2</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">3</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">4</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">5</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">6</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">7</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">8</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">9</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">10</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">11</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">12</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">13</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">14</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">15</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">16</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">17</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">18</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">19</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">20</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">21</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">22</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">23</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">24</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">25</span>
+                        <div class="year-calendar-badges">
+                            <a href="D1Calendar.html#month09" class="year-calendar-badge is-link" title="D1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">26</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">27</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">28</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">29</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">30</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month09" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-10">
+                <div class="year-calendar-month-header">
+                    October 2026
+                    <span class="year-calendar-fail-count">(13 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">1</span>
+                        <div class="year-calendar-badges">
+                            <a href="D1Calendar.html#month10" class="year-calendar-badge is-link" title="D1Calendar: 1 missing">
+                                1
+                            </a>
+                            <a href="DailyEvent.html#month10" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">2</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month10" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">3</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month10" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">4</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month10" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">5</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">6</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">7</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">8</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month10" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">9</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">10</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month10" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">11</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month10" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">12</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month10" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">13</span>
+                        <div class="year-calendar-badges">
+                            <a href="D15T15Calendar.html#month10" class="year-calendar-badge is-info" title="D15T15Calendar: 1 missing">
+                                ½
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">14</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">15</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month10" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">16</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month10" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">17</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month10" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">18</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">19</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">20</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">21</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">22</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">23</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">24</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month10" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">25</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">26</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">27</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">28</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">29</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">30</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">31</span>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-11">
+                <div class="year-calendar-month-header">
+                    November 2026
+                    <span class="year-calendar-fail-count">(6 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">1</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month11" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">2</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">3</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">4</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">5</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">6</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">7</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month11" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">8</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">9</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">10</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">11</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">12</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">13</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">14</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month11" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">15</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">16</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month11" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">17</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month11" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">18</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">19</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">20</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">21</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">22</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">23</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">24</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">25</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">26</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month11" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">27</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">28</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">29</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2026-12">
+                <div class="year-calendar-month-header">
+                    December 2026
+                    <span class="year-calendar-fail-count">(5 days)</span>
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">1</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">2</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">3</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">4</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month12" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">5</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">6</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">7</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">8</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month12" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">9</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">10</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">11</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">12</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">13</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">14</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">15</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">16</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month12" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month12" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">17</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention ">
+                        <span class="year-calendar-day-number">18</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month12" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-attention year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">19</span>
+                        <div class="year-calendar-badges">
+                            <a href="DailyEvent.html#month12" class="year-calendar-badge is-danger" title="DailyEvent: 1 missing">
+                                E
+                            </a>
+                            <a href="Other2Calendar.html#month12" class="year-calendar-badge is-warning" title="Other2Calendar: 1 missing">
+                                o
+                            </a>
+                        </div>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">20</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">21</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">22</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">23</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">24</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">25</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">26</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok year-calendar-day-weekend">
+                        <span class="year-calendar-day-number">27</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">28</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">29</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">30</span>
+                    </div>
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">31</span>
+                    </div>
+                </div>
+            </div>
+            <div class="year-calendar-month" id="yc-2027-01">
+                <div class="year-calendar-month-header">
+                    January 2027
+                </div>
+                <div class="year-calendar-weekdays">
+                    <div class="year-calendar-weekday">Mon</div>
+                    <div class="year-calendar-weekday">Tue</div>
+                    <div class="year-calendar-weekday">Wed</div>
+                    <div class="year-calendar-weekday">Thu</div>
+                    <div class="year-calendar-weekday">Fri</div>
+                    <div class="year-calendar-weekday">Sat</div>
+                    <div class="year-calendar-weekday">Sun</div>
+                </div>
+                <div class="year-calendar-days">
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    <div class="year-calendar-day year-calendar-day-empty"></div>
+                    
+                    <div class="year-calendar-day year-calendar-ok ">
+                        <span class="year-calendar-day-number">1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-calendar-header">
+            <h1 class="title">
+                <span class="icon"><i class="fa fa-calendar"></i></span>
+                Year Calendar
+            </h1>
+            <p class="subtitle">2026-01-01 - 2027-01-01</p>
+        </div>
+
+        <div class="year-calendar-stats">
+            <div class="year-calendar-stat year-calendar-stat-danger">
+                <strong>156</strong> days with missing checkers
+            </div>
+            <div class="year-calendar-stat year-calendar-stat-ok">
+                <strong>210</strong> days complete
+            </div>
+        </div>
+
+        <div class="year-calendar-legend">
+            <div class="year-calendar-legend-item">
+                <span class="year-calendar-legend-badge year-calendar-badge is-info">½</span>
+                <span>D1.5/T1.5</span>
+            </div>
+            <div class="year-calendar-legend-item">
+                <span class="year-calendar-legend-badge year-calendar-badge is-link">1/3/4</span>
+                <span>Difficulty</span>
+            </div>
+            <div class="year-calendar-legend-item">
+                <span class="year-calendar-legend-badge year-calendar-badge is-primary">1/3/4</span>
+                <span>Terrain</span>
+            </div>
+            <div class="year-calendar-legend-item">
+                <span class="year-calendar-legend-badge year-calendar-badge is-warning">μ/s/r/o</span>
+                <span>Cache Size</span>
+            </div>
+            <div class="year-calendar-legend-item">
+                <span class="year-calendar-legend-badge year-calendar-badge is-success">Color</span>
+                <span>Cache Color</span>
+            </div>
+            <div class="year-calendar-legend-item">
+                <span class="year-calendar-legend-badge year-calendar-badge is-danger">E/12</span>
+                <span>Events/Special</span>
+            </div>
+        </div>
+
+        <nav class="year-calendar-nav">
+            <a href="#yc-2026-01">Jan 2026</a>
+            <a href="#yc-2026-02">Feb 2026</a>
+            <a href="#yc-2026-03">Mar 2026</a>
+            <a href="#yc-2026-04">Apr 2026</a>
+            <a href="#yc-2026-05">May 2026</a>
+            <a href="#yc-2026-06">Jun 2026</a>
+            <a href="#yc-2026-07">Jul 2026</a>
+            <a href="#yc-2026-08">Aug 2026</a>
+            <a href="#yc-2026-09">Sep 2026</a>
+            <a href="#yc-2026-10">Oct 2026</a>
+            <a href="#yc-2026-11">Nov 2026</a>
+            <a href="#yc-2026-12">Dec 2026</a>
+            <a href="#yc-2027-01">Jan 2027</a>
+        </nav>
+    </section>
+
+
+    <div class="modal" id="cache-list">
+        <div class="modal-background"></div>
+        <div class="modal-content" id="cache-list-modal-box-content">
+            <p>Loading...</p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </body>
+</html>

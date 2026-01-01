@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Weekday Cito</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GeoStats" />
+    <meta name="apple-mobile-web-app-title" content="GeoStats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="apple-touch-icon" sizes="120x120" href="/geostats-static/icons/globe-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/geostats-static/icons/globe-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/geostats-static/icons/globe-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/geostats-static/icons/globe-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/geostats-static/icons/globe-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/geostats-static/icons/globe-512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/geostats-static/icons/globe-1024.png">
+    <link rel="apple-touch-icon" sizes="1920x1920" href="/geostats-static/icons/globe-1920.png">
+    <link rel="icon" href="/geostats-static/icons/globe-120.png">
+    <link rel="shortcut icon" href="/geostats-static/favicon.ico" type="image/vnd.microsoft.icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+    <script src="index.js"></script>
+    <script src="searchBuilder.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    
+        <style>
+            .desktop-calendar {
+                border-collapse: collapse;
+                margin: 6px 0;
+            }
+
+            .desktop-calendar caption {
+                background: darkgreen;
+                border-radius:5px 5px 0 0;
+                padding:4px;
+                text-transform:uppercase;
+                letter-spacing:1px;
+                color:#fff;
+                cursor:default;
+            }
+
+            .desktop-calendar thead tr {
+                text-align: left;
+            }
+
+            .desktop-calendar th,
+            .desktop-calendar td {
+                padding: 4px 6px;
+            }
+
+            .desktop-calendar tbody tr {
+                border-bottom: 1px solid;
+            }
+
+            .desktop-calendar tbody tr:last-of-type {
+                border-bottom: 1px solid;
+            }
+
+            *{ margin:0;padding:0; }
+
+            .sum, tr.sum, td.sum, th.sum {
+                background-color: rgb(215, 215, 215);
+                color: black;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            #mobileWeeklyTable td.stats_cell_couple,
+            #mobileWeeklyTable td.stats_cell_few,
+            #mobileWeeklyTable td.stats_cell_some,
+            #mobileWeeklyTable td.stats_cell_many,
+            #mobileWeeklyTable td.stats_cell_lots,
+            #mobileWeeklyTable td.stats_cell_missing {
+                color: white;
+            }
+        </style>
+
+</head>
+
+<body>
+    <nav class="navbar is-spaced has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <i class="fa fa-globe fa-xl"></i>
+          </a>
+
+          <a class="navbar-item "  href="./not-passing.html">
+            <i class="fa fa-times fa-xl"></i>
+          </a>
+
+          <a class="navbar-item " href="./passing.html">
+            <i class="fa fa-check fa-xl"></i>
+          </a>
+
+          <a class="navbar-item "  href="./info.html">
+            <i class="fa fa-info fa-xl"></i>
+          </a>
+
+          <a class="navbar-item " href="./year-calendar.html" title="Year Calendar">
+            <i class="fa fa-calendar fa-xl"></i>
+          </a>
+        </div>
+    </nav>
+
+        <section class="section">
+        <div class="columns is-centered">
+            <div class="column is-8 is-offset-4">
+                <table id="mobileWeeklyTable" class="desktop-calendar">
+                    <caption>Weekday Cito</caption>
+                    <tbody>
+                        <tr>
+                            <td>Mon</td>
+                            <td>Tue</td>
+                            <td>Wed</td>
+                            <td>Thu</td>
+                            <td>Fri</td>
+                            <td>Sat</td>
+                            <td>Sun</td>
+                            <td>∑</td>
+                        </tr>
+
+                        <tr>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13"
+                                        data-site="EveryWeekdayCito/0-1.html"
+                                        href="#">
+                                        4
+                                    </a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13"
+                                        data-site="EveryWeekdayCito/0-2.html"
+                                        href="#">
+                                        8
+                                    </a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13"
+                                        data-site="EveryWeekdayCito/0-3.html"
+                                        href="#">
+                                        4
+                                    </a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13"
+                                        data-site="EveryWeekdayCito/0-4.html"
+                                        href="#">
+                                        3
+                                    </a>
+                            </td>
+                            <td class="stats_cell_couple">
+                                    <a class="js-modal-trigger stats_cell_couple"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13"
+                                        data-site="EveryWeekdayCito/0-5.html"
+                                        href="#">
+                                        5
+                                    </a>
+                            </td>
+                            <td class="stats_cell_few">
+                                    <a class="js-modal-trigger stats_cell_few"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13"
+                                        data-site="EveryWeekdayCito/0-6.html"
+                                        href="#">
+                                        15
+                                    </a>
+                            </td>
+                            <td class="stats_cell_few">
+                                    <a class="js-modal-trigger stats_cell_few"
+                                        data-target="cache-list"
+                                        data-search="https://www.geocaching.com/play/results?r=10&amp;oid=-1&amp;ot=home&amp;hf=1&amp;ho=1&amp;nfb=zemiak&amp;ct=13"
+                                        data-site="EveryWeekdayCito/0-7.html"
+                                        href="#">
+                                        14
+                                    </a>
+                            </td>
+
+                            <!-- Total -->
+                            <td class="sum stats_cell_some">53</td>
+                        </tr>
+                    </tbody>
+                    </table>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="modal" id="cache-list">
+        <div class="modal-background"></div>
+        <div class="modal-content" id="cache-list-modal-box-content">
+            <p>Loading...</p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </body>
+</html>
