@@ -1,0 +1,1 @@
+function e(e){let t=e.hash.startsWith(`#`)?e.hash.slice(1):e.hash,n=t.indexOf(`?`);return new URLSearchParams(n===-1?``:t.slice(n+1))}export{e as t};
