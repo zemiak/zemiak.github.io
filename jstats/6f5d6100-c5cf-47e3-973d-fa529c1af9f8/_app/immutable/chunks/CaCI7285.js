@@ -1,0 +1,1 @@
+function e(e,t){return t>0?`stats_cell_missing`:e<11?`stats_cell_couple`:e<26?`stats_cell_few`:e<100?`stats_cell_some`:e<251?`stats_cell_many`:`stats_cell_lots`}export{e as t};
