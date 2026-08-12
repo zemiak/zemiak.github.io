@@ -1,1 +1,0 @@
-function e(e,t,n,r,i,a){let o=e.filter(t),s=new Map;for(let e of o){let t=n(e);s.set(t,(s.get(t)??0)+1)}let c=[],l=0,u=0,d=1/0;for(let e=1;e<=r;e++){let t=s.get(e)??0,n=t>=i;n?l++:u++,d=Math.min(d,t),c.push({index:e,count:t,passed:n})}return{title:a,loop:i,cells:c,met:l,missing:u,minCount:Number.isFinite(d)?d:0}}export{e as t};

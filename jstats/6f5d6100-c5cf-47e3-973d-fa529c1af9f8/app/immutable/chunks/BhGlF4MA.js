@@ -1,1 +1,0 @@
-import{d as e,n as t,s as n,t as r}from"./CDZaZRMw.js";var i;async function a(){let i=await e();return{geocaches:r(i),attributesByGeocacheId:t(i),cacher:n(i).cacher}}function o(){return i??=a()}export{o as t};

@@ -1,0 +1,1 @@
+function e(e,t,n,r,i=`finds`,a={}){let o=e.filter(e=>!(!t(e)||a.placedBefore&&!(e.placedOn<a.placedBefore)||a.placedAfter&&!(e.placedOn>a.placedAfter))),s=o.length;return{title:r,unit:i,actual:s,required:n,passed:s>=n,matches:o}}export{e as t};
