@@ -1,1 +1,0 @@
-import{B as e,C as t,P as n,b as r,c as i,f as a,i as o,x as s}from"./BalcObGW.js";import"./xihTtKlq.js";var c=t(`<span> </span>`);function l(t,l){let u=o(l,`compact`,3,!1);var d=c();let f;var p=e(d,!0);n(()=>{f=a(d,1,`jstats-badge ${l.kind??``}`,`svelte-dtbgkf`,f,{compact:u()}),i(d,`title`,l.title),r(p,l.text)}),s(t,d)}export{l as t};
