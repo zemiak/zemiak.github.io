@@ -1,1 +1,0 @@
-import{K as e,N as t,_ as n,c as r,g as i,i as a,k as o,o as s,y as c}from"./CwPEAACB.js";import"./xihTtKlq.js";var l=c(`<span> </span>`);function u(c,u){let d=a(u,`compact`,3,!1);var f=l();let p;var m=t(f,!0);e(f),o(()=>{p=r(f,1,`jstats-badge ${u.kind??``}`,`svelte-dtbgkf`,p,{compact:d()}),s(f,`title`,u.title),i(m,u.text)}),n(c,f)}export{u as t};
