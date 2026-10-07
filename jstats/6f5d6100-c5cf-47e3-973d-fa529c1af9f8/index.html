@@ -13,33 +13,42 @@
 		<link rel="manifest" href="./site.webmanifest" />
 		<meta name="theme-color" content="#00874C" />
 		<script src="./config.js"></script>
-		<link href="./app/immutable/entry/start.C-MWeDmJ.js" rel="modulepreload">
+		<script>
+			// On the initial load SvelteKit's hash router runs the whole hash through
+			// decodeURIComponent (its Safari workaround `decode_hash`) and writes the result back to
+			// the address bar, so `title=D2%2B` would read as "D2 " and an encoded `&` would split a
+			// parameter. Escaping `%` first makes that decode give back exactly this URL.
+			if (location.hash.includes('%')) {
+				history.replaceState(history.state, '', location.href.replace(/#.*$/, '') + location.hash.replace(/%/g, '%25'));
+			}
+		</script>
+		<link href="./app/immutable/entry/start.CIiput3o.js" rel="modulepreload">
 		<link href="./app/immutable/entry/payload.DSmR2FwN.js" rel="modulepreload">
 		<link href="./app/immutable/chunks/BaNbYf_w.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/1tfvRp7l.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/CDcvWUVI.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/s_m5WL1H.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/8_QJLovf.js" rel="modulepreload">
-		<link href="./app/immutable/entry/app.BZeG74kH.js" rel="modulepreload">
-		<link href="./app/immutable/nodes/0.CfQDpJ4h.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/Bksaolkd.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/B_BvG3L9.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/CQC9Iect.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/CmVf2M8q.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/DUxSKPzx.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/D-4U3asT.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/CDrc9hKZ.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/DBb0eRD3.js" rel="modulepreload">
+		<link href="./app/immutable/entry/app.BStDAflD.js" rel="modulepreload">
+		<link href="./app/immutable/nodes/0.1DB9cqp5.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/CThOyfLA.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/D0sImy7M.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/npcNl08y.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/Bew77kci.js" rel="modulepreload">
 		<link href="./app/immutable/chunks/D30VkTck.js" rel="modulepreload">
 		<link href="./app/immutable/chunks/DWwm6Vwr.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/Cjt-3mbn.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/DOjuu2Um.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/B_R2IKWt.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/YEunC2WD.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/C4ID11XP.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/CSA9ybQh.js" rel="modulepreload">
 		<link href="./app/immutable/chunks/G_sroAsu.js" rel="modulepreload">
 		<link href="./app/immutable/chunks/CcvtX1vl.js" rel="modulepreload">
 		<link href="./app/immutable/chunks/DFUBfvET.js" rel="modulepreload">
 		<link href="./app/immutable/chunks/CQUjG2aN.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/SX9Tu5pJ.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/Co9lb6q2.js" rel="modulepreload">
 		<link href="./app/immutable/chunks/D0PBTHbd.js" rel="modulepreload">
 		<link href="./app/immutable/chunks/CxyMH01b.js" rel="modulepreload">
 		<link href="./app/immutable/chunks/CpVQZoek.js" rel="modulepreload">
-		<link href="./app/immutable/chunks/BLXRCDFe.js" rel="modulepreload">
+		<link href="./app/immutable/chunks/DnfER0MW.js" rel="modulepreload">
 		
 		<link href="./app/immutable/assets/0.DSapaY-3.css" rel="stylesheet">
 	</head>
@@ -47,16 +56,16 @@
 		<div style="display: contents">
 			<script>
 				{
-					__sveltekit_1lkrjmn = {
+					__sveltekit_cruy9h = {
 						base: new URL('.', location).pathname.slice(0, -1),
-						version: "1791313520367"
+						version: "1791355352292"
 					};
 
 					const element = document.currentScript.parentElement;
 
-					import("./app/immutable/entry/start.C-MWeDmJ.js").then(async (kit) => {
-						kit.init(__sveltekit_1lkrjmn);
-						const app = await import("./app/immutable/entry/app.BZeG74kH.js");
+					import("./app/immutable/entry/start.CIiput3o.js").then(async (kit) => {
+						kit.init(__sveltekit_cruy9h);
+						const app = await import("./app/immutable/entry/app.BStDAflD.js");
 						kit.start(app, element);
 					});
 				}

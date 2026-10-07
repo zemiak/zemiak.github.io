@@ -1,0 +1,1 @@
+import{C as e,I as t,T as n,V as r,a as i,l as a,t as o,x as s}from"./CDrc9hKZ.js";var c=n(`<span> </span>`);function l(n,l){let u=o(l,`compact`,3,!1);var d=c();let f;var p=r(d,!0);t(()=>{f=a(d,1,`jstats-badge ${l.kind??``}`,`svelte-dtbgkf`,f,{compact:u()}),i(d,`title`,l.title),s(p,l.text)}),e(n,d)}export{l as t};
