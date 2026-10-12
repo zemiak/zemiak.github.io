@@ -1,0 +1,57 @@
+{
+    "func": "and",
+    "conf": [
+        {
+            "func": "number",
+            "conf": {
+                "limit": 20,
+                "country": [
+                    "Slovakia"
+                ]
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 20,
+                "excludeCountries": [
+                    "Slovakia"
+                ]
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 20,
+                "types": [
+                    "Traditional Cache"
+                ]
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 20,
+                "types": [
+                    "Multi-Cache"
+                ]
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 20,
+                "types": [
+                    "Mystery Cache"
+                ]
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 20,
+                "minFavoritePoints": 20
+            }
+        }
+    ]
+}

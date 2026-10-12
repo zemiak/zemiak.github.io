@@ -1,0 +1,1 @@
+Needs cache elevations, which the app's data doesn't have: the script finds no caches with an altitude and reports nothing.

@@ -1,0 +1,18 @@
+{
+    "area": "county",
+    "areas": 1,
+    "findsPerArea": 10,
+    "country": [
+        "Slovakia"
+    ],
+    "region": [
+        "Tren\u010diansky kraj"
+    ],
+    "county": [
+        "Prievidza"
+    ],
+    "types": [
+        "EarthCache"
+    ],
+    "list": "show"
+}

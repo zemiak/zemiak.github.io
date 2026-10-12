@@ -1,0 +1,1 @@
+One of its conditions needs caches with 20+ favorite points; the app has no favorite points, so it can never pass.

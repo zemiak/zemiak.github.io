@@ -1,0 +1,13 @@
+{
+    "GCtitle": "Mixed Grid",
+    "filtertext": "(All Events. Finds in all world. Category Fave: minimum 100 favorite points.)",
+    "fpthresh": 100,
+    "events": [
+        "Event Cache",
+        "Cache In Trash Out Event",
+        "Mega-Event Cache",
+        "Giga-Event Cache",
+        "Community-Celebration Event",
+        "Community Celebration Event"
+    ]
+}

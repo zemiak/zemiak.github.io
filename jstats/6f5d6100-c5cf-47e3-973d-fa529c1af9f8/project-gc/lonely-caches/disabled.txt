@@ -1,0 +1,1 @@
+Needs each cache's total number of finds (num_finds), which the app's data doesn't have: the script stops with an error.

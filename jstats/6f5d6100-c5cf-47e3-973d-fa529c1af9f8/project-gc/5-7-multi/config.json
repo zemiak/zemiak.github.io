@@ -1,0 +1,14 @@
+{
+    "maxInGroup": 5000,
+    "challenge": [
+        "with name '1; Type Multi-Cache with Difficulty 1 / Terrain 1 - You currently have ' find a cache where type == 'Multi-Cache' and difficulty == '1.0' and terrain == '1.0'.",
+        "with name '2; Type Multi-Cache with Terrain 5 - You currently have ' find 2 caches where type == 'Multi-Cache' and terrain == '5.0'.",
+        "with name '3; Type Multi-Cache - You currently have ' find 333 caches where type == 'Multi-Cache'.",
+        "with name '4; Type Multi-Cache with Difficulty 4 - You currently have ' find 4 caches where type == 'Multi-Cache' and difficulty == '4.0'.",
+        "with name '5; Type Multi-Cache with more than 100 favorite points - You currently have ' find 5 caches where type == 'Multi-Cache' and favorite_points >= '100'.",
+        "with name '6; Type Multi-Cache placed before 1.1.2010 - You currently have ' find 6 caches where type == 'Multi-Cache' and hidden <= '2009-12-31'.",
+        "with name '7; Type Multi-Cache in different country than Slovakia - You currently have ' find 7 caches where type == 'Multi-Cache' and country <> 'Slovakia'.",
+        "fulfilled with 5 groups.",
+        "output groups including empty with totals."
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "func": "at_least",
+    "opt": {
+        "req": 2
+    },
+    "conf": [
+        {
+            "func": "number",
+            "conf": {
+                "limit": 60,
+                "difficulties": [
+                    5
+                ]
+            }
+        },
+        {
+            "func": "crc",
+            "conf": {
+                "level": "region",
+                "needed": 8,
+                "findsPer": 1,
+                "country": [
+                    "Slovakia"
+                ],
+                "difficulties": [
+                    5
+                ],
+                "list": "show"
+            }
+        }
+    ]
+}

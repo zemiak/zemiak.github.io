@@ -1,0 +1,1 @@
+Its 'Favorite points >100' category can't be filled: the app has no favorite points.

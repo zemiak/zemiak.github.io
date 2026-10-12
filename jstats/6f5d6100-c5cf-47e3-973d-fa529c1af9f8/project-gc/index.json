@@ -1,0 +1,1133 @@
+[
+	{
+		"id": "10-types",
+		"comment": "Cloned from tag 3196",
+		"cacheLink": "https://coord.info/GC6R2KN",
+		"projectGcLink": "https://project-gc.com/Challenges/GC6R2KN/22465",
+		"script": "project-gc/10-types/PGC-LUA-script-660.lua",
+		"config": {
+			"minTypes": 10,
+			"findsPerType": 1,
+			"list": "show"
+		}
+	},
+	{
+		"id": "14-14-50percent-EU",
+		"script": "project-gc/14-14-50percent-EU/PGC-LUA-script-629.lua",
+		"config": {
+			"countries": 14,
+			"findsPerCountry": 14,
+			"country": [
+				"Austria",
+				"Belgium",
+				"Bulgaria",
+				"Croatia",
+				"Cyprus",
+				"Czechia",
+				"Denmark",
+				"Estonia",
+				"Finland",
+				"France",
+				"Germany",
+				"Greece",
+				"Hungary",
+				"Ireland",
+				"Italy",
+				"Latvia",
+				"Lithuania",
+				"Luxembourg",
+				"Malta",
+				"Netherlands",
+				"Poland",
+				"Portugal",
+				"Romania",
+				"Slovakia",
+				"Slovenia",
+				"Spain",
+				"Sweden",
+				"United Kingdom"
+			],
+			"list": "show"
+		}
+	},
+	{
+		"id": "366",
+		"name": "Generic calendar checker (by pinkunicorn)",
+		"comment": "Cloned from tag 2590",
+		"cacheLink": "https://coord.info/GC6TNW5",
+		"projectGcLink": "https://project-gc.com/Challenges/GC6TNW5/22892",
+		"script": "project-gc/366/PGC-LUA-script-154.lua",
+		"config": {
+			"type": ""
+		}
+	},
+	{
+		"id": "5-7-multi",
+		"script": "project-gc/5-7-multi/PGC-LUA-script-652.lua",
+		"config": {
+			"maxInGroup": 5000,
+			"challenge": [
+				"with name '1; Type Multi-Cache with Difficulty 1 / Terrain 1 - You currently have ' find a cache where type == 'Multi-Cache' and difficulty == '1.0' and terrain == '1.0'.",
+				"with name '2; Type Multi-Cache with Terrain 5 - You currently have ' find 2 caches where type == 'Multi-Cache' and terrain == '5.0'.",
+				"with name '3; Type Multi-Cache - You currently have ' find 333 caches where type == 'Multi-Cache'.",
+				"with name '4; Type Multi-Cache with Difficulty 4 - You currently have ' find 4 caches where type == 'Multi-Cache' and difficulty == '4.0'.",
+				"with name '5; Type Multi-Cache with more than 100 favorite points - You currently have ' find 5 caches where type == 'Multi-Cache' and favorite_points >= '100'.",
+				"with name '6; Type Multi-Cache placed before 1.1.2010 - You currently have ' find 6 caches where type == 'Multi-Cache' and hidden <= '2009-12-31'.",
+				"with name '7; Type Multi-Cache in different country than Slovakia - You currently have ' find 7 caches where type == 'Multi-Cache' and country <> 'Slovakia'.",
+				"fulfilled with 5 groups.",
+				"output groups including empty with totals."
+			]
+		}
+	},
+	{
+		"id": "a-to-z",
+		"script": "project-gc/a-to-z/PGC-LUA-script-651.lua",
+		"config": {
+			"language": "slovak"
+		}
+	},
+	{
+		"id": "bratislava-beginner-entry",
+		"script": "project-gc/bratislava-beginner-entry/PGC-LUA-script-969.lua",
+		"config": {
+			"country": "Slovakia",
+			"county": [
+				"Bratislava I",
+				"Bratislava II",
+				"Bratislava III",
+				"Bratislava IV",
+				"Bratislava V"
+			],
+			"limit": 555,
+			"brief": true
+		}
+	},
+	{
+		"id": "dt-matrix",
+		"comment": "Cloned from tag 2585",
+		"cacheLink": "https://coord.info/GC6QHR8",
+		"projectGcLink": "https://project-gc.com/Challenges/GC6QHR8/22298",
+		"script": "project-gc/dt-matrix/PGC-LUA-script-512.lua",
+		"config": {
+			"conditions": {
+				"loops": 1
+			}
+		}
+	},
+	{
+		"id": "everyday",
+		"script": "project-gc/everyday/PGC-LUA-script-154.lua",
+		"config": {
+			"type": "",
+			"leapday": "allow"
+		}
+	},
+	{
+		"id": "five-types-in-one-day",
+		"script": "project-gc/five-types-in-one-day/PGC-LUA-script-674.lua",
+		"config": {
+			"limit": 5
+		}
+	},
+	{
+		"id": "icon-plus",
+		"name": "Multiple test Checker (by Target.) enhanced (by sumbloke)",
+		"comment": "Icon + challenge checker - vytvárame \"+\" použitím jedného typu kešiek a kombinácia ich obtiažnosti a terénu. Pozri listing pre viac info a príklady",
+		"cacheLink": "https://coord.info/GC3AK32",
+		"projectGcLink": "https://project-gc.com/Challenges/GC3AK32/37659",
+		"script": "project-gc/icon-plus/PGC-LUA-script-1503.lua",
+		"config": {
+			"func": "or",
+			"conf": [
+				{
+					"func": "and",
+					"conf": [
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"horizontal": 1
+								},
+								"types": [
+									"Traditional Cache"
+								],
+								"difficulties": [
+									3
+								]
+							}
+						},
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"vertical": 1
+								},
+								"types": [
+									"Traditional Cache"
+								],
+								"terrains": [
+									3
+								]
+							}
+						}
+					]
+				},
+				{
+					"func": "and",
+					"conf": [
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"horizontal": 1
+								},
+								"types": [
+									"Mystery Cache"
+								],
+								"difficulties": [
+									3
+								]
+							}
+						},
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"vertical": 1
+								},
+								"types": [
+									"Mystery Cache"
+								],
+								"terrains": [
+									3
+								]
+							}
+						}
+					]
+				},
+				{
+					"func": "and",
+					"conf": [
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"horizontal": 1
+								},
+								"types": [
+									"Multi-Cache"
+								],
+								"difficulties": [
+									3
+								]
+							}
+						},
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"vertical": 1
+								},
+								"types": [
+									"Multi-Cache"
+								],
+								"terrains": [
+									3
+								]
+							}
+						}
+					]
+				},
+				{
+					"func": "and",
+					"conf": [
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"horizontal": 1
+								},
+								"types": [
+									"Event Cache"
+								],
+								"difficulties": [
+									3
+								]
+							}
+						},
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"vertical": 1
+								},
+								"types": [
+									"Event Cache"
+								],
+								"terrains": [
+									3
+								]
+							}
+						}
+					]
+				},
+				{
+					"func": "and",
+					"conf": [
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"horizontal": 1
+								},
+								"types": [
+									"EarthCache"
+								],
+								"difficulties": [
+									3
+								]
+							}
+						},
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"vertical": 1
+								},
+								"types": [
+									"EarthCache"
+								],
+								"terrains": [
+									3
+								]
+							}
+						}
+					]
+				},
+				{
+					"func": "and",
+					"conf": [
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"horizontal": 1
+								},
+								"types": [
+									"Virtual Cache"
+								],
+								"difficulties": [
+									3
+								]
+							}
+						},
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"vertical": 1
+								},
+								"types": [
+									"Virtual Cache"
+								],
+								"terrains": [
+									3
+								]
+							}
+						}
+					]
+				},
+				{
+					"func": "and",
+					"conf": [
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"horizontal": 1
+								},
+								"types": [
+									"Letterbox Hybrid"
+								],
+								"difficulties": [
+									3
+								]
+							}
+						},
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"vertical": 1
+								},
+								"types": [
+									"Letterbox Hybrid"
+								],
+								"terrains": [
+									3
+								]
+							}
+						}
+					]
+				},
+				{
+					"func": "and",
+					"conf": [
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"horizontal": 1
+								},
+								"types": [
+									"Wherigo Cache"
+								],
+								"difficulties": [
+									3
+								]
+							}
+						},
+						{
+							"func": "DT",
+							"conf": {
+								"conditions": {
+									"vertical": 1
+								},
+								"types": [
+									"Wherigo Cache"
+								],
+								"terrains": [
+									3
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"id": "koruna-okresu",
+		"script": "project-gc/koruna-okresu/PGC-LUA-script-3639.lua",
+		"config": {
+			"area": "county",
+			"areas": 1,
+			"findsPerArea": 10,
+			"country": [
+				"Slovakia"
+			],
+			"region": [
+				"Trenčiansky kraj"
+			],
+			"county": [
+				"Prievidza"
+			],
+			"types": [
+				"EarthCache"
+			],
+			"list": "show"
+		}
+	},
+	{
+		"id": "kysucka-222",
+		"script": "project-gc/kysucka-222/PGC-LUA-script-969.lua",
+		"config": {
+			"limit": 222,
+			"country": "Slovakia",
+			"county": [
+				"Kysucké Nové Mesto",
+				"Čadca"
+			]
+		}
+	},
+	{
+		"id": "month-type-bronze",
+		"script": "project-gc/month-type-bronze/PGC-LUA-script-2714.lua",
+		"config": {
+			"nbr": 4
+		}
+	},
+	{
+		"id": "okolo-zeme",
+		"script": "project-gc/okolo-zeme/PGC-LUA-script-642.lua",
+		"config": {
+			"distance": 40075,
+			"ignoreBookmark": true,
+			"brief": true
+		}
+	},
+	{
+		"id": "oo-dc-gold",
+		"comment": "Find at least 7 different types of geocache, owned by same cache owner. Nájdi aspoň 7 rôznych typov kešiek od jedného ownera.",
+		"cacheLink": "https://coord.info/GC6JH0Z",
+		"projectGcLink": "https://project-gc.com/Challenges/GC6JH0Z/20862",
+		"script": "project-gc/oo-dc-gold/PGC-LUA-script-548.lua",
+		"config": {
+			"owners": 1,
+			"nr_types": 7,
+			"by_owner_id": true
+		}
+	},
+	{
+		"id": "paleozoic",
+		"name": "Paleozoic Challenge (by Rikitan)",
+		"comment": "Nájdi aspoň 252 kešiek, založených skôr ako 27.12.2006. Find at least 252 caches placed before Dec 27th 2006 (geocaching Y2K day).",
+		"cacheLink": "https://coord.info/GCPWND",
+		"projectGcLink": "https://project-gc.com/Challenges/GCPWND/23034",
+		"script": "project-gc/paleozoic/PGC-LUA-script-1491.lua",
+		"config": {
+			"limit": 252,
+			"maxPlacedDate": "2006-12-26"
+		}
+	},
+	{
+		"id": "poznaj-europu",
+		"script": "project-gc/poznaj-europu/PGC-LUA-script-629.lua",
+		"config": {
+			"countries": 20,
+			"findsPerCountry": 1,
+			"country": [
+				"Åland Islands",
+				"Albania",
+				"Andorra",
+				"Austria",
+				"Belarus",
+				"Belgium",
+				"Bosnia and Herzegovina",
+				"Bulgaria",
+				"Croatia",
+				"Czechia",
+				"Denmark",
+				"Estonia",
+				"Faroe Islands",
+				"Finland",
+				"France",
+				"Germany",
+				"Gibraltar",
+				"Greece",
+				"Hungary",
+				"Iceland",
+				"Isle of Man",
+				"Ireland",
+				"Italy",
+				"Jersey",
+				"Latvia",
+				"Liechtenstein",
+				"Lithuania",
+				"Luxembourg",
+				"North Macedonia",
+				"Malta",
+				"Moldova",
+				"Monaco",
+				"Montenegro",
+				"Netherlands",
+				"Norway",
+				"Poland",
+				"Portugal",
+				"Romania",
+				"Russia",
+				"San Marino",
+				"Serbia",
+				"Slovakia",
+				"Slovenia",
+				"Spain",
+				"Sweden",
+				"Switzerland",
+				"Ukraine",
+				"United Kingdom",
+				"Vatican City State"
+			],
+			"ExcludedTypes": [
+				"Virtual Cache"
+			],
+			"list": "show"
+		}
+	},
+	{
+		"id": "slovak-neighbours-easy",
+		"script": "project-gc/slovak-neighbours-easy/PGC-LUA-script-1415.lua"
+	},
+	{
+		"id": "slovakia-d5-diamond",
+		"script": "project-gc/slovakia-d5-diamond/PGC-LUA-script-1503.lua",
+		"config": {
+			"func": "at_least",
+			"opt": {
+				"req": 2
+			},
+			"conf": [
+				{
+					"func": "number",
+					"conf": {
+						"limit": 60,
+						"difficulties": [
+							5
+						]
+					}
+				},
+				{
+					"func": "crc",
+					"conf": {
+						"level": "region",
+						"needed": 8,
+						"findsPer": 1,
+						"country": [
+							"Slovakia"
+						],
+						"difficulties": [
+							5
+						],
+						"list": "show"
+					}
+				}
+			]
+		}
+	},
+	{
+		"id": "urban-explorer",
+		"script": "project-gc/urban-explorer/PGC-LUA-script-607.lua",
+		"config": {
+			"attributes": {
+				"54": 50
+			}
+		}
+	},
+	{
+		"id": "20-for-fun",
+		"disabled": "One of its conditions needs caches with 20+ favorite points; the app has no favorite points, so it can never pass.",
+		"script": "project-gc/20-for-fun/PGC-LUA-script-1503.lua",
+		"config": {
+			"func": "and",
+			"conf": [
+				{
+					"func": "number",
+					"conf": {
+						"limit": 20,
+						"country": [
+							"Slovakia"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 20,
+						"excludeCountries": [
+							"Slovakia"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 20,
+						"types": [
+							"Traditional Cache"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 20,
+						"types": [
+							"Multi-Cache"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 20,
+						"types": [
+							"Mystery Cache"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 20,
+						"minFavoritePoints": 20
+					}
+				}
+			]
+		}
+	},
+	{
+		"id": "3000-altitude-difference",
+		"name": "Altitude sum checker (by jpavlik)",
+		"comment": "Find two caches with total difference of altitude 3000m. Nájdi 2 kešky, ktorých rozdiel nadmorskej výšky je aspoň 3000 metrov",
+		"cacheLink": "https://coord.info/GC7HCF3",
+		"projectGcLink": "https://project-gc.com/Challenges/GC7HCF3/31540",
+		"disabled": "Needs cache elevations, which the app's data doesn't have: the script finds no caches with an altitude and reports nothing.",
+		"script": "project-gc/3000-altitude-difference/PGC-LUA-script-1007.lua",
+		"config": {
+			"totDiffAltitude": 3000,
+			"excludedTypes": [
+				"Virtual Cache",
+				"Locationless Cache"
+			]
+		}
+	},
+	{
+		"id": "ancient-cache-bookmark",
+		"disabled": "Needs a project-gc bookmark list, which the app can't read: the list is always empty.",
+		"script": "project-gc/ancient-cache-bookmark/PGC-LUA-script-100.lua",
+		"config": {
+			"bookmark": "BM22NV4",
+			"value": 8,
+			"hiden": false,
+			"text": "Ancient cache challenge | BA kraj",
+			"list": true
+		}
+	},
+	{
+		"id": "cepe-vychod",
+		"disabled": "Needs finds in Košice I–IV, but the finds database files Košice city caches under 'Košice - okolie', so those districts always show 0.",
+		"script": "project-gc/cepe-vychod/PGC-LUA-script-937.lua",
+		"config": {
+			"func": "and",
+			"conf": [
+				{
+					"func": "number",
+					"conf": {
+						"limit": 45,
+						"country": "Slovakia",
+						"county": "Košice - okolie",
+						"brief": false
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 25,
+						"country": "Slovakia",
+						"county": "Košice I",
+						"brief": false
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 10,
+						"country": "Slovakia",
+						"county": "Košice II",
+						"brief": false
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 5,
+						"country": "Slovakia",
+						"county": "Košice III",
+						"brief": false
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 15,
+						"country": "Slovakia",
+						"county": "Košice IV",
+						"brief": false
+					}
+				}
+			]
+		}
+	},
+	{
+		"id": "coze-je-to-styridsiatka",
+		"disabled": "One of its conditions needs caches with 400+ favorite points; the app has no favorite points, so it can never pass.",
+		"script": "project-gc/coze-je-to-styridsiatka/PGC-LUA-script-1503.lua",
+		"config": {
+			"func": "and",
+			"conf": [
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"types": [
+							"Traditional Cache"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"types": [
+							"Multi-Cache"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"types": [
+							"Mystery Cache"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"types": [
+							"Wherigo Cache"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"types": [
+							"Letterbox Hybrid"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"types": [
+							"EarthCache"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"types": [
+							"Virtual Cache"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"types": [
+							"Event Cache"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"difficulties": [
+							1
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"difficulties": [
+							1.5
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"difficulties": [
+							2
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"difficulties": [
+							2.5
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"difficulties": [
+							3
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"difficulties": [
+							3.5
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"difficulties": [
+							4
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"difficulties": [
+							4.5
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"difficulties": [
+							5
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"terrains": [
+							1
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"terrains": [
+							1.5
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"terrains": [
+							2
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"terrains": [
+							2.5
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"terrains": [
+							3
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"terrains": [
+							3.5
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"terrains": [
+							4
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"terrains": [
+							4.5
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"terrains": [
+							5
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"sizes": [
+							"Micro"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"sizes": [
+							"Small"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"sizes": [
+							"Regular"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"sizes": [
+							"Large"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"country": "Slovakia",
+						"region": "Bratislavský kraj"
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"country": "Slovakia",
+						"region": "Trenčiansky kraj"
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"country": "Slovakia",
+						"region": "Nitriansky kraj"
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"country": "Slovakia",
+						"region": "Žilinský kraj"
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"country": "Slovakia",
+						"region": "Banskobystrický kraj"
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"country": "Slovakia",
+						"region": "Trnavský kraj"
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"country": "Slovakia",
+						"region": "Prešovský kraj"
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"country": "Slovakia",
+						"region": "Košický kraj"
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"excludeCountries": [
+							"Slovakia"
+						]
+					}
+				},
+				{
+					"func": "number",
+					"conf": {
+						"limit": 40,
+						"minFavoritePoints": 400
+					}
+				}
+			]
+		}
+	},
+	{
+		"id": "lonely-caches",
+		"name": "PGC Lonely Cache checker (by sumbloke)",
+		"cacheLink": "https://coord.info/GC7E1RZ",
+		"projectGcLink": "https://project-gc.com/Challenges/GC7E1RZ/29518",
+		"disabled": "Needs each cache's total number of finds (num_finds), which the app's data doesn't have: the script stops with an error.",
+		"script": "project-gc/lonely-caches/PGC-LUA-script-1416.lua",
+		"config": {
+			"threshold": 60,
+			"limit": 30
+		}
+	},
+	{
+		"id": "mixed-grid",
+		"name": "Mixed Grid, based on Complicated Fizzy Bin Checker (by sloth96) (by AnnaMoritz)",
+		"cacheLink": "https://coord.info/GC79KM7",
+		"projectGcLink": "https://project-gc.com/Challenges/GC79KM7/27871",
+		"disabled": "Its 'Favorite points >100' category can't be filled: the app has no favorite points.",
+		"script": "project-gc/mixed-grid/PGC-LUA-script-1914.lua",
+		"config": {
+			"GCtitle": "Mixed Grid",
+			"filtertext": "(All Events. Finds in all world. Category Fave: minimum 100 favorite points.)",
+			"fpthresh": 100,
+			"events": [
+				"Event Cache",
+				"Cache In Trash Out Event",
+				"Mega-Event Cache",
+				"Giga-Event Cache",
+				"Community-Celebration Event",
+				"Community Celebration Event"
+			]
+		}
+	}
+]

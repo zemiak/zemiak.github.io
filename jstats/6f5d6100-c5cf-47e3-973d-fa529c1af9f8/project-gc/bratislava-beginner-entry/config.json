@@ -1,0 +1,12 @@
+{
+    "country": "Slovakia",
+    "county": [
+        "Bratislava I",
+        "Bratislava II",
+        "Bratislava III",
+        "Bratislava IV",
+        "Bratislava V"
+    ],
+    "limit": 555,
+    "brief": true
+}

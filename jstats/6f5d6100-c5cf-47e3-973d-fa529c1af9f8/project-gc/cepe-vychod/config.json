@@ -1,0 +1,50 @@
+{
+    "func": "and",
+    "conf": [
+        {
+            "func": "number",
+            "conf": {
+                "limit": 45,
+                "country": "Slovakia",
+                "county": "Ko\u0161ice - okolie",
+                "brief": false
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 25,
+                "country": "Slovakia",
+                "county": "Ko\u0161ice I",
+                "brief": false
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 10,
+                "country": "Slovakia",
+                "county": "Ko\u0161ice II",
+                "brief": false
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 5,
+                "country": "Slovakia",
+                "county": "Ko\u0161ice III",
+                "brief": false
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 15,
+                "country": "Slovakia",
+                "county": "Ko\u0161ice IV",
+                "brief": false
+            }
+        }
+    ]
+}

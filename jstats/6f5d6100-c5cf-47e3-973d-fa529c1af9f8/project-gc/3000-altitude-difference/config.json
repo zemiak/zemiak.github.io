@@ -1,0 +1,7 @@
+{
+    "totDiffAltitude": 3000,
+    "excludedTypes": [
+        "Virtual Cache",
+        "Locationless Cache"
+    ]
+}

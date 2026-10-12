@@ -1,0 +1,1 @@
+Icon + challenge checker - vytvárame "+" použitím jedného typu kešiek a kombinácia ich obtiažnosti a terénu. Pozri listing pre viac info a príklady

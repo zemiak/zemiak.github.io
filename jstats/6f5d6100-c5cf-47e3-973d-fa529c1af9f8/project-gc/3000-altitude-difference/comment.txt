@@ -1,0 +1,1 @@
+Find two caches with total difference of altitude 3000m. Nájdi 2 kešky, ktorých rozdiel nadmorskej výšky je aspoň 3000 metrov
