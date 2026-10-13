@@ -1,0 +1,15 @@
+{
+    "country": "Slovakia",
+    "county": [
+        "Bratislava I",
+        "Bratislava II",
+        "Bratislava III",
+        "Bratislava IV",
+        "Bratislava V"
+    ],
+    "conditions": {
+        "dates": 365
+    },
+    "excludeLeapday": true,
+    "showSums": true
+}

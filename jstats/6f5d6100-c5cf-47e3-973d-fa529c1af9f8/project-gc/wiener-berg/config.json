@@ -1,0 +1,30 @@
+{
+    "challenge": [
+        "with name 'Elevation < 0 meter' find a cache where elevation < '0'.",
+        "with name 'Elevation >= 0 meter and < 25 meter' find a cache where elevation >= '0' and elevation < '25'.",
+        "with name 'Elevation >= 25 meter and < 50 meter' find a cache where elevation >= '25' and elevation < '50'.",
+        "with name 'Elevation >= 50 meter and < 75 meter' find a cache where elevation >= '50' and elevation < '75'.",
+        "with name 'Elevation >= 75 meter and < 100 meter' find a cache where elevation >= '75' and elevation < '100'.",
+        "with name 'Elevation >= 100 meter and < 125 meter' find a cache where elevation >= '100' and elevation < '125'.",
+        "with name 'Elevation >= 125 meter and < 150 meter' find a cache where elevation >= '125' and elevation < '150'.",
+        "with name 'Elevation >= 150 meter and < 200 meter' find a cache where elevation >= '150' and elevation < '200'.",
+        "with name 'Elevation >= 200 meter and < 250 meter' find a cache where elevation >= '200' and elevation < '250'.",
+        "with name 'Elevation >= 250 meter and < 300 meter' find a cache where elevation >= '250' and elevation < '300'.",
+        "with name 'Elevation >= 300 meter and < 400 meter' find a cache where elevation >= '300' and elevation < '400'.",
+        "with name 'Elevation >= 400 meter and < 500 meter' find a cache where elevation >= '400' and elevation < '500'.",
+        "with name 'Elevation >= 500 meter and < 600 meter' find a cache where elevation >= '500' and elevation < '600'.",
+        "with name 'Elevation >= 600 meter and < 750 meter' find a cache where elevation >= '600' and elevation < '750'.",
+        "with name 'Elevation >= 750 meter and < 1000 meter' find a cache where elevation >= '750' and elevation < '1000'.",
+        "with name 'Elevation >= 1000 meter and < 1250 meter' find a cache where elevation >= '1000' and elevation < '1250'.",
+        "with name 'Elevation >= 1250 meter and < 1500 meter' find a cache where elevation >= '1250' and elevation < '1500'.",
+        "with name 'Elevation >= 1500 meter and < 1750 meter' find a cache where elevation >= '1500' and elevation < '1750'.",
+        "with name 'Elevation >= 1750 meter and < 2000 meter' find a cache where elevation >= '1750' and elevation < '2000'.",
+        "with name 'Elevation >= 2000 meter and < 2500 meter' find a cache where elevation >= '2000' and elevation < '2500'.",
+        "with name 'Elevation >= 2500 meter ' find a cache where elevation >= '2500'.",
+        "fulfilled with 21 groups.",
+        "fulfilled with unique caches.",
+        "output groups including empty with visitdates and gccodes and names and elevation.",
+        "if fail output 'sorry, you have not fulfilled this challenge GC7M3F0 yet'."
+    ],
+    "maxInGroup": 1
+}

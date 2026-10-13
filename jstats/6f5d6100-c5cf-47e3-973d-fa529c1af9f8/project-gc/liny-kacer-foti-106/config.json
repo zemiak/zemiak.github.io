@@ -1,0 +1,15 @@
+{
+    "brief": false,
+    "terrains": [
+        1
+    ],
+    "difficulties": [
+        1
+    ],
+    "conditions": {
+        "limit": 106
+    },
+    "types": [
+        "Virtual Cache"
+    ]
+}

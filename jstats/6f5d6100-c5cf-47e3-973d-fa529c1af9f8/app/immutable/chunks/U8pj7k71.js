@@ -1,0 +1,1 @@
+import{C as e,D as t,G as n,T as r,a as i,t as a,u as o,z as s}from"./Ds-Inn6B.js";var c=t(`<span> </span>`);function l(t,l){let u=a(l,`compact`,3,!1);var d=c();let f;var p=n(d,!0);s(()=>{f=o(d,1,`jstats-badge ${l.kind??``}`,`svelte-dtbgkf`,f,{compact:u()}),i(d,`title`,l.title),e(p,l.text)}),r(t,d)}export{l as t};

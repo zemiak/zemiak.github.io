@@ -1,0 +1,1 @@
+Find at least 99 caches from each of 9 types. LAB caches are not counted towards completion of this challenge. Cloned from tag 58353

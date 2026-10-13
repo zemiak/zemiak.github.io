@@ -1,0 +1,1 @@
+Odlov jednotlivé veľkosti kešiek v určenom počte – Micro:2222 ks, Small: 1555 ks, Other: 1111 ks, Regular: 555 ks, Virtual: 222 ks, Large: 111 ks/Find individual cache sizes in a specified number

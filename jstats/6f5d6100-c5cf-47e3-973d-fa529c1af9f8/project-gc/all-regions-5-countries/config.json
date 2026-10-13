@@ -1,0 +1,10 @@
+{
+    "countriesLog": "Find caches in all regions of at least 5 countries",
+    "countries": 5,
+    "regionsPerCountryPercent": 100,
+    "findsPerRegion": 1,
+    "showCountriesInList": "all",
+    "showRegionsInList": true,
+    "showRegionsOnMap": true,
+    "showCachesOnMap": true
+}

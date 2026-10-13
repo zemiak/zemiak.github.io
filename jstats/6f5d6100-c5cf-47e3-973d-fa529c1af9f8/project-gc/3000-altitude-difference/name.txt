@@ -1,1 +1,0 @@
-Altitude sum checker (by jpavlik)

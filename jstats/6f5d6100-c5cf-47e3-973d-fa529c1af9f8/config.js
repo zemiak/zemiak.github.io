@@ -23,11 +23,12 @@ window.APP_CONFIG = {
 	// Read-only filters offered on /filter above the ones a user saves themselves. `filter` uses the
 	// same text as the Expression field on /filter, e.g. `(type=multi or type=unknown) and d>=3`.
 	DEFAULT_FILTERS: [
-		{ name: 'Puzzles & multis', filter: 'type=multi or type=unknown' },
-		{ name: 'Hiking caches', filter: 'attr=hiking' },
-		{ name: 'High terrain (T4+)', filter: 't>=4' },
-		{ name: 'Hard puzzles (D4+)', filter: 'type=unknown and d>=4' },
-		{ name: 'Events', filter: 'type=events' },
-		{ name: 'Slovakia, not traditional', filter: 'country=slovakia and type!=traditional' }
+		{ name: 'WIG', filter: 'type=wherigo' },
+		{ name: 'Virtual', filter: 'type=virtual' },
+        { name: 'Letter', filter: 'type=letterbox' },
+        { name: 'Earth', filter: 'type=earth' },
+        { name: 'CITO', filter: 'type=cito' },
+        { name: 'Large', filter: 'size=large' },
+        { name: 'Not Chosen', filter: 'size=notchosen' }
 	]
 };

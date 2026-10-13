@@ -1,0 +1,15 @@
+{
+    "allowedCountries": [
+        "Slovakia",
+        "Czechia",
+        "Austria",
+        "Hungary",
+        "Poland"
+    ],
+    "regionsLog": "Find at least one cache in each of 55 regions in Slovakia, Czechia, Austria, Hungary and Poland",
+    "regions": 55,
+    "findsPerRegion": 1,
+    "showRegionsInList": "all",
+    "showRegionsOnMap": true,
+    "showCachesOnMap": true
+}

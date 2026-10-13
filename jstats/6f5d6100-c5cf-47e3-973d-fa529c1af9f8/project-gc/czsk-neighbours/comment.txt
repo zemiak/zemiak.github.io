@@ -1,0 +1,1 @@
+Checker skontroluje, či ste našli aspoň jednu kešku vo všetkých 16 krajoch susediacich s bývalým Česko-Slovenskom. Checker will check, whether you found at least one cache in each of Czecho-Slovak neighbouring states

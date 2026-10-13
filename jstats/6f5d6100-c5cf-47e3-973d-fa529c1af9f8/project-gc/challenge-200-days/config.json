@@ -1,0 +1,7 @@
+{
+    "attribute": 71,
+    "conditions": {
+        "dates": 200
+    },
+    "excludeLeapday": false
+}

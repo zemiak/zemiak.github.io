@@ -1,0 +1,38 @@
+{
+    "func": "and",
+    "conf": [
+        {
+            "func": "info",
+            "conf": {
+                "txt": "100 Virtual Caches"
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 100,
+                "types": [
+                    "Virtual Cache"
+                ],
+                "brief": false
+            }
+        },
+        {
+            "func": "info",
+            "conf": {
+                "txt": "25 Old Virtual Caches"
+            }
+        },
+        {
+            "func": "number",
+            "conf": {
+                "limit": 25,
+                "types": [
+                    "Virtual Cache"
+                ],
+                "maxHiddenDate": "2017-01-01",
+                "brief": false
+            }
+        }
+    ]
+}

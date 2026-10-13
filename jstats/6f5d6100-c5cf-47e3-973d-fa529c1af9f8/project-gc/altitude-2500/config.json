@@ -1,0 +1,125 @@
+{
+    "links": true,
+    "tests": [
+        {
+            "name": "Find 1 caches above 2500 m elevation.",
+            "init": [
+                [
+                    "order",
+                    "elevation",
+                    -1
+                ]
+            ],
+            "filters": {
+                "field": "elevation",
+                "min": 2500,
+                "max": 10000
+            },
+            "min": 1,
+            "log": {
+                "format": "- {elevation%04d} - {gccode} {cache_name} ({type}) on {visitdate}.",
+                "func": [
+                    [
+                        "sort"
+                    ]
+                ]
+            }
+        },
+        {
+            "name": "Find 5 caches between 2000 m and 2499 m elevation.",
+            "init": [
+                [
+                    "order",
+                    "elevation",
+                    -1
+                ]
+            ],
+            "filters": {
+                "field": "elevation",
+                "min": 2000,
+                "max": 2499
+            },
+            "min": 5,
+            "log": {
+                "format": "- {elevation%04d} - {gccode} {cache_name} ({type}) on {visitdate}.",
+                "func": [
+                    [
+                        "sort"
+                    ]
+                ]
+            }
+        },
+        {
+            "name": "Find 10 caches between 1900 m and 1999 m elevation.",
+            "init": [
+                [
+                    "order",
+                    "elevation",
+                    -1
+                ]
+            ],
+            "filters": {
+                "field": "elevation",
+                "min": 1900,
+                "max": 1999
+            },
+            "min": 10,
+            "log": {
+                "format": "- {elevation%04d} - {gccode} {cache_name} ({type}) on {visitdate}.",
+                "func": [
+                    [
+                        "sort"
+                    ]
+                ]
+            }
+        },
+        {
+            "name": "Find 15 caches between 1650 m and 1899 m elevation.",
+            "init": [
+                [
+                    "order",
+                    "elevation",
+                    -1
+                ]
+            ],
+            "filters": {
+                "field": "elevation",
+                "min": 1650,
+                "max": 1899
+            },
+            "min": 15,
+            "log": {
+                "format": "- {elevation%04d} - {gccode} {cache_name} ({type}) on {visitdate}.",
+                "func": [
+                    [
+                        "sort"
+                    ]
+                ]
+            }
+        },
+        {
+            "name": "Find 20 caches between 1500 m and 1649 m elevation.",
+            "init": [
+                [
+                    "order",
+                    "elevation",
+                    -1
+                ]
+            ],
+            "filters": {
+                "field": "elevation",
+                "min": 1500,
+                "max": 1649
+            },
+            "min": 20,
+            "log": {
+                "format": "- {elevation%04d} - {gccode} {cache_name} ({type}) on {visitdate}.",
+                "func": [
+                    [
+                        "sort"
+                    ]
+                ]
+            }
+        }
+    ]
+}

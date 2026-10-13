@@ -1,0 +1,47 @@
+{
+    "filter": {
+        "field": "attribute:71"
+    },
+    "links": true,
+    "tests": [
+        {
+            "name": "N\u00e1jdi aspo\u0148 300 ke\u0161iek s atrib\u00fatom Challenge cache.",
+            "filters": [
+                {
+                    "field": "attribute:71"
+                }
+            ],
+            "log": {
+                "format": "\ud83d\udcc5 {visitdate} \u270d\ufe0f {log_id} \ud83d\ude04 {#}: {gccode} - {cache_name}",
+                "limit": 300,
+                "func": [
+                    [
+                        "sort"
+                    ]
+                ]
+            },
+            "min": 300
+        },
+        {
+            "name": "Vypl\u0148 v kalend\u00e1ri aspo\u0148 150 dn\u00ed ke\u0161kami s atrib\u00fatom Challenge cache.",
+            "filters": [
+                {
+                    "field": "attribute:71"
+                }
+            ],
+            "count": {
+                "field": "visitdate[6,10]"
+            },
+            "min": 150,
+            "log": {
+                "format": "\ud83d\ude04 {#} \ud83d\udcc5 {visitdate} \u270d\ufe0f {log_id}: {gccode} - {cache_name}",
+                "limit": 150,
+                "func": [
+                    [
+                        "sort"
+                    ]
+                ]
+            }
+        }
+    ]
+}

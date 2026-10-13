@@ -1,0 +1,1 @@
+Tvojou úlohou je nájsť aspoň 400 kešiek s atribútom > 10 km. (EN) - Your task is to find at least 400 caches with attribute > 10 km
