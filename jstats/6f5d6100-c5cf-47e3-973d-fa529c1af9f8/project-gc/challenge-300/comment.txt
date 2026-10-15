@@ -1,1 +1,0 @@
-1. podmienka: Nájdi aspoň 300 kešiek s atribútom Challenge cache. 2. podmienka: Vyplň v kalendári aspoň 150 dní keškami s atribútom Challenge cache. Cloned from tag 86213

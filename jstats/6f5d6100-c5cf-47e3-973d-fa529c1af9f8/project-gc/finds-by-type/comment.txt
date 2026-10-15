@@ -1,1 +1,0 @@
-Odlov jednotlivé typy kešiek v určenom počte – Webcam: 3 ks, Letterbox: 88 ks, Wherigo: 111 ks, Event: 155 ks, Virtual: 188 ks, Earth: 222 ks, Multi: 333 ks, Mystery: 666 ks, Tradi: 3333 ks
