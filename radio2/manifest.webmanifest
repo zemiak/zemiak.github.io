@@ -1,0 +1,13 @@
+{
+  "name": "Radio",
+  "short_name": "Radio",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#111317",
+  "theme_color": "#111317",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
